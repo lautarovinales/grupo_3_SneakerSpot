@@ -10,7 +10,7 @@ Integrantes del equipo:
   
 - Adriel Romero:
   
-- Brian Velázquez:
+- Brian Velázquez: Estudiante del 2do año de una tecnicatura en programacion, le gusta el back-end y el manejo de bases de datos.
   
 - Ivo Iommi:
   
