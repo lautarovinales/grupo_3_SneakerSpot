@@ -16,7 +16,7 @@ Integrantes del equipo:
   
 - Nahuel Mancini:
   
-- Alvaro Sanchez:
+- Alvaro Sanchez: Estudiante de 7mo año en una escuela tecnica, decidido a ser programador fullstack
   
 - Tomás Brandalessi: Alias "Branda", apasionado por el diseño y la tecnologia, quiere convertirse en desarrollador web full-stack.
   
