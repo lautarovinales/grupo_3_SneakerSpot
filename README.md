@@ -12,7 +12,7 @@ Integrantes del equipo:
   
 - Brian Velázquez: Estudiante del 2do año de una tecnicatura en programacion, le gusta el back-end y el manejo de bases de datos.
   
-- Ivo Iommi:
+- Ivo Iommi: Estudiante de 7mo año de programacion, me gusta el front-end, el diseño en general, aspiro a ser ingeniero en sistema para poder trabajar de eso a lo largo de mi vida
   
 - Nahuel Mancini:
   
