@@ -18,7 +18,7 @@ Integrantes del equipo:
   
 - Alvaro Sanchez:
   
-- Tomás Brandalessi:
+- Tomás Brandalessi: Alias "Branda", apasionado por el diseño y la tecnologia, quiere convertirse en desarrollador web full-stack.
   
 
 Referentes del mercado:
