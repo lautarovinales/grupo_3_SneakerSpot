@@ -14,7 +14,7 @@ Integrantes del equipo:
   
 - Ivo Iommi: Estudiante de 7mo año de programacion, me gusta el front-end, el diseño en general, aspiro a ser ingeniero en sistema para poder trabajar de eso a lo largo de mi vida
   
-- Nahuel Mancini:
+- Nahuel Mancini: Estudiante de 7mo año, apasionado por la programación y aspirante a convertirme en un programador full-stack.
   
 - Alvaro Sanchez: Estudiante de 7mo año en una escuela tecnica, decidido a ser programador fullstack
   
