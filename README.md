@@ -1,14 +1,18 @@
-GRUPO NÚMERO 3: SneakerSpot
+# GRUPO NÚMERO 3: SneakerSpot
 
-Temática del sitio: Venta de calzados de diversos tipos (deportivos, urbanos, etc.)
+## Temática del sitio:
+Venta de calzados de diversos tipos (deportivos, urbanos, etc.)
 
-Público objetivo: Publico en general sin requerimientos especificos.
+## Público objetivo:
+Publico en general sin requerimientos especificos.
 
-Integrantes del equipo:
+***
+
+## Integrantes del equipo:
 
 - Lautaro Viñales: Alias "Laucha", apasionado con todo lo relacionado a la tecnologia quiere convertirse en desarrollador web full-stack y ampliar sus conocimientos sobre la programación.
   
-- Adriel Romero:
+- Adriel Romero: Estudante de 7mo año de secundaria en la orientación de informática. Me gusta mucho programar y todo lo relacionado a la informática.
   
 - Brian Velázquez: Estudiante del 2do año de una tecnicatura en programacion, le gusta el back-end y el manejo de bases de datos.
   
@@ -19,13 +23,14 @@ Integrantes del equipo:
 - Alvaro Sanchez: Estudiante de 7mo año en una escuela tecnica, decidido a ser programador fullstack
   
 - Tomás Brandalessi: Alias "Branda", apasionado por el diseño y la tecnologia, quiere convertirse en desarrollador web full-stack.
-  
 
-Referentes del mercado:
-1)https://www.digitalsport.com.ar/ - Por sus secciones destinadas a cada tipo de calzado
-2)https://www.dexter.com.ar/ - Por su influencia en el país
-3)https://www.nike.com.ar/ - Por su interfaz simple
-4)https://www.adidas.com.ar/ - Por su patrocinio al país
-5)https://www.stockx.com/ - Por su reconocimiento de caracter mundial en el mercado
+***
+
+## Referentes del mercado:
+- https://www.digitalsport.com.ar/ - Por sus secciones destinadas a cada tipo de calzado
+- https://www.dexter.com.ar/ - Por su influencia en el país
+- https://www.nike.com.ar/ - Por su interfaz simple
+- https://www.adidas.com.ar/ - Por su patrocinio al país
+- https://www.stockx.com/ - Por su reconocimiento de caracter mundial en el mercado
 
 TRELLO: https://trello.com/w/grupo3804/home
