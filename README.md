@@ -27,11 +27,14 @@ Publico en general sin requerimientos especificos.
 ***
 
 ## Referentes del mercado:
-- https://www.digitalsport.com.ar/ - Por sus secciones destinadas a cada tipo de calzado
-- https://www.dexter.com.ar/ - Por su influencia en el país
-- https://www.nike.com.ar/ - Por su interfaz simple
-- https://www.adidas.com.ar/ - Por su patrocinio al país
-- https://www.stockx.com/ - Por su reconocimiento de caracter mundial en el mercado
+- https://www.digitalsport.com.ar/ - Por sus secciones destinadas a cada tipo de calzado especifico.
+- https://www.dexter.com.ar/ - Por su influencia en todo el país.
+- https://www.nike.com.ar/ - Por su interfaz simple y minimalista.
+- https://www.adidas.com.ar/ - Por su patrocinio al país.
+- https://www.stockx.com/ - Por su reconocimiento de caracter mundial en el mercado.
+  
+***
 
+## Links de interés:
 - TRELLO: https://trello.com/w/grupo3804/home
 - FIGMA: www.figma.com/file/YKzKZRDmykAlOOQiHuC2jo/SneakerSpot
