@@ -38,3 +38,4 @@ Publico en general sin requerimientos especificos.
 ## Links de interés:
 - TRELLO: https://trello.com/w/grupo3804/home
 - FIGMA: www.figma.com/file/YKzKZRDmykAlOOQiHuC2jo/SneakerSpot
+- BOCETO, PALETA DE COLORES Y FUENTES: https://i.imgur.com/0TY3DTA.png
