@@ -34,3 +34,4 @@ Publico en general sin requerimientos especificos.
 - https://www.stockx.com/ - Por su reconocimiento de caracter mundial en el mercado
 
 TRELLO: https://trello.com/w/grupo3804/home
+FIGMA: www.figma.com/file/YKzKZRDmykAlOOQiHuC2jo/SneakerSpot
