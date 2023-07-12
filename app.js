@@ -35,7 +35,7 @@ app.get("/register",(req,res)=>{
 })
 
 app.listen(puerto, () => {
-    console.log('Aplicación esuchando en puerto 3000');
+    console.log('Aplicación escuchando en puerto 3000');
 });
 
 

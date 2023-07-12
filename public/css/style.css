@@ -1,0 +1,117 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto';
+}
+
+header {
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    height: 30px;
+}
+  
+.ul-1 {
+    display: flex;
+    gap: 10px;
+    margin-right: auto;
+}
+  
+.ul-2 {
+    display: flex;
+    gap: 10px;
+}
+  
+#cont-search{
+    border-radius: 100px;
+    border: 2px solid rgb(245, 245, 245);
+    background-color: rgb(245, 245, 245);
+}
+
+li{
+    list-style: none;
+    text-decoration: none;
+}
+
+.sign{
+    font-size: 30px;
+    color: rgb(30, 30, 30);
+}
+
+a {
+    text-decoration: none;
+    color: rgb(30, 30, 30);
+}
+
+.logo{
+    height: 100%;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.banner{
+    width: 100%;
+    height: 450px;
+}
+
+.titulares{
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 50px;
+}
+
+section{
+    display: flex;
+    column-gap: 10px;
+    margin-bottom: 10px;
+}
+
+.producto-img{
+    width: 250px;
+    height: 250px;
+}
+
+.envio{
+    color: rgb(0, 255, 175);
+    font-size: 16px;
+}
+
+.producto{
+    font-size: 18px;
+}
+
+.descripcion{
+    font-size: 16px;
+    color: rgb(220, 220, 220);
+}
+
+.precio{
+    font-size: 16px;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+}
+
+.cont-main{
+    width: 70%;
+    height: 400px;
+    background-color: rgb(241, 241, 241);
+    margin-bottom: 20px;
+}
+
+.register-ad{
+    width: 100%;
+    height: 70px;
+    background-color:rgb(0, 255, 175);
+}
+
+.about{
+    width: 100%;
+    height: 450px;
+    background-color: rgb(24, 24, 24);
+}
