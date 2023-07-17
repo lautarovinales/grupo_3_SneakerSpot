@@ -1,35 +1,96 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root {
+    --violeta-oscuro: rgb(131, 49, 225);
+    --violeta-claro: #bdb2ff;
+    --verde-claro: #caffbf;
+}
+
 body {
     margin: 0;
     padding: 0;
 }
 
-header {
-    background-color: rgb(131, 49, 225);
+.navbar {
+    /* background-color: var(--primary-color);
     width: 100%;
-    height: 100px;
+    height: 100px; */
+    background-color: var(--violeta-claro);
+}
+
+nav {
+    z-index: 100;
+}
+
+#barra-busqueda {
+    font-size: 0.9rem;
+}
+
+.titulo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.btnBuscar {
+    /* background-color: #caffbf; */
+    color: #000;
+    border-radius: 5px;
+    background-color: var(--verde-claro);
+    transition: 0.3s;
+}
+
+.btnBuscar:hover {
+    background-color: var(--violeta-oscuro);
+    color: white;
+    transition: 0.3s;
 }
 
 main {
     width: 100%;
     height: 1000px;
-    background-color: #ffffff;
+    /* background-color: #ffffff; */
     opacity: 0.8;
-    background-image: radial-gradient(#898989 0.5px, transparent 0.5px), radial-gradient(#898989 0.5px, #ffffff 0.5px);
+    /* background-image: radial-gradient(#898989 0.5px, transparent 0.5px), radial-gradient(#898989 0.5px, #ffffff 0.5px); */
     background-size: 20px 20px;
     background-position: 0 0, 10px 10px;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     flex-direction: column;
+}
 
+.opcionesDeSesion {
+    display: flex;
+    background-color: var(--violeta-claro);
+    /* margin-top: 2rem; */
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+.opcionesDeSesion button {
+    font-size: 0.8rem;
+    width: 4rem;
+    transition: 0.3s;
+    border-radius: 10px;
+}
+
+.opcionesDeSesion button:hover {
+    background-color: var(--violeta-oscuro);
+    color: white;
+    transition: 0.3s;
 }
 
 section {
-    background-color: rgba(220, 220, 220, 0.4);
+    /* background-color: rgba(220, 220, 220, 0.4); */
     width: 90%;
     height: 300px;
     border-radius: 20px;
-    backdrop-filter: blur(1px);
+    /* backdrop-filter: blur(1px); */
 }
 
 .a-cont{
@@ -40,7 +101,7 @@ section {
 }
 
 .b-cont{
-    background-color: rgb(131, 49, 225);
+    background-color: var(--violeta-oscuro);
     width: 49%;
     height: 300px;
     border-radius: 20px;
@@ -53,7 +114,7 @@ section {
     height: 300px;
     border-radius: 20px;
     backdrop-filter: blur(1px);
-    border: 1px solid rgb(131, 49, 225);
+    border: 1px solid var(--violeta-oscuro);
 }
 
 footer{
