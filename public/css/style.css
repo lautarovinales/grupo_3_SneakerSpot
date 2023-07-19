@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Roboto';
 }
 
 :root {
@@ -56,32 +56,135 @@ header h2 {
 main {
     width: 100%;
     background-color: #edf2f4;
-    height: 1000px;
-}
-
-main h2{
-    font-size: 2rem;
-    font-weight: bold;
+    height: fit-content;
+    padding: 20px 20px 20px 20px;
     text-align: center;
 }
 
-.productos-destacados{
+.title{
+    font-size: 1.7em;
+    color: #1f1f1f;
+}
+
+section{
+    margin: 20px 0px 20px 0px;
+    width: 100%;
+    height: fit-content;
     display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
+    justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
 }
 
 .producto{
-    border-radius: 10px;
-    padding: 20px;
-    width: 50vw;
-    background-color: rgb(155, 155, 155);
-    margin: 1rem 0;
+    width: 200px;
+    max-width: 200px;
+    height: 300px;
 }
 
-.imagen-producto{
+.img-shoe{
+    background-color: #4bd557;
+    height: 180px;
     width: 100%;
+}
+
+.desc-shoe{
+    height: 120px;
+    width: 100%;
+    padding: 10px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+}
+
+.envio{
+    font-size: 0.8em;
+    padding-bottom: 10px;
+    color: #bdb2ff;
+}
+
+.name-shoe{
+    font-size: 1.1em;
+    padding-bottom: 5px;
+}
+
+.class-shoe{
+    font-size: 0.7em;
+    padding-bottom: 10px;
+    color: #989898;
+}
+
+.price-shoe{
+    font-size: 1.2em;
+}
+
+.cont-for-you{
+    margin: 20px 0px 20px 0px;
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    gap: 20px;
+}
+
+.cont-1{
+    background-image: url(./img/adidas.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: #bdb2ff;
+    width: 50%;
+    height: 350px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0px 15px 0px 15px;
+}
+
+.cont-2{
+    background-image: url(./img/nike.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: #caffbf;
+    width: 50%;
+    height: 350px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0px 15px 0px 15px;
+}
+
+.title-fy{
+    color: #bdb2ff;
+    font-size: 3em;
+    text-shadow: 1em 1em 2em black;
+}
+
+.icon{
+    font-size: 3em;
+}
+
+.cont-faq{
+    border-top: 1px solid #252525;
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+}
+
+.contf{
+    width: 100%;
+    height: 400px;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.txt-g{
+    color: #989898;
 }
 
 footer{
@@ -133,7 +236,24 @@ a:hover{
     border-top: 1px solid #252525;
 }
 
+
 @media (max-width: 700px) {
+
+    .cont-for-you{
+        flex-direction: column;
+    }
+
+    .cont-1, .cont-2{
+        width: 100%;
+    }
+
+    .cont-faq{
+        height: fit-content;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
     footer{
        height: 450px; 
     }
@@ -146,20 +266,12 @@ a:hover{
     }
 }
 
-@media (min-width: 375px) {
-    .productos-destacados{
-        flex-direction: row;
-        justify-content: space-around;
-    }
-    .producto{
-        width: 40vw;
-    }
+@media (min-width: 1024px) {
+    
 }
 
 @media (min-width: 768px) {
-    .producto{
-        width: 22vw;
-    }
+    
 }
 
 @media (min-width: 1024px) {
