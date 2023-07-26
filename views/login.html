@@ -2,24 +2,63 @@
 <html lang="en">
 
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Iniciar Sesión</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto&display=swap" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="css/style-login.css">
 </head>
 
 <body>
+  <div class="register-login">
+    <a href=""><i class="fa-solid fa-right-to-bracket login" style="color: #898989;"></i></a>
+  </div>
   <header>
-
+    <img src="/images/logo.png" alt="" srcset="" width="100px" height="100px">
+    <nav class="header-nav">
+      <a href="">Catálogo</a>
+      <a href="">Niño/as</a>
+      <a href="">Hombre</a>
+      <a href="">Mujeres</a>
+    </nav>
+    <div class="searchbar">
+      <input class="search-txt" type="search" name="" id=""><button class="search-icon"><i class="fas fa-search search-button" style="color: #898989;"></i></button>
+    </div>
+    <button class="cart-icon"><i class="fas fa-shopping-cart" style="color: #898989;"></i></button>
+    <nav class="menu">
+      <input type="checkbox" id="check">
+      <label for="check" class="checkbtn">
+        <i class="fa-solid fa-bars menuIcon" style="color: #898989;"></i>
+      </label>
+      <ul>
+        <li> <a class="active" href="">Catálogo</a></li>
+        <li><a class="active" href="">Niño/as</a></li>
+        <li><a class="active" href="">Hombre</a></li>
+        <li><a class="active" href="">Mujeres</a></li>
+        <li><a class="active" href="">Ingresar</a></li>
+      </ul>
+    </nav>
   </header>
 
   <main>
-
+    <section>
+      <img src="images/logo.png" alt="" id="imagen-login">
+      <p>Inicia Sesión con tu cuenta</p>
+      <form action="/" method="POST" id="form-login">
+        <label for="email">E-mail</label>
+        <input type="email" name="email" id="email">
+        <label for="email">Contraseña</label>
+        <input type="password" name="password" id="password">
+        <button type="submit">Ingresar</button>
+      </form>
+      <p>¿No tienes cuenta? <a href="/register">Crea una</a></p>
+      <div id="fondo"></div>
+    </section>
   </main>
 
   <footer>
