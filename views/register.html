@@ -10,16 +10,72 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style-register.css">
 </head>
 
 <body>
+  <div class="register-login">
+    <a href=""><i class="fa-solid fa-right-to-bracket login" style="color: #898989;"></i></a>
+  </div>
   <header>
-    
+    <img src="/images/logo.png" alt="" srcset="" width="100px" height="100px" id="logo-img">
+    <nav class="header-nav">
+      <a href="">Catálogo</a>
+      <a href="">Niño/as</a>
+      <a href="">Hombre</a>
+      <a href="">Mujeres</a>
+    </nav>
+    <div class="searchbar">
+      <input class="search-txt" type="search" name="" id=""><button class="search-icon"><i class="fas fa-search search-button" style="color: #898989;"></i></button>
+    </div>
+    <button class="cart-icon"><i class="fas fa-shopping-cart" style="color: #898989;"></i></button>
+    <nav class="menu">
+      <input type="checkbox" id="check">
+      <label for="check" class="checkbtn">
+        <i class="fa-solid fa-bars menuIcon" style="color: #898989;"></i>
+      </label>
+      <ul>
+        <li> <a class="active" href="">Catálogo</a></li>
+        <li><a class="active" href="">Niño/as</a></li>
+        <li><a class="active" href="">Hombre</a></li>
+        <li><a class="active" href="">Mujeres</a></li>
+        <li><a class="active" href="">Ingresar</a></li>
+      </ul>
+    </nav>
   </header>
 
   <main>
-    
+    <section>
+      <img src="images/logo.png" alt="" id="imagen-register">
+      <p>Regístrate</p>
+      <form action="/" method="POST" id="form-register">
+        <label for="name">Nombre</label>
+        <input type="text" name="name" id="name">
+
+        <label for="surname">Apellido</label>
+        <input type="text" name="surname" id="surname">
+
+        <label for="email">E-mail</label>
+        <input type="email" name="email" id="email">
+        
+        <label for="password">Contraseña</label>
+        <input type="password" name="password" id=""password>
+
+        <label for="password-confirm">Confirmar contraseña</label>
+        <input type="password" name="password-confirm" id="password-confirm">
+
+        <label for="birthdate">Fecha de nacimiento</label>
+        <input type="date" name="birthdate" id="birthdate">
+
+        <label for="adress">Dirección</label>
+        <input type="text" name="adress" id="adress">
+
+        <button type="submit">Registrarse</button>
+      </form>
+      <p>¿Ya tienes cuenta? <a href="/login">Inicia Sesión</a></p>
+      <div id="fondo"></div>
+    </section>
   </main>
 
   <footer>

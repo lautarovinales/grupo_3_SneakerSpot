@@ -1,0 +1,120 @@
+body{
+    background-color: #edf2f4;
+    z-index: -3;
+    position: relative;
+}
+
+main{
+    z-index: -2;
+    position: relative;
+}
+
+#imagen-register{
+    width: 50%;
+    transition: 0.5s;
+}
+
+#imagen-register:hover{
+    transform: rotate(5deg);
+}
+
+main section{
+    background-color: #1f1f1f;
+    display: block;
+    width: 70vw;
+    margin: 3rem auto;
+    max-width: 700px;
+    /* border: #2853cb 2px solid; */
+    border-radius: 20px;
+    padding: 4rem;
+    color: white;
+    transition: 0.5s;
+
+    position: relative;
+}
+
+main section:hover #fondo{
+    top: 20px;
+    left: 20px;
+}
+
+#fondo{
+    z-index: -1;
+    top: 5px;
+    left: 5px;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    background-color: #2853cb;
+    transition: 1s;
+}
+
+#form-register{
+    display: flex;
+    flex-direction: column;
+}
+
+#form-register label{
+    text-align: left;
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    margin-top: 1.2rem;
+}
+
+#form-register input{
+    height: 3.2rem;
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    transition: 0.5s;
+    border-radius: 20px;
+    padding: 0 15px;
+}
+
+#form-register input:focus{
+    border: #2853cb 3px solid;
+}
+
+#form-register button{
+    background-color: #2853cb;
+    border: 0;
+    border-radius: 20px;
+    font-size: 2rem;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    transition: 0.2s;
+}
+
+#form-register button:hover{
+    cursor: pointer;
+    transform: translate(-2px,-2px);
+}
+
+main p{
+    margin: 2rem 0;
+    font-size: 1.5rem;
+}
+
+main p a{
+    color: #2853cb;
+    text-decoration: underline;
+}
+
+main p a:visited{
+    color: #2853cb;
+    text-decoration: underline;
+}
+
+@media (max-width: 750px){
+    main section{
+        width: 100%;
+        padding: 1rem;
+    }
+    main{
+        padding: 5px;
+    }
+    #form-register button{
+        width: 100%;
+    }
+}

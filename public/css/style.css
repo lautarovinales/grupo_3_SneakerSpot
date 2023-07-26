@@ -68,6 +68,14 @@ header{
     cursor: pointer;
 }
 
+#logo-img{
+    transition: 1s;
+}
+
+#logo-img:hover{
+    transform: rotate(5deg);
+}
+
 .cart-icon{
     width: 40px;
     height: 40px;
