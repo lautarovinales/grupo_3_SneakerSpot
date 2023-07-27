@@ -2,21 +2,48 @@
 <html lang="en">
 
 <head>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto&display=swap" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon">
+  <title>Sneaker Spot | Detalle de producto</title>
+  <link rel="stylesheet" href="./css/style.css">
   <link rel="stylesheet" href="./css/style-productDetail.css">
 </head>
 
 <body>
+  <div class="register-login">
+    <a href=""><i class="fa-solid fa-right-to-bracket login" style="color: #898989;"></i></a>
+  </div>
   <header>
-
+    <img src="/images/logo.png" id="logo" alt="" srcset="" width="100px" height="100px">    <nav class="header-nav">
+      <a href="">Catálogo</a>
+      <a href="">Niño/as</a>
+      <a href="">Hombre</a>
+      <a href="">Mujeres</a>
+    </nav>
+    <div class="searchbar">
+      <input class="search-txt" type="search" name="" id=""><button class="search-icon"><i class="fas fa-search search-button" style="color: #898989;"></i></button>
+    </div>
+    <button class="cart-icon"><i class="fas fa-shopping-cart" style="color: #ffffff;"></i></button>
+    <nav class="menu">
+      <input type="checkbox" id="check">
+      <label for="check" class="checkbtn">
+        <i class="fa-solid fa-bars menuIcon" style="color: #ffffff;"></i>
+      </label>
+      <ul>
+        <li> <a class="active" href="">Catálogo</a></li>
+        <li><a class="active" href="">Niño/as</a></li>
+        <li><a class="active" href="">Hombre</a></li>
+        <li><a class="active" href="">Mujeres</a></li>
+        <li><a class="active" href="">Ingresar</a></li>
+      </ul>
+    </nav>
   </header>
-
   <main>
     <div class="shoe-img">
       <img src="/images/adidasforum84low.png" alt="" srcset="">
@@ -29,8 +56,8 @@
         <p class="shoe-history">1984 fue un año intenso. Atletas de todos los rincones del mundo se reunieron en Los Ángeles. Estas zapatillas se inspiran en el estilo del baloncesto de los 80 y se actualizan para las calles de hoy. Conservan el detalle icónico en forma de X, la correa acolchada alrededor del tobillo y una parte superior de cuero que te ofrece un ajuste a medida.</p>
         <div class="flex-cont">
         <input type="number" id="cantidad" name="cantidad" min="1" max="10" step="1">
-        <button type="submit">Añadir al carrito</button>
-        <button type="submit">Comprar</button>
+        <button class="button-form" type="submit">Añadir al carrito</button>
+        <button class="button-form" type="submit">Comprar</button>
       </div>
     </div>
   </main>
