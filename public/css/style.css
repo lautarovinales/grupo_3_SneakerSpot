@@ -68,6 +68,12 @@ header{
     cursor: pointer;
 }
 
+#logo {
+    border: 4px solid steelblue;
+    border-radius: 5px;
+    background-color: #252525;
+}
+
 #logo-img{
     transition: 1s;
 }
@@ -107,7 +113,7 @@ header{
 }
 
 .menuIcon {
-    font-size: 3em;
+    font-size: 2rem;
     color: #ffffff;
     display: none;
     margin-left: 30px;
@@ -122,8 +128,7 @@ main {
 }
 
 .title{
-  
-    font-size: 1.7em;
+    font-size: 1.7rem;
     color: #1f1f1f;
 }
 
@@ -142,11 +147,10 @@ section{
     display: flex;
     justify-content: space-around;
     align-items: center;
-    flex-wrap: wrap;
 }
 
 .producto{
-    background-color: #2853cb;
+    /* background-color: #2853cb; */
     width: calc(50% - 20px);
     max-width: 200px;
     height: calc(50% - 20px);
@@ -164,7 +168,8 @@ section{
 }
 
 .desc-shoe{
-    height: calc(100% - 150px);
+    /* height: calc(100% - 150px); */
+    min-height: 13rem;
     padding: 10px;
     text-align: left;
     display: flex;
@@ -175,6 +180,8 @@ section{
 
 .envio-fav{
     display: flex;
+    align-items: center;
+    /* text-align: center; */
     gap: 10px;
     margin-bottom: 1rem;
 }
@@ -183,7 +190,7 @@ section{
     background-color: #2853cb;
     width: calc(70% - 20px);
     font-size: calc(0.6rem + 0.5vw);
-    padding: 3px;
+    padding: 0.4rem 0.2rem;
     color: #fff;
     text-align: center;
     border-radius: 5px;
@@ -195,7 +202,7 @@ section{
     background-color: #dbdbdb;
     border-style: none;
     border-radius: 50%;
-    font-size: 1.1em;
+    font-size: 1.1rem;
     transition: 0.5s;
 }
 
@@ -205,12 +212,12 @@ section{
 }
 
 .name-shoe{
-    font-size: 1rem;
+    font-size: 0.8rem;
     padding-bottom: 0.3rem;
 }
 
 .class-shoe{
-    font-size: 0.7em;
+    font-size: 0.6rem;
     padding-bottom: 10px;
     color: #989898;
 }
@@ -222,13 +229,13 @@ section{
 }
 
 .disc-shoe {
-    font-size: 1rem;
+    font-size: 0.7rem;
     text-decoration: line-through;
     color: #989898;
 }
 
 .price-shoe{
-    font-size: 1.1rem;
+    font-size: 1rem;
 }
 
 .cont-for-you{
