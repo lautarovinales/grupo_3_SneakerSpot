@@ -169,7 +169,7 @@ section{
 
 .desc-shoe{
     /* height: calc(100% - 150px); */
-    min-height: 13rem;
+    min-height: 12rem;
     padding: 10px;
     text-align: left;
     display: flex;
@@ -220,12 +220,6 @@ section{
     font-size: 0.6rem;
     padding-bottom: 10px;
     color: #989898;
-}
-
-.disc-price{
-    /* display: flex; */
-    /* justify-content: space-between; */
-    /* align-items: end; */
 }
 
 .disc-shoe {
