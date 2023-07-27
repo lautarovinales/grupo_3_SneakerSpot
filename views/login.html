@@ -9,7 +9,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto&display=swap" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="./css/style.css">
   <link rel="stylesheet" href="css/style-login.css">
 </head>
@@ -27,7 +29,8 @@
       <a href="">Mujeres</a>
     </nav>
     <div class="searchbar">
-      <input class="search-txt" type="search" name="" id=""><button class="search-icon"><i class="fas fa-search search-button" style="color: #898989;"></i></button>
+      <input class="search-txt" type="search" name="" id=""><button class="search-icon"><i
+          class="fas fa-search search-button" style="color: #898989;"></i></button>
     </div>
     <button class="cart-icon"><i class="fas fa-shopping-cart" style="color: #898989;"></i></button>
     <nav class="menu">
@@ -47,39 +50,38 @@
 
   <main>
     <section>
-      <img src="images/logo.png" alt="" id="imagen-login">
-      <p>Inicia Sesión con tu cuenta</p>
-      <form action="/" method="POST" id="form-login">
-        <label for="email">E-mail</label>
-        <input type="email" name="email" id="email">
-        <label for="email">Contraseña</label>
-        <input type="password" name="password" id="password">
+      <div class="div-img">
+        <img src="images/logo.png" alt="" class="imagen-login">
+      </div>
+      <form action="/" method="POST">
+        <p>Iniciar sesión</p>
+        <input type="email" name="email" id="email" placeholder="Correo Electrónico">
+        <input type="password" name="password" id="password" placeholder="Contraseña">
         <button type="submit">Ingresar</button>
       </form>
-      <p>¿No tienes cuenta? <a href="/register">Crea una</a></p>
-      <div id="fondo"></div>
+      <p>¿No tienes cuenta? <a href="/register" class="register">Crea una</a></p>
     </section>
   </main>
 
   <footer>
-      <div class="social-icons">
-        <a href=""><i class="fab fa-facebook fa-sm"></i></a>
-        <a href=""><i class="fab fa-instagram fa-sm"></i></a>
-        <a href=""><i class="fab fa-twitter fa-sm"></i></a>
-        <a href=""><i class="fab fa-whatsapp fa-sm"></i></a>
-      </div>
-      <div class="footer-nav">
-        <ul>
-          <li><a href="">Inicio</a></li>
-          <li><a href="">Noticias</a></li>
-          <li><a href="">Descubre</a></li>
-          <li><a href="">Contacto</a></li>
-        </ul>
-      </div>
-    </footer>
-    <div class="footer-bottom">
-      <p>Made with <i class="far fa-heart" style="color: #ff295e;"></i> by Grupo 3</p>
+    <div class="social-icons">
+      <a href=""><i class="fab fa-facebook fa-sm"></i></a>
+      <a href=""><i class="fab fa-instagram fa-sm"></i></a>
+      <a href=""><i class="fab fa-twitter fa-sm"></i></a>
+      <a href=""><i class="fab fa-whatsapp fa-sm"></i></a>
     </div>
+    <div class="footer-nav">
+      <ul>
+        <li><a href="">Inicio</a></li>
+        <li><a href="">Noticias</a></li>
+        <li><a href="">Descubre</a></li>
+        <li><a href="">Contacto</a></li>
+      </ul>
+    </div>
+  </footer>
+  <div class="footer-bottom">
+    <p>Made with <i class="far fa-heart" style="color: #ff295e;"></i> by Grupo 3</p>
+  </div>
 </body>
 
 </html>
