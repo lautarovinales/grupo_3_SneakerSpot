@@ -118,7 +118,7 @@ main {
 }
 
 .title{
-    font-size: 1.7rem;
+    font-size: 1.4rem;
     color: #1f1f1f;
 }
 
@@ -137,6 +137,7 @@ section{
     display: flex;
     justify-content: space-around;
     align-items: center;
+    margin-bottom: 4rem;
 }
 
 .producto{
@@ -229,6 +230,7 @@ section{
     display: flex;
     flex-direction: column;
     gap: 20px;
+    margin-bottom: 4rem;
 }
 
 .cont-1{
@@ -272,12 +274,10 @@ section{
 }
 
 .cont-faq{
-    margin-top: 100px;
     margin-bottom: 100px;
     display: flex;
     justify-content: space-between;
     flex-direction: column;
-    row-gap: 1rem;
 }
 
 .contf{
@@ -288,7 +288,7 @@ section{
     align-items: center;
     flex-direction: column;
     gap: 10px;
-    margin-top: 70px;
+    /* margin-top: 70px; */
 }
 
 .txt-g{
@@ -384,39 +384,66 @@ a{
 /* TABLET */
 
 @media (min-width: 750px) {
-    .searchbar{
-        display: flex;
-    }
-
-    .register-login{
-        display: flex;
-    }
-
-    .cont-for-you{
-        flex-direction: row;
-    }
-
-    .cart-icon{
-        display: block;
-    }
-
-    .cont-1, .cont-2{
-        width: 100%;
-    }
-
-    .cont-faq{
-        flex-direction: row;
-    }
-
-    .footer-nav ul {
-        flex-direction: row;
-    }
-
     .header-nav{
         display: flex;
     }
 
     .menuIcon{
         display: none;
+    }
+
+    .register-login{
+        display: flex;
+    }
+
+    .searchbar{
+        display: flex;
+    }
+
+    .cart-icon{
+        display: block;
+    }
+
+    .title {
+        font-size: 1.7rem;
+    }
+
+    .productsSection {
+        margin-bottom: 6rem;
+    }
+
+    .cont-for-you{
+        flex-direction: row;
+        margin-bottom: 6rem;
+    }
+
+    .cont-1, .cont-2{
+        width: 100%;
+    }
+
+    .contf {
+        width: 33%;
+    }
+    
+    .cont-faq{
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+
+    .footer-nav ul {
+        flex-direction: row;
+        font-size: 1.4rem;
+    }
+}
+
+
+/* DESKTOP */
+@media (min-width: 1024px) {
+    .productsSection {
+        margin-bottom: 8rem;
+    }
+
+    .cont-for-you {
+        margin-bottom: 8rem;
     }
 }
