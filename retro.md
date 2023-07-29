@@ -1,7 +1,7 @@
 # RETROSPECTIVA GRUPO 3: SNEAKER SPOT
 
 ## Comenzar a hacer:
-Usar mas la plataforma de TRELLO, usamos mucho Whatsapp para este proyecto, no hubo quejas con eso, pero dejamos algo abandonada la platarforma TRELLO, creemos que podriamos haberle sacado mas provecho.
+- Usar mas la plataforma de TRELLO, usamos mucho Whatsapp para este proyecto, no hubo quejas con eso, pero dejamos algo abandonada la platarforma TRELLO, creemos que podriamos haberle sacado mas provecho.
 ## Hacer más:
 - Llamadas grupales: Si bien hicimos llamadas grupales en Discord vimos que hicieron falta mas, sobre todo a la hora de llevar a cabo el acuerdo conjunto del estilo para todo el sitio web.
 ## Continuar haciendo:
