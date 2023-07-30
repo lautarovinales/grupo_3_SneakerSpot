@@ -408,6 +408,22 @@ a{
         font-size: 1.7rem;
     }
 
+    .name-shoe {
+        font-size: 1.2rem;
+    }
+
+    .class-shoe {
+        font-size: 0.9rem;
+    }
+
+    .disc-shoe {
+        font-size: 1rem;
+    }
+
+    .price-shoe {
+        font-size: 1.2rem;
+    }
+
     .productsSection {
         margin-bottom: 6rem;
     }
@@ -434,11 +450,20 @@ a{
         flex-direction: row;
         font-size: 1.4rem;
     }
+
+    .footer-bottom {
+        height: 50px;
+        font-size: 1.2rem;
+    }
 }
 
 
 /* DESKTOP */
 @media (min-width: 1024px) {
+    .header-nav a {
+        font-size: 1.2rem;
+    }
+
     .productsSection {
         margin-bottom: 8rem;
     }
