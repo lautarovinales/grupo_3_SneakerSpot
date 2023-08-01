@@ -1,3 +1,8 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 main {
     width: 100%;
@@ -6,6 +11,7 @@ main {
     padding: 20px 20px 20px 20px;
     display: flex;
     justify-content: center;
+    flex-direction: column;
     align-items: center;
 }
 
@@ -35,7 +41,7 @@ main {
 }
 
 .titulo{
-    font-size: 3em;
+    font-size: 2rem;
     font-style: italic;
 }
 
@@ -47,14 +53,18 @@ main {
 .envio{
     margin-bottom: 30px;
     background-color: #2853cb;
+    background-color: #ebebeb;
+    font-size: 1.1rem;
     padding: 10px;
     width: max-content;
     border-radius: 5px;
-    color: #ffffff;
+    /* color: #ffffff; */
+    color: #000;
 }
 
 .shoe-history{
     color: #898989;
+    font-size: 1.1rem;
     margin-bottom: 20px;
 }
 
@@ -83,31 +93,17 @@ input{
     color: #ffffff;
 }
 
-.button-form:hover{
-    cursor: pointer;
-    background-color: #426ee8;
-    transition: 0.3s;
-}
 
-@media (max-width: 700px) {
-    footer{
-       height: 450px; 
-    }
-    .footer-nav ul{
-        flex-direction: column;
-        text-align: center;
-    }
-    .header-nav{
-        display: none;
-    }
-}
 
-@media (max-width: 1024px) {
-    main{
-        flex-direction: column;
-    }
-}
 
-@media (min-width: 768px) {
-    
+@media (min-width: 750px) {
+    main {
+        flex-direction: row;
+    }
+
+    .button-form:hover{
+        cursor: pointer;
+        background-color: #426ee8;
+        transition: 0.3s;
+    }
 }
