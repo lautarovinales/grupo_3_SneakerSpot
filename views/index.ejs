@@ -11,7 +11,7 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon">
   <title>Sneaker Spot | Inicio</title>
-  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
@@ -19,7 +19,9 @@
     <a href=""><i class="fa-solid fa-right-to-bracket login" style="color: #898989;"></i></a>
   </div>
   <header>
-    <img src="/images/logo.png" id="logo" alt="" srcset="" width="100px" height="100px">    <nav class="header-nav">
+    <img src="/images/logo.png" id="logo" alt="" srcset="" width="100px" height="100px">
+  </a>
+    <nav class="header-nav">
       <a href="">Catálogo</a>
       <a href="">Niño/as</a>
       <a href="">Hombre</a>
@@ -35,7 +37,7 @@
         <i class="fa-solid fa-bars menuIcon" style="color: #ffffff;"></i>
       </label>
       <ul>
-        <li> <a class="active" href="">Catálogo</a></li>
+        <li><a class="active" href="">Catálogo</a></li>
         <li><a class="active" href="">Niño/as</a></li>
         <li><a class="active" href="">Hombre</a></li>
         <li><a class="active" href="">Mujeres</a></li>
@@ -47,113 +49,27 @@
   <main>
     <p class="title">Ofertas por tiempo limitado</p>
     <section class="productsSection">
+      <% data.map((product) =>{%>
       <div class="producto">
+        <a class="link" href="/product/<%= product.id %>">
         <div class="img-shoe">
-          <img src="/images/nikejordan1zoom.png" alt="" srcset="" width="100%" height="100%">
+          <img src="<%= product.img %>" alt="" srcset="" width="100%" height="100%">
         </div>
         <div class="desc-shoe">
           <div class="envio-fav">
             <p class="envio">Envio gratis</p>
             <button><i class="far fa-heart" style="color: #ffffff;"></i></button>
           </div>
-          <p class="name-shoe">Nike Jordan 1 retro</p>
-          <p class="class-shoe">CALZADO BASKET</p>
+          <p class="name-shoe"><%= product.title %></p>
+          <p class="class-shoe"><%= product.class %></p>
           <div class="disc-price">
-            <p class="disc-shoe">$75.000</p>
-            <p class="price-shoe">$ 45.000</p>
+            <p class="disc-shoe">$ <%= product.discount %></p>
+            <p class="price-shoe">$ <%= product.price %></p>
           </div>
         </div>
+      </a>
       </div>
-      <div class="producto">
-        <div class="img-shoe">
-          <img src="/images/nikevaporfly3.png" alt="" srcset="" width="100%" height="100%">
-        </div>
-        <div class="desc-shoe">
-          <div class="envio-fav">
-            <p class="envio">Envio gratis</p>
-            <button><i class="far fa-heart" style="color: #ffffff;"></i></button>
-          </div>
-          <p class="name-shoe">Nike VaporFly 3</p>
-          <p class="class-shoe">CALZADO RUNNING</p>
-          <div class="disc-price">
-            <p class="disc-shoe">$75.000</p>
-            <p class="price-shoe">$ 45.000</p>
-          </div>
-        </div>
-      </div>
-      </div>
-      <div class="producto">
-        <div class="img-shoe">
-          <img src="/images/adidas4dfwd2.png" alt="" srcset="" width="100%" height="100%">
-        </div>
-        <div class="desc-shoe">
-          <div class="envio-fav">
-            <p class="envio">Envio gratis</p>
-            <button><i class="far fa-heart" style="color: #ffffff;"></i></button>
-          </div>
-          <p class="name-shoe">Adidas 4DFWD 2</p>
-          <p class="class-shoe">CALZADO RUNNING</p>
-          <div class="disc-price">
-            <p class="disc-shoe">$75.000</p>
-            <p class="price-shoe">$ 45.000</p>
-          </div>
-        </div>
-      </div>
-      </div>
-      <div class="producto">
-        <div class="img-shoe">
-          <img src="/images/adidasultraboostlight.png" alt="" srcset="" width="100%" height="100%">
-        </div>
-        <div class="desc-shoe">
-          <div class="envio-fav">
-            <p class="envio">Envio gratis</p>
-            <button><i class="far fa-heart" style="color: #ffffff;"></i></button>
-          </div>
-          <p class="name-shoe">Adidas Ultraboost lig...</p>
-          <p class="class-shoe">CALZADO RUNNING</p>
-          <div class="disc-price">
-            <p class="disc-shoe">$75.000</p>
-            <p class="price-shoe">$ 45.000</p>
-          </div>
-        </div>
-      </div>
-      </div>
-      <div class="producto">
-        <div class="img-shoe">
-          <img src="/images/filaoakmont.png" alt="" srcset="" width="100%" height="100%">
-        </div>
-        <div class="desc-shoe">
-          <div class="envio-fav">
-            <p class="envio">Envio gratis</p>
-            <button><i class="far fa-heart" style="color: #ffffff;"></i></button>
-          </div>
-          <p class="name-shoe">Fila Oakmont</p>
-          <p class="class-shoe">CALZADO TREKKING</p>
-          <div class="disc-price">
-            <p class="disc-shoe">$75.000</p>
-            <p class="price-shoe">$ 45.000</p>
-          </div>
-        </div>
-      </div>
-      </div>
-      <div class="producto">
-        <div class="img-shoe">
-          <img src="/images/adidasforum84low.png" alt="" srcset="" width="100%" height="100%">
-        </div>
-        <div class="desc-shoe">
-          <div class="envio-fav">
-            <p class="envio">Envio gratis</p>
-            <button><i class="far fa-heart"></i></button>
-          </div>
-          <p class="name-shoe">Adidas Forum 84 low</p>
-          <p class="class-shoe">CALZADO OUTDOOR</p>
-          <div class="disc-price">
-            <p class="disc-shoe">$75.000</p>
-            <p class="price-shoe">$ 45.000</p>
-          </div>
-        </div>
-      </div>
-      </div>
+      <% }) %>
     </section>
 
     <p class="title">Lo más comprado</p>

@@ -11,8 +11,8 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon">
   <title>Sneaker Spot | Detalle de producto</title>
-  <link rel="stylesheet" href="./css/style.css">
-  <link rel="stylesheet" href="./css/style-productDetail.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/style-productDetail.css">
 </head>
 
 <body>
@@ -46,14 +46,14 @@
   </header>
   <main>
     <div class="shoe-img">
-      <img src="/images/adidasforum84low.png" alt="" srcset="">
+      <img src="<%= product.img %>" alt="" srcset="">
     </div>
     <div class="shoe-desc">
         <p class="desc">10% OFF</p>
-        <p class="titulo">Adidas Forum 84 low</p>
-        <p class="shoe-class">CALZADO OUTDOOR</p>
+        <p class="titulo"><%= product.title %></p>
+        <p class="shoe-class"><%= product.class %></p>
         <p class="envio">Envio Gratis</p>
-        <p class="shoe-history">1984 fue un año intenso. Atletas de todos los rincones del mundo se reunieron en Los Ángeles. Estas zapatillas se inspiran en el estilo del baloncesto de los 80 y se actualizan para las calles de hoy. Conservan el detalle icónico en forma de X, la correa acolchada alrededor del tobillo y una parte superior de cuero que te ofrece un ajuste a medida.</p>
+        <p class="shoe-history"><%= product.history %></p>
         <div class="flex-cont">
         <input type="number" id="cantidad" name="cantidad" min="1" max="10" step="1">
         <button class="button-form" type="submit">Añadir al carrito</button>
