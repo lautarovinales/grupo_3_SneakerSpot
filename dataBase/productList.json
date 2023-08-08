@@ -3,7 +3,7 @@
         {
             "id":"1",
             "title": "Nike Jordan 1 zoom",
-            "class":"CALZADO BASKET",
+            "class":"BASKET",
             "price": 75000,
             "discount": 666,
             "img": "/images/nikejordan1zoom.png",
@@ -12,7 +12,7 @@
         {
             "id":"2",
             "title": "Nike Vaporfly 3",
-            "class":"CALZADO RUNNING",
+            "class":"RUNNING",
             "price": 567650,
             "discount": 666,
             "img": "/images/nikevaporfly3.png",
@@ -21,7 +21,7 @@
         {
             "id":"3",
             "title": "Adidas 4DFWD2",
-            "class":"CALZADO RUNNING",
+            "class":"RUNNING",
             "price": 567650,
             "discount": 666,
             "img": "/images/adidas4dfwd2.png",
@@ -30,7 +30,7 @@
         {
             "id":"4",
             "title": "Fila Oakmont",
-            "class":"CALZADO TREKKING",
+            "class":"TREKKING",
             "price": 567650,
             "discount": 666,
             "img": "/images/filaoakmont.png",
@@ -39,7 +39,7 @@
         {
             "id":"5",
             "title": "Adidas UltraBoost light",
-            "class":"CALZADO RUNNING",
+            "class":"RUNNING",
             "price": 567650,
             "discount": 666,
             "img": "/images/adidasultraboostlight.png",
@@ -48,7 +48,7 @@
         {
             "id":"6",
             "title": "Adidas Forum 84 low",
-            "class":"CALZADO URBANO",
+            "class":"URBANO",
             "price": 567650,
             "discount": 666,
             "img": "/images/adidasforum84low.png",

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
   <meta charset="UTF-8">
@@ -10,31 +10,18 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon">
-  <title>Sneaker Spot | Detalle de producto</title>
+  <title>Sneaker Spot | Inicio</title>
   <link rel="stylesheet" href="/css/style.css">
-  <link rel="stylesheet" href="/css/style-productDetail.css">
+  <link rel="stylesheet" href="/ccs/style-productCreation.css">
 </head>
 
 <body>
   <%- include('partials/header.ejs') %>
   <main>
-    <div class="shoe-img">
-      <img src="<%= product.img %>" alt="" srcset="">
-    </div>
-    <div class="shoe-desc">
-        <p class="desc">10% OFF</p>
-        <p class="titulo"><%= product.title %></p>
-        <p class="shoe-class"><%= product.class %></p>
-        <p class="envio">Envio Gratis</p>
-        <p class="shoe-history"><%= product.history %></p>
-        <div class="flex-cont">
-        <input type="number" id="cantidad" name="cantidad" min="1" max="10" step="1">
-        <button class="button-form" type="submit">Añadir al carrito</button>
-        <button class="button-form" type="submit">Comprar</button>
-      </div>
-    </div>
+    
   </main>
   <%- include('partials/footer.ejs') %>
+  <script src="./js/script.js"></script>
 </body>
 
 </html>

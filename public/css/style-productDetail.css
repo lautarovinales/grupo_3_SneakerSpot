@@ -37,7 +37,7 @@ main {
 }
 
 .desc{
-    color: #2853cb;
+    color: #0077ff;
 }
 
 .titulo{
@@ -52,14 +52,12 @@ main {
 
 .envio{
     margin-bottom: 30px;
-    background-color: #2853cb;
-    background-color: #ebebeb;
+    background-color: #0077ff;
     font-size: 1.1rem;
     padding: 10px;
     width: max-content;
     border-radius: 5px;
-    /* color: #ffffff; */
-    color: #000;
+    color: #ffffff;
 }
 
 .shoe-history{
@@ -89,7 +87,7 @@ input{
     height: 40px;
     border: none;
     border-radius: 5px;
-    background-color: #2853cb;
+    background-color: #0077ff;
     color: #ffffff;
 }
 

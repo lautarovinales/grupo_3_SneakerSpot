@@ -15,37 +15,7 @@
 </head>
 
 <body>
-  <div class="register-login">
-    <a href=""><i class="fa-solid fa-right-to-bracket login" style="color: #898989;"></i></a>
-  </div>
-  <header>
-    <img src="/images/logo.png" id="logo" alt="" srcset="" width="100px" height="100px">
-  </a>
-    <nav class="header-nav">
-      <a href="">Catálogo</a>
-      <a href="">Niño/as</a>
-      <a href="">Hombre</a>
-      <a href="">Mujeres</a>
-    </nav>
-    <div class="searchbar">
-      <input class="search-txt" type="search" name="" id=""><button class="search-icon"><i class="fas fa-search search-button" style="color: #898989;"></i></button>
-    </div>
-    <button class="cart-icon"><i class="fas fa-shopping-cart" style="color: #ffffff;"></i></button>
-    <nav class="menu">
-      <input type="checkbox" id="check">
-      <label for="check" class="checkbtn">
-        <i class="fa-solid fa-bars menuIcon" style="color: #ffffff;"></i>
-      </label>
-      <ul>
-        <li><a class="active" href="">Catálogo</a></li>
-        <li><a class="active" href="">Niño/as</a></li>
-        <li><a class="active" href="">Hombre</a></li>
-        <li><a class="active" href="">Mujeres</a></li>
-        <li><a class="active" href="">Ingresar</a></li>
-      </ul>
-    </nav>
-  </header>
-
+  <%- include('partials/header.ejs') %>
   <main>
     <p class="title">Ofertas por tiempo limitado</p>
     <section class="productsSection">
@@ -58,7 +28,7 @@
         <div class="desc-shoe">
           <div class="envio-fav">
             <p class="envio">Envio gratis</p>
-            <button><i class="far fa-heart" style="color: #ffffff;"></i></button>
+            <button><i class="fa-solid fa-heart" style="color: #0077ff;"></i></button>
           </div>
           <p class="name-shoe"><%= product.title %></p>
           <p class="class-shoe"><%= product.class %></p>
@@ -83,44 +53,24 @@
     </div>
     <div class="cont-faq">
       <div class="contf">
-        <i class="fa-solid fa-credit-card icon"></i>
+        <i class="fa-solid fa-credit-card icon" style="color: #0077ff;"></i>
         <p class="title">Elegí cómo pagar</p>
         <p class="txt-g">Podés pagar con tarjeta, débito, efectivo o hasta 12 cuotas sin interés.</p>
       </div>
       <div class="contf">
-        <i class="fa-solid fa-gift icon"></i>
+        <i class="fa-solid fa-gift icon" style="color: #0077ff;"></i>
         <p class="title">Envío gratis desde $ 8.000</p>
         <p class="txt-g">Solo por estar registrado en Sneaker Spot tenés envíos gratis en miles de productos.</p>
       </div>
       <div class="contf">
-        <i class="fa-solid fa-shield-halved icon"></i>
+        <i class="fa-solid fa-shield-halved icon" style="color: #0077ff;"></i>
         <p class="title">Seguridad, de principio a fin</p>
         <p class="txt-g">¿No te gusta? ¡Devolvelo! En Sneaker Spot, no hay nada que no puedas hacer, porque estás
           siempre protegido.</p>
       </div>
     </div>
   </main>
-
-  <footer>
-    <div class="social-icons">
-      <a href=""><i class="fab fa-facebook fa-sm"></i></a>
-      <a href=""><i class="fab fa-instagram fa-sm"></i></a>
-      <a href=""><i class="fab fa-twitter fa-sm"></i></a>
-      <a href=""><i class="fab fa-whatsapp fa-sm"></i></a>
-    </div>
-    <div class="footer-nav">
-      <ul>
-        <li><a href="">Inicio</a></li>
-        <li><a href="">Noticias</a></li>
-        <li><a href="">Descubre</a></li>
-        <li><a href="">Contacto</a></li>
-      </ul>
-    </div>
-  </footer>
-  <div class="footer-bottom">
-    <p>Made with <i class="far fa-heart" style="color: #ff295e;"></i> by Grupo 3</p>
-  </div>
-
+  <%- include('partials/footer.ejs') %>
   <script src="./js/script.js"></script>
 </body>
 
