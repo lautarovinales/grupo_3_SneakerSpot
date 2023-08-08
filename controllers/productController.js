@@ -22,7 +22,7 @@ const productController = {
 
         // Renderiza la vista 'product' utilizando el motor de plantillas EJS
         // Se pasa el objeto 'product' como dato, para que esté disponible en la vista
-        res.render('product', { product });
+        res.render('./product/product', { product });
     }
 };
 
