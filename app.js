@@ -5,12 +5,13 @@ const path = require('path');
 // Crea una instancia de la aplicación Express
 const app = express();
 // Configura el puerto en el que se ejecutará el servidor: 3000
-const puerto = 3000;
+const puerto = 5000;
 // Importa el archivo de rutas principal ('main.js') desde el directorio './src/routes/'
 const mainRoute = require('./routes/main');
 // Importa el archivo de rutas de productos ('product.js') desde el directorio './src/routes/'
 const productRoute = require('./routes/product');
-
+// Importa el archivo de rutas de usuarios ('product.js') desde el directorio './src/routes/'
+const authRoute = require('./routes/auth');
 
 // Configura el middleware para analizar datos JSON en las solicitudes entrantes
 app.use(express.json());
@@ -24,6 +25,8 @@ app.set('views', path.join(__dirname, 'views'));
 app.use('/', mainRoute);
 // Configura el middleware de manejo de rutas para la ruta '/product'
 app.use('/product', productRoute);
+// Configura el middleware de manejo de rutas para la ruta '/product'
+app.use('/', authRoute);
 
 // Inicia el servidor y escucha en el puerto especificado
 app.listen(puerto, () => {

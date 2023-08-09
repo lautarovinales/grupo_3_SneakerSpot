@@ -9,6 +9,10 @@ const productController = {
         // Envía el archivo product.ejs al cliente como respuesta
         res.sendFile(path.resolve(__dirname, '../views/product.ejs'));
     },
+    cart:(req, res) =>{
+        res.render('./product/productCart');
+    }
+    ,
     // Método para mostrar detalles de un producto
     productDetail: (req, res) => {
         // Obtiene el parámetro 'id' de la solicitud (URL)

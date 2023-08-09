@@ -19,7 +19,7 @@ main{
 }
 
 .div-img{
-    background-color: #2853cb;
+    background-color: #0077ff;
     width: 100%;
     height: 150px;
     display: flex;
@@ -63,7 +63,7 @@ form button{
     width: 100%;
     height: 40px;
     border: none;
-    background-color: #2853cb;
+    background-color: #0077ff;
     color: #ffffff;
     border-radius: 5px;
 }
@@ -74,7 +74,7 @@ form button:hover{
     
 
 .register{
-    color: #2853cb;;
+    color: #0077ff;
 }
 
 @media (max-width: 750px){
