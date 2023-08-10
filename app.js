@@ -5,7 +5,7 @@ const path = require('path');
 // Crea una instancia de la aplicación Express
 const app = express();
 // Configura el puerto en el que se ejecutará el servidor: 3000
-const puerto = 5000;
+const puerto = 3000;
 // Importa el archivo de rutas principal ('main.js') desde el directorio './src/routes/'
 const mainRoute = require('./routes/main');
 // Importa el archivo de rutas de productos ('product.js') desde el directorio './src/routes/'

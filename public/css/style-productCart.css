@@ -53,16 +53,17 @@ main{
     width: 100%;
     height: fit-content;
     display: flex;
+    align-items: center;
     flex-direction: row;
-    flex-wrap: wrap;
-    column-gap: 1rem;
+    justify-content: space-between;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 .img-art{
-    /* height: 100%; */
-    /* width: 170px; */
+    height: 100%;
     width: 40%;
-    margin-left: 1rem;
+    min-width: 75px;
 }
 
 .productImg {
@@ -76,14 +77,11 @@ main{
 
 .buttons-art{
     height: fit-content;
-    /* width: 170px; */
-    width: 40%;
-    /* padding: 20px; */
-    /* display: flex; */
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 20px;
+    display: flex;
+    gap: 10px;
 }
 
 .contador{
@@ -93,7 +91,7 @@ main{
 
 .contador input{
     /* border: none; */
-    width: 60px;
+    width: 70px;
     height: 40px;
     text-align: center;
 }
@@ -209,6 +207,45 @@ button:hover{
     color: #0077ff;
 }
 
+@media(max-width: 400px){
+    .button-art{
+        justify-content: center;
+    }
+    .img-desc-buttons{
+        flex-direction: column;
+    }
+    .img-art{
+        height: 75%;
+        width: 75%;
+    }
+    .title-shoe{
+        justify-content: center;
+        padding: 0;
+    }
+
+    .envio-art{
+        height: 40px;
+    }
+
+    .contador input{
+        width: 100%;
+        height: 40px;
+        text-align: center;
+    }
+
+    .price-art{
+        font-size: 1.2em;
+        margin: 0;
+    }
+
+    .flex-400{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        padding-left: 10px;
+        align-items: center;
+    }
+}
 @media(min-width: 768px){
     #contenedor-carrito{
         flex-direction: row;
@@ -234,17 +271,17 @@ button:hover{
     }
 
     .img-desc-buttons {
-        justify-content: space-around;
+
     }
 
     .buttons-art {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
     }
 
     .price-art {
         width: 100%;
-        margin-right: -10rem;
+
     }
 
     .envio-art {
@@ -260,11 +297,11 @@ button:hover{
     }
 
     .productImg{
-        width: 100%;
+
     }
 
     .button-comprar{
-        font-size: 1.2rem;
+
     }
 }
 
@@ -279,12 +316,10 @@ button:hover{
     }
 
     .contenedor-cantidad-articulo{
-        margin: 1rem 0;
-        width: 10rem;
+
     }
 
     .descripcion-articulo{
-        margin: 1rem 0;
-        width: 10rem;
+
     }
 }

@@ -234,30 +234,31 @@ section{
 .cont-for-you{
     margin: 20px 0px 20px 0px;
     width: 100%;
-    height: fit-content;
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
 
 .cont-1{
-    background-image: url(./img/adidas.jpg);
+    background-image: url(../images/adidasad.png);
     background-size: cover;
     background-repeat: no-repeat;
     background-color: #bdb2ff;
-    height: 150px;
+    height: 200px;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 10px;
+    background-position: center;
 }
 
 .cont-2{
-    background-image: url(./img/nike.jpg);
+    background-image: url(../images/nikead.png);
     background-size: cover;
     background-repeat: no-repeat;
     background-color: #caffbf;
-    height: 150px;
+    height: 200px;
+    background-position: top;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -470,11 +471,15 @@ footer a{
     }
 
     .productsSection {
-        margin-bottom: 20px;
+        
     }
 
     .cont-for-you {
-        height: 150px;
+        margin-top: 20px;
         margin-bottom: 20px;
+    }
+
+    .cont-faq{
+        margin-top: 20px;
     }
 }

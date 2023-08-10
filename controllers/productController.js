@@ -10,7 +10,7 @@ const productController = {
         res.sendFile(path.resolve(__dirname, '../views/product.ejs'));
     },
     cart:(req, res) =>{
-        res.render('./product/productCart');
+        res.render('./product/productCart', {  data: dataBase.results  });
     }
     ,
     // Método para mostrar detalles de un producto

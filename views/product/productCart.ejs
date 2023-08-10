@@ -16,47 +16,19 @@
 </head>
 
 <body>
-  <div class="register-login">
-    <a href=""><i class="fa-solid fa-right-to-bracket login" style="color: #898989;"></i></a>
-  </div>
-  <header>
-    <img src="/images/logo.png" id="logo" alt="" srcset="" width="100px" height="100px">    <nav class="header-nav">
-      <a href="">Catálogo</a>
-      <a href="">Niño/as</a>
-      <a href="">Hombre</a>
-      <a href="">Mujeres</a>
-    </nav>
-    <div class="searchbar">
-      <input class="search-txt" type="search" name="" id=""><button class="search-icon"><i class="fas fa-search search-button" style="color: #898989;"></i></button>
-    </div>
-    <button class="cart-icon"><i class="fas fa-shopping-cart" style="color: #ffffff;"></i></button>
-    <nav class="menu">
-      <input type="checkbox" id="check">
-      <label for="check" class="checkbtn">
-        <i class="fa-solid fa-bars menuIcon" style="color: #ffffff;"></i>
-      </label>
-      <ul>
-        <li> <a class="active" href="">Catálogo</a></li>
-        <li><a class="active" href="">Niño/as</a></li>
-        <li><a class="active" href="">Hombre</a></li>
-        <li><a class="active" href="">Mujeres</a></li>
-        <li><a class="active" href="">Ingresar</a></li>
-      </ul>
-    </nav>
-  </header>
+  <%- include('../partials/header.ejs') %>
   <main>
     <p id="titulo-carrito">Carrito</p>
-
     <section id="contenedor-carrito">
-
       <section id="articulos-carrito">
+        <% data.map((product) =>{%>
         <article class="articulo-carrito">
           <div class="title-shoe">
-            <p>Nike Vaporfly 3</p>
+            <p><%= product.title %></p>
           </div>
           <div class="img-desc-buttons">
             <div class="img-art">
-              <img src="/images/nikevaporfly3.png" class="productImg" alt="" srcset="">
+              <img src="<%= product.img %>" class="productImg" alt="" srcset="">
             </div>
             <div class="buttons-art">
               <div class="contador">
@@ -64,8 +36,10 @@
                 <input type="number" name="" id="" class="productUnits">
                 <button class="mas"><i class="fa-solid fa-plus"></i></button>
               </div>
-              <p class="price-art">$ 45.000</p>
+              <div class="flex-400">
+              <p class="price-art">$ <%= product.price %></p>
               <button class="trashcan"><i class="fa-solid fa-trash-can"></i></button>
+            </div>
             </div>
           </div>
           <div class="envio-art">
@@ -73,81 +47,8 @@
             <p class="blue">Gratis</p>
           </div>
         </article>
-
-        <article class="articulo-carrito">
-          <div class="title-shoe">
-            <p>Adidas Forum 84 low</p>
-          </div>
-          <div class="img-desc-buttons">
-            <div class="img-art">
-            <img src="/images/adidasforum84low.png" class="productImg" alt="" srcset="">
-            </div>
-            <div class="buttons-art">
-              <div class="contador">
-              <button class="menos"><i class="fa-solid fa-minus"></i></button>
-              <input type="number" name="" id="" class="productUnits">
-              <button class="mas"><i class="fa-solid fa-plus"></i></button>
-              </div>
-              <p class="price-art">$ 45.000</p>
-              <button class="trashcan"><i class="fa-solid fa-trash-can"></i></button>
-            </div>
-          </div>
-          <div class="envio-art">
-            <p>Envío</p>
-            <p class="blue">Gratis</p>
-          </div>
-        </article>
-
-        <article class="articulo-carrito">
-          <div class="title-shoe">
-            <p>Adidas 4DFWD2</p>
-          </div>
-          <div class="img-desc-buttons">
-            <div class="img-art">
-            <img src="/images/adidas4dfwd2.png" class="productImg" alt="" srcset="">
-            </div>
-            <div class="buttons-art">
-              <div class="contador">
-              <button class="menos"><i class="fa-solid fa-minus"></i></button>
-              <input type="number" name="" id="" class="productUnits">
-              <button class="mas"><i class="fa-solid fa-plus"></i></button>
-              </div>
-              <p class="price-art">$ 45.000</p>
-              <button class="trashcan"><i class="fa-solid fa-trash-can"></i></button>
-            </div>
-          </div>
-          <div class="envio-art">
-            <p>Envío</p>
-            <p class="blue">Gratis</p>
-          </div>
-        </article>
-
-        <article class="articulo-carrito">
-          <div class="title-shoe">
-            <p>Nike Jordan 1 zoom</p>
-          </div>
-          <div class="img-desc-buttons">
-            <div class="img-art">
-            <img src="/images/nikejordan1zoom.png" class="productImg" alt="" srcset="">
-            </div>
-            <div class="buttons-art">
-              <div class="contador">
-              <button class="menos"><i class="fa-solid fa-minus"></i></button>
-              <input type="number" name="" id="" class="productUnits">
-              <button class="mas"><i class="fa-solid fa-plus"></i></button>
-              </div>
-              <p class="price-art">$ 45.000</p>
-              <button class="trashcan"><i class="fa-solid fa-trash-can"></i></button>
-            </div>
-          </div>
-          <div class="envio-art">
-            <p>Envío</p>
-            <p class="blue">Gratis</p>
-          </div>
-        </article>
-
+        <% }) %>
       </section>
-
       <section id="total-carrito">
         <div class="resumen">
           <p>Resumen de compra</p>
@@ -172,26 +73,7 @@
     </section>
 
   </main>
-
-  <footer>
-    <div class="social-icons">
-      <a href=""><i class="fab fa-facebook fa-sm"></i></a>
-      <a href=""><i class="fab fa-instagram fa-sm"></i></a>
-      <a href=""><i class="fab fa-twitter fa-sm"></i></a>
-      <a href=""><i class="fab fa-whatsapp fa-sm"></i></a>
-    </div>
-    <div class="footer-nav">
-      <ul>
-        <li><a href="">Inicio</a></li>
-        <li><a href="">Noticias</a></li>
-        <li><a href="">Descubre</a></li>
-        <li><a href="">Contacto</a></li>
-      </ul>
-    </div>
-  </footer>
-  <div class="footer-bottom">
-    <p>Made with <i class="far fa-heart" style="color: #ff295e;"></i> by Grupo 3</p>
-  </div>
+  <%- include('../partials/footer.ejs') %>
 </body>
 
 </html>
