@@ -8,6 +8,10 @@ router.get('/', productController.list); // Cuando se reciba una solicitud GET e
 
 router.get('/cart', productController.cart);
 
+router.get('/creation', productController.creation);
+
+router.get('/edit', productController.edit);
+
 // Definición de la ruta para ver detalles de un producto por ID
 router.get('/:id', productController.productDetail); // Cuando se reciba una solicitud GET en la ruta '/:id', se llama a productController.productDetail
 

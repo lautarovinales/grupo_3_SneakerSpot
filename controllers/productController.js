@@ -11,8 +11,13 @@ const productController = {
     },
     cart:(req, res) =>{
         res.render('./product/productCart', {  data: dataBase.results  });
-    }
-    ,
+    },
+    creation:(req, res) =>{
+        res.render('./product/productCreation');
+    },
+    edit:(req, res) =>{
+        res.render('./product/productEdit');
+    },
     // Método para mostrar detalles de un producto
     productDetail: (req, res) => {
         // Obtiene el parámetro 'id' de la solicitud (URL)
