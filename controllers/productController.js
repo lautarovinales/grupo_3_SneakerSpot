@@ -18,6 +18,19 @@ const productController = {
     edit:(req, res) =>{
         res.render('./product/productEdit');
     },
+
+    showEditById: (req, res) => {
+        const id = req.params.id;
+        const { results } = dataBase;
+        const producto = results.find(pro => pro.id == id);
+        console.log(producto);
+        res.render('./product/productEditById', { producto });
+    },
+
+    editById: (req, res) => {
+
+    },
+
     // Método para mostrar detalles de un producto
     productDetail: (req, res) => {
         // Obtiene el parámetro 'id' de la solicitud (URL)

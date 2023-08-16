@@ -13,6 +13,8 @@ const productRoute = require('./routes/product');
 // Importa el archivo de rutas de usuarios ('product.js') desde el directorio './src/routes/'
 const authRoute = require('./routes/auth');
 
+const methodOverride = require('method-override');
+
 // Configura el middleware para analizar datos JSON en las solicitudes entrantes
 app.use(express.json());
 // Configura el middleware para servir archivos estáticos desde el directorio 'public'
@@ -27,6 +29,8 @@ app.use('/', mainRoute);
 app.use('/product', productRoute);
 // Configura el middleware de manejo de rutas para la ruta '/product'
 app.use('/', authRoute);
+
+app.use(methodOverride('_method'));
 
 // Inicia el servidor y escucha en el puerto especificado
 app.listen(puerto, () => {

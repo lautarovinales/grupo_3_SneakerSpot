@@ -12,6 +12,9 @@ router.get('/creation', productController.creation);
 
 router.get('/edit', productController.edit);
 
+router.get('/edit/:id', productController.showEditById);
+router.put('/edit', productController.editById);
+
 // Definición de la ruta para ver detalles de un producto por ID
 router.get('/:id', productController.productDetail); // Cuando se reciba una solicitud GET en la ruta '/:id', se llama a productController.productDetail
 

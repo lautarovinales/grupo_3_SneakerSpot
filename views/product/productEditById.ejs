@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon">
+    <title>Sneaker Spot | Crear producto</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/style-productEdit.css">
+</head>
+
+<body>
+    <%- include('../partials/header.ejs') %>
+        <main>
+            <section>
+                <div class="div-img">
+                    <img src="images/logo.png" alt="" class="imagen-login">
+                </div>
+                <form action="/product/edit?_method=PUT" method="POST">
+                    <p>Editar producto</p>
+                    <label for="name">Nombre del calzado:</label>
+                    <input type="name" name="name" id="name" placeholder="Nombre del calzado" value="<%= producto.title %>">
+                    <label for="product-img">Imagen del calzado:</label>
+                    <input type="file" name="product-img" class="fileinput">
+                    <label for="class">Clase de calzado:</label>
+                    <input type="text" name="class" id="class" placeholder="Clase de calzado" value="<%= producto.class %>">
+                    <label for="history">Descripcion del calzado:</label>
+                    <textarea name="history" id="history" cols="60" rows="7"><%= producto.history %></textarea>
+                    <!-- <input type="text" name="history" id="history" placeholder="Historia del calzado" value=""> -->
+                    <p>Descuento</p>
+                    <div class="desc-radio">
+                        <div class="radio-button">
+                            <label for="desc">Descuento del calzado:</label>
+                            <input type="text" name="desc" id="" value="<%= producto.discount %>">
+                        </div>
+                        <!-- <div class="radio-button">
+          <input type="radio" name="desc" id="">No -->
+                    </div>
+                    <!-- </div> -->
+                    <input type="number" name="price" id="price" placeholder="Precio" value="<%= producto.price %>">
+                    <input type="number" name="price" id="price" placeholder="Stock Disponible">
+                    <button type="submit">Guardar cambios</button>
+                </form>
+            </section>
+        </main>
+        <%- include('../partials/footer.ejs') %>
+            <script src="./js/script.js"></script>
+</body>
+
+</html>
