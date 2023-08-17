@@ -28,7 +28,7 @@
 }
 
 header{
-    background-color: #0077ff;
+    background-color: #5A56E9;
     width: 100%;
     height: 100px;
     display: flex;
@@ -81,12 +81,12 @@ header img:hover{
     border-radius: 100%;
     font-size: 1em;
     display: none;
-    background-color: #0077ff;
+    background-color: #5A56E9;
     color: #ffffff;
 }
 
 .cart-icon:hover{
-    background-color: #2e8fff;
+    background-color: #7470e8;
     transition: 0.5s;
     cursor: pointer;
     font-size: 1em;
@@ -101,7 +101,7 @@ header img:hover{
 
 .header-nav a:hover{
     transition: 0.5s;
-    background-color: #2e8fff;
+    background-color: #7470e8;
     color: #ffffff;
 }
 
@@ -117,7 +117,7 @@ main {
     background-color: #edf2f4;
     height: fit-content;
     padding: 20px 20px 20px 20px;
-    text-align: center;
+    text-align: left;
 }
 
 .title{
@@ -153,7 +153,7 @@ section{
     background-color: #ffffff;
     height: calc(80% - 150px);
     width: fit-content;
-    border-radius: 10px 10px 0px 0px;
+    border-radius: 15px 15px 0px 0px;
 }
 
 .img-shoe:hover{
@@ -169,7 +169,7 @@ section{
     justify-content: center;
     flex-direction: column;
     background-color: #ffffff;
-    border-radius: 0px 0px 10px 10px;
+    border-radius: 0px 0px 15px 15px;
 }
 
 .envio-fav{
@@ -180,7 +180,7 @@ section{
 }
 
 .envio{
-    background-color: #0077ff;
+    background-color: #5A56E9;
     width: calc(60% - 10px);
     font-size: calc(0.30rem + 0.3vw);
     padding: 0.4rem 0.2rem;
@@ -248,7 +248,7 @@ section{
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 10px;
+    border-radius: 15px;
     background-position: center;
 }
 
@@ -262,7 +262,7 @@ section{
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 10px;
+    border-radius: 15px;
 }
 
 .cont-1:hover, .cont-2:hover{
@@ -294,6 +294,7 @@ section{
     align-items: center;
     flex-direction: column;
     gap: 20px;
+    text-align: center;
 }
 
 .txt-g{
@@ -318,7 +319,7 @@ a{
 }
 
 footer a{
-    color: #ffffff;
+    color: #606060;
 }
 
 .social-icons{
@@ -351,7 +352,7 @@ footer a{
     position: fixed;
     width: 100%;
     height: 100%;
-    background-color: #0077ff;
+    background-color: #5A56E9;
     top: 100px;
     right: -100%;
     text-align: center;
@@ -468,10 +469,6 @@ footer a{
 @media (min-width: 1024px) {
     .header-nav a {
         font-size: 1.2rem;
-    }
-
-    .productsSection {
-        
     }
 
     .cont-for-you {

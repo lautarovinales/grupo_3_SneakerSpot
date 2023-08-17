@@ -24,7 +24,7 @@ main{
 }
 
 .div-img{
-    background-color: #0077ff;
+    background-color: #5A56E9;
     width: 100%;
     height: 150px;
     display: flex;
@@ -68,7 +68,7 @@ form button{
     width: 100%;
     height: 40px;
     border: none;
-    background-color: #0077ff;
+    background-color: #5A56E9;
     color: #ffffff;
     border-radius: 5px;
 }
@@ -79,7 +79,7 @@ form button:hover{
     
 
 .register{
-    color: #0077ff;
+    color: #5A56E9;
 }
 
 .desc-radio{
@@ -97,7 +97,7 @@ form button:hover{
 }
 
 .blue{
-    color: #0077ff;
+    color: #5A56E9;
 }
 
 @media (max-width: 750px){

@@ -103,7 +103,7 @@ main{
     width: 40px;
     height: 40px;
     font-size: 1.2em;
-    color: #5eb6ff;
+    color: #5A56E9;
 }
 
 .productUnits {
@@ -120,7 +120,7 @@ main{
     width: 40px;
     height: 40px;
     font-size: 1.2em;
-    color: #5eb6ff;
+    color: #5A56E9;
 }
 
 .price-art{
@@ -135,7 +135,7 @@ main{
     height: 50px;
     /* border-radius: 100%; */
     font-size: 1.2em;
-    color: #ff6b6b;
+    color: #5A56E9;
 }
 
 #total-carrito{
@@ -178,7 +178,7 @@ main{
     height: 40px;
     width: 100%;
     border: none;
-    background-color: #0077ff;
+    background-color: #5A56E9;
     color: #ffffff;
     border-radius: 5px;
 }
@@ -186,7 +186,7 @@ main{
 .button-comprar:hover{
     transition: 0.3s;
     cursor: pointer;
-    background-color: #426ee8;
+    background-color: #5A56E9;
 }
 
 .envio-art{
@@ -204,7 +204,7 @@ button:hover{
 }
 
 .blue{
-    color: #0077ff;
+    color: #5A56E9;
 }
 
 @media(max-width: 400px){
@@ -270,10 +270,6 @@ button:hover{
         width: 70%
     }
 
-    .img-desc-buttons {
-
-    }
-
     .buttons-art {
         display: flex;
         flex-direction: column;
@@ -296,13 +292,6 @@ button:hover{
         width: 170px;
     }
 
-    .productImg{
-
-    }
-
-    .button-comprar{
-
-    }
 }
 
 @media(min-width: 1400px){
@@ -315,11 +304,4 @@ button:hover{
         width: 25%;
     }
 
-    .contenedor-cantidad-articulo{
-
-    }
-
-    .descripcion-articulo{
-
-    }
 }

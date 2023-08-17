@@ -37,7 +37,7 @@ main {
 }
 
 .desc{
-    color: #0077ff;
+    color: #5A56E9;
 }
 
 .titulo{
@@ -52,7 +52,7 @@ main {
 
 .envio{
     margin-bottom: 30px;
-    background-color: #0077ff;
+    background-color: #5A56E9;
     font-size: 1.1rem;
     padding: 10px;
     width: max-content;
@@ -87,7 +87,7 @@ input{
     height: 40px;
     border: none;
     border-radius: 5px;
-    background-color: #0077ff;
+    background-color: #5A56E9;
     color: #ffffff;
 }
 
@@ -101,7 +101,7 @@ input{
 
     .button-form:hover{
         cursor: pointer;
-        background-color: #426ee8;
+        background-color: #5A56E9;
         transition: 0.3s;
     }
 }
