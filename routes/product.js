@@ -10,7 +10,7 @@ router.get('/cart', productController.cart);
 
 router.get('/creation', productController.creation);
 
-router.get('/edit', productController.edit);
+// router.get('/edit', productController.edit);
 
 router.get('/catalogo', productController.catalogo);
 

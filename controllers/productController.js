@@ -23,12 +23,13 @@ const productController = {
         const id = req.params.id;
         const { results } = dataBase;
         const producto = results.find(pro => pro.id == id);
-        console.log(producto);
+        // console.log(producto);
         res.render('./product/productEditById', { producto });
     },
 
     editById: (req, res) => {
-
+        const {id, title, class: clase, price, discount, img, history} = req.body;
+        res.send(req.body);
     },
     catalogo: (req, res) => {
         res.render('./product/productCatalogue');
