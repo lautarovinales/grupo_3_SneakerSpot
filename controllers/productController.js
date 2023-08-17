@@ -30,20 +30,16 @@ const productController = {
     editById: (req, res) => {
 
     },
-
+    catalogo: (req, res) => {
+        res.render('./product/productCatalogue');
+    },
     // Método para mostrar detalles de un producto
     productDetail: (req, res) => {
-        // Obtiene el parámetro 'id' de la solicitud (URL)
         const { id } = req.params;
-
-        // Desestructura el objeto dataBase, obteniendo la propiedad 'results'
         const { results } = dataBase;
-
-        // Busca el producto con el ID especificado en los resultados
-        const product = results.find((prod) => prod.id === id);
-
+        const product = results.find(prod => prod.id === id);
+    
         // Renderiza la vista 'product' utilizando el motor de plantillas EJS
-        // Se pasa el objeto 'product' como dato, para que esté disponible en la vista
         res.render('./product/product', { product });
     }
 };

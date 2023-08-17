@@ -1,6 +1,7 @@
 // Importación de módulos necesarios
-const path = require('path'); // Módulo para manejar rutas de archivos y directorios
-const dataBase = require('../dataBase/productList.json'); // Importa los datos desde productList.json
+const path = require('path');
+const dataBase = require('../dataBase/productList.json');
+const productController = require('./productController')
 
 // Definición del controlador principal
 const mainController = {
@@ -8,14 +9,13 @@ const mainController = {
     home: (req, res) => {
         // Desestructura el objeto dataBase, obteniendo la propiedad 'results'
         const { results } = dataBase;
-        
-        // Envía el archivo index.ejs al cliente como respuesta
-        res.sendFile(path.resolve(__dirname, '../views/index.ejs'));
-
+        const productosEnOferta = results.filter(producto => producto.enOferta);
+    
         // Renderiza la vista index.ejs utilizando el motor de plantillas EJS
-        // Se pasa el objeto 'results' como dato, para que esté disponible en la vista
-        res.render('index', { data: results });
+        // Pasa el array 'productosEnOferta' como datos para la vista
+        res.render('index', { productosEnOferta });
     }
+    
 };
 
 // Exporta el controlador principal para que pueda ser utilizado en otros archivos

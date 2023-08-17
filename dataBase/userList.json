@@ -1,0 +1,19 @@
+{
+    "user": [
+        {
+            "id":"1",
+            "title": "Nike Jordan 1 retro",
+            "class":"BASKET",
+            "price": 75000,
+            "discount": 666,
+            "img": "/images/nikejordan1retrohigh.png"
+        },
+        {
+            "id":"2",
+            "title": "Nike AirMax 90",
+            "class":"RUNNING",
+            "price": 567650,
+            "discount": 666,
+            "img": "/images/nikeairmax90.png"        }
+    ]
+}

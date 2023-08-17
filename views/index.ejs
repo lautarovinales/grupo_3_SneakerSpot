@@ -19,22 +19,22 @@
   <main>
     <p class="title">Ofertas por tiempo limitado</p>
     <section class="productsSection">
-      <% data.map((product) =>{%>
+      <% productosEnOferta.forEach(producto => { %>
       <div class="producto">
-        <a class="link" href="/product/<%= product.id %>">
+        <a class="link" href="/product/<%= producto.id %>">
         <div class="img-shoe">
-          <img src="<%= product.img %>" alt="" srcset="" width="100%" height="100%">
+          <img src="<%= producto.img %>" alt="" srcset="" width="100%" height="100%">
         </div>
         <div class="desc-shoe">
           <div class="envio-fav">
             <p class="envio">Envio gratis</p>
             <button><i class="fa-solid fa-heart" style="color: #5A56E9;"></i></button>
           </div>
-          <p class="name-shoe"><%= product.title %></p>
-          <p class="class-shoe"><%= product.class %></p>
+          <p class="name-shoe"><%= producto.title %></p>
+          <p class="class-shoe"><%= producto.class %></p>
           <div class="disc-price">
-            <p class="disc-shoe">$ <%= product.discount %></p>
-            <p class="price-shoe">$ <%= product.price %></p>
+            <p class="disc-shoe">$ <%= producto.discount %></p>
+            <p class="price-shoe">$ <%= producto.price %></p>
           </div>
         </div>
       </a>

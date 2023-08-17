@@ -1,0 +1,40 @@
+.filters {
+    background-color: black;
+    height: fit-content;
+    width: 300px;
+}
+
+main{
+    display: flex;
+    flex-direction: row;
+}
+
+.filtro-title{
+    background-color: rgb(174, 255, 0);
+    height: 1000px;
+    width: 100%;
+}
+
+.talle{
+    background-color: rgb(255, 64, 0);
+    height: 300px;
+    width: 100%;
+}
+
+.clase-shoes{
+    background-color: rgb(255, 0, 221);
+    height: 200px;
+    width: 100%;
+}
+
+.colors{
+    background-color: rgb(0, 255, 21);
+    height: 100px;
+    width: 100%;
+}
+
+.product-list{
+    background-color: blue;
+    width: 100px;
+    height: 1000px;
+}

@@ -12,6 +12,8 @@ router.get('/creation', productController.creation);
 
 router.get('/edit', productController.edit);
 
+router.get('/catalogo', productController.catalogo);
+
 router.get('/edit/:id', productController.showEditById);
 router.put('/edit', productController.editById);
 
