@@ -1,9 +1,9 @@
 {
     "results": [
         {
-            "id":"1",
+            "id": "1",
             "title": "Nike Jordan 1 retro",
-            "class":"BASKET",
+            "class": "BASKET",
             "price": 75000,
             "discount": 666,
             "img": "/images/nikejordan1retrohigh.png",
@@ -11,9 +11,9 @@
             "enOferta": true
         },
         {
-            "id":"2",
+            "id": "2",
             "title": "Nike AirMax 90",
-            "class":"RUNNING",
+            "class": "RUNNING",
             "price": 567650,
             "discount": 666,
             "img": "/images/nikeairmax90.png",
@@ -21,9 +21,9 @@
             "enOferta": true
         },
         {
-            "id":"3",
+            "id": "3",
             "title": "Adidas 4DFWD2",
-            "class":"RUNNING",
+            "class": "RUNNING",
             "price": 567650,
             "discount": 666,
             "img": "/images/adidas4dfwd2.png",
@@ -31,9 +31,9 @@
             "enOferta": true
         },
         {
-            "id":"4",
+            "id": "4",
             "title": "Fila Oakmont",
-            "class":"TREKKING",
+            "class": "TREKKING",
             "price": 567650,
             "discount": 666,
             "img": "/images/niketeamhustled10.png",
@@ -41,9 +41,9 @@
             "enOferta": true
         },
         {
-            "id":"5",
+            "id": "5",
             "title": "Adidas UltraBoost light",
-            "class":"RUNNING",
+            "class": "RUNNING",
             "price": 567650,
             "discount": 666,
             "img": "/images/nikenyjahfree2.png",
@@ -51,9 +51,9 @@
             "enOferta": true
         },
         {
-            "id":"6",
+            "id": "6",
             "title": "Adidas Forum 84 low",
-            "class":"URBANO",
+            "class": "URBANO",
             "price": 567650,
             "discount": 666,
             "img": "/images/adidasforum84low.png",
@@ -61,102 +61,103 @@
             "enOferta": true
         },
         {
-            "id":"7",
+            "id": "7",
             "title": "Adidas Forum 84 low",
-            "class":"URBANO",
+            "class": "URBANO",
             "price": 567650,
             "discount": 666,
             "img": "/images/adidasforum84low.png",
             "history": "En un rincón nostálgico de la ciudad, el espíritu del baloncesto clásico cobraba vida una vez más. Un joven apasionado por la cultura retro vestía sus Adidas Forum 83Low, un tributo al patrimonio deportivo y al estilo atemporal. Cada paso que daba resonaba con la energía de las canchas de baloncesto de antaño, mientras el diseño moderno le otorgaba un aire fresco y contemporáneo. Las Forum 83Low no solo eran unas zapatillas, sino un recordatorio de la historia que moldea el presente y un faro de autenticidad en un mundo en constante cambio.",
             "enOferta": false
-        }
-        ,
+        },
         {
-            "id":"8",
+            "id": "8",
             "title": "Adidas Forum 84 low",
-            "class":"URBANO",
+            "class": "URBANO",
             "price": 567650,
             "discount": 666,
             "img": "/images/adidasforum84low.png",
             "history": "En un rincón nostálgico de la ciudad, el espíritu del baloncesto clásico cobraba vida una vez más. Un joven apasionado por la cultura retro vestía sus Adidas Forum 83Low, un tributo al patrimonio deportivo y al estilo atemporal. Cada paso que daba resonaba con la energía de las canchas de baloncesto de antaño, mientras el diseño moderno le otorgaba un aire fresco y contemporáneo. Las Forum 83Low no solo eran unas zapatillas, sino un recordatorio de la historia que moldea el presente y un faro de autenticidad en un mundo en constante cambio.",
             "enOferta": false
-        }
-        ,
+        },
         {
-            "id":"9",
+            "id": "9",
             "title": "Adidas Forum 84 low",
-            "class":"URBANO",
+            "class": "URBANO",
             "price": 567650,
             "discount": 666,
             "img": "/images/adidasforum84low.png",
             "history": "En un rincón nostálgico de la ciudad, el espíritu del baloncesto clásico cobraba vida una vez más. Un joven apasionado por la cultura retro vestía sus Adidas Forum 83Low, un tributo al patrimonio deportivo y al estilo atemporal. Cada paso que daba resonaba con la energía de las canchas de baloncesto de antaño, mientras el diseño moderno le otorgaba un aire fresco y contemporáneo. Las Forum 83Low no solo eran unas zapatillas, sino un recordatorio de la historia que moldea el presente y un faro de autenticidad en un mundo en constante cambio.",
             "enOferta": false
-        }
-        ,
+        },
         {
-            "id":"10",
+            "id": "10",
             "title": "Adidas Forum 84 low",
-            "class":"URBANO",
+            "class": "URBANO",
             "price": 567650,
             "discount": 666,
             "img": "/images/adidasforum84low.png",
             "history": "En un rincón nostálgico de la ciudad, el espíritu del baloncesto clásico cobraba vida una vez más. Un joven apasionado por la cultura retro vestía sus Adidas Forum 83Low, un tributo al patrimonio deportivo y al estilo atemporal. Cada paso que daba resonaba con la energía de las canchas de baloncesto de antaño, mientras el diseño moderno le otorgaba un aire fresco y contemporáneo. Las Forum 83Low no solo eran unas zapatillas, sino un recordatorio de la historia que moldea el presente y un faro de autenticidad en un mundo en constante cambio.",
             "enOferta": false
-        }
-        ,
+        },
         {
-            "id":"11",
+            "id": "11",
             "title": "Adidas Forum 84 low",
-            "class":"URBANO",
+            "class": "URBANO",
             "price": 567650,
             "discount": 666,
             "img": "/images/adidasforum84low.png",
             "history": "En un rincón nostálgico de la ciudad, el espíritu del baloncesto clásico cobraba vida una vez más. Un joven apasionado por la cultura retro vestía sus Adidas Forum 83Low, un tributo al patrimonio deportivo y al estilo atemporal. Cada paso que daba resonaba con la energía de las canchas de baloncesto de antaño, mientras el diseño moderno le otorgaba un aire fresco y contemporáneo. Las Forum 83Low no solo eran unas zapatillas, sino un recordatorio de la historia que moldea el presente y un faro de autenticidad en un mundo en constante cambio.",
             "enOferta": false
-        }
-        ,
+        },
         {
-            "id":"12",
+            "id": "12",
             "title": "Adidas Forum 84 low",
-            "class":"URBANO",
+            "class": "URBANO",
             "price": 567650,
             "discount": 666,
             "img": "/images/adidasforum84low.png",
             "history": "En un rincón nostálgico de la ciudad, el espíritu del baloncesto clásico cobraba vida una vez más. Un joven apasionado por la cultura retro vestía sus Adidas Forum 83Low, un tributo al patrimonio deportivo y al estilo atemporal. Cada paso que daba resonaba con la energía de las canchas de baloncesto de antaño, mientras el diseño moderno le otorgaba un aire fresco y contemporáneo. Las Forum 83Low no solo eran unas zapatillas, sino un recordatorio de la historia que moldea el presente y un faro de autenticidad en un mundo en constante cambio.",
             "enOferta": false
-        }
-        ,
+        },
         {
-            "id":"13",
+            "id": "13",
             "title": "Adidas Forum 84 low",
-            "class":"URBANO",
+            "class": "URBANO",
             "price": 567650,
             "discount": 666,
             "img": "/images/adidasforum84low.png",
             "history": "En un rincón nostálgico de la ciudad, el espíritu del baloncesto clásico cobraba vida una vez más. Un joven apasionado por la cultura retro vestía sus Adidas Forum 83Low, un tributo al patrimonio deportivo y al estilo atemporal. Cada paso que daba resonaba con la energía de las canchas de baloncesto de antaño, mientras el diseño moderno le otorgaba un aire fresco y contemporáneo. Las Forum 83Low no solo eran unas zapatillas, sino un recordatorio de la historia que moldea el presente y un faro de autenticidad en un mundo en constante cambio.",
             "enOferta": false
-        }
-        ,
+        },
         {
-            "id":"14",
+            "id": "14",
             "title": "Adidas Forum 84 low",
-            "class":"URBANO",
+            "class": "URBANO",
             "price": 567650,
             "discount": 666,
             "img": "/images/adidasforum84low.png",
             "history": "En un rincón nostálgico de la ciudad, el espíritu del baloncesto clásico cobraba vida una vez más. Un joven apasionado por la cultura retro vestía sus Adidas Forum 83Low, un tributo al patrimonio deportivo y al estilo atemporal. Cada paso que daba resonaba con la energía de las canchas de baloncesto de antaño, mientras el diseño moderno le otorgaba un aire fresco y contemporáneo. Las Forum 83Low no solo eran unas zapatillas, sino un recordatorio de la historia que moldea el presente y un faro de autenticidad en un mundo en constante cambio.",
             "enOferta": false
-        }
-        ,
+        },
         {
-            "id":"15",
+            "id": "15",
             "title": "Adidas Forum 84 low",
-            "class":"URBANO",
+            "class": "URBANO",
             "price": 567650,
             "discount": 666,
             "img": "/images/adidasforum84low.png",
             "history": "En un rincón nostálgico de la ciudad, el espíritu del baloncesto clásico cobraba vida una vez más. Un joven apasionado por la cultura retro vestía sus Adidas Forum 83Low, un tributo al patrimonio deportivo y al estilo atemporal. Cada paso que daba resonaba con la energía de las canchas de baloncesto de antaño, mientras el diseño moderno le otorgaba un aire fresco y contemporáneo. Las Forum 83Low no solo eran unas zapatillas, sino un recordatorio de la historia que moldea el presente y un faro de autenticidad en un mundo en constante cambio.",
             "enOferta": false
+        },
+        {
+            "id": "16",
+            "title": "123",
+            "clase": "123",
+            "history": "123",
+            "discount": "on",
+            "price": "123",
+            "image": "/images/1692547392185-fcFMd3HdyX7r5gtFwVnn2qr5Yhq-200x300.jpg"
         }
     ]
 }

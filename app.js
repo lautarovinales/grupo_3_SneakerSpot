@@ -1,38 +1,45 @@
-// Importa el módulo 'express'
+// Importa los módulos necesarios
 const express = require('express');
-// Importa el módulo 'path' para trabajar con rutas de archivos y directorios
 const path = require('path');
+const multer = require('multer'); // Importa Multer para manejar la carga de imágenes
+const methodOverride = require('method-override'); // Importa method-override para habilitar métodos HTTP PUT y DELETE
+
 // Crea una instancia de la aplicación Express
 const app = express();
-// Configura el puerto en el que se ejecutará el servidor: 3000
+
+// Configuración del puerto en el que se ejecutará el servidor: 3000
 const puerto = 3000;
-// Importa el archivo de rutas principal ('main.js') desde el directorio './src/routes/'
+
+// Importa las rutas
 const mainRoute = require('./routes/main');
-// Importa el archivo de rutas de productos ('product.js') desde el directorio './src/routes/'
 const productRoute = require('./routes/product');
-// Importa el archivo de rutas de usuarios ('product.js') desde el directorio './src/routes/'
 const authRoute = require('./routes/auth');
 
-const methodOverride = require('method-override');
-app.use(methodOverride('_method'));
+// Configuración del middleware
+app.use(express.urlencoded({ extended: false })); // Analiza datos de formularios
+app.use(methodOverride('_method')); // Habilita el uso de _method para métodos PUT y DELETE
+app.use(express.json()); // Analiza datos JSON en las solicitudes
+app.use('/', express.static(__dirname + '/public')); // Sirve archivos estáticos desde 'public'
+app.set('view engine', 'ejs'); // Establece el motor de plantillas como EJS
+app.set('views', path.join(__dirname, 'views')); // Establece el directorio de vistas
 
-// Configura el middleware para analizar datos JSON en las solicitudes entrantes
-app.use(express.json());
-// Configura el middleware para servir archivos estáticos desde el directorio 'public'
-app.use('/', express.static(__dirname + '/public'));
-// Establece el motor de plantillas como 'ejs' para renderizar vistas
-app.set('view engine', 'ejs');
-// Establece el directorio donde se encuentran las vistas del motor de plantillas
-app.set('views', path.join(__dirname, 'views'));
-// Configura el middleware de manejo de rutas para la ruta raíz '/'
-app.use('/', mainRoute);
-// Configura el middleware de manejo de rutas para la ruta '/product'
-app.use('/product', productRoute);
-// Configura el middleware de manejo de rutas para la ruta '/product'
-app.use('/', authRoute);
+// Configuración de Multer para manejar la carga de imágenes
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, 'public/images'); // Ruta donde se guardarán las imágenes
+    },
+    filename: function (req, file, cb) {
+        cb(null, Date.now() + '-' + file.originalname); // Nombre único del archivo
+    }
+});
+const upload = multer({ storage: storage });
 
+// Configuración de las rutas
+app.use('/', mainRoute); // Ruta raíz
+app.use('/product', productRoute); // Rutas relacionadas con productos
+app.use('/', authRoute); // Rutas relacionadas con autenticación
 
 // Inicia el servidor y escucha en el puerto especificado
 app.listen(puerto, () => {
-    console.log('Aplicación escuchando en puerto 3000');
+    console.log(`Aplicación escuchando en puerto ${puerto}`);
 });

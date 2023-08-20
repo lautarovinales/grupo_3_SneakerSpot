@@ -9,6 +9,7 @@ router.get('/', productController.list); // Cuando se reciba una solicitud GET e
 router.get('/cart', productController.cart);
 
 router.get('/creation', productController.creation);
+router.post('/creation', productController.createProduct);
 
 // router.get('/edit', productController.edit);
 

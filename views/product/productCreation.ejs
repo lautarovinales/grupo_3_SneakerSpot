@@ -26,25 +26,24 @@
         <div class="div-img">
           <img src="images/logo.png" alt="" class="imagen-login">
         </div>
-        <form action="/" method="POST">
+        <form action="/product/creation" method="POST" enctype="multipart/form-data">
           <p>Crea tu producto</p>
-          <input type="name" name="name" id="name" placeholder="Nombre del calzado">
-          <input type="file" name="product-img" class="fileinput">
-          <input type="text" name="class" id="class" placeholder="Clase de calzado">
+          <input type="text" name="title" id="name" placeholder="Nombre del calzado">
+          <input type="file" name="img" class="fileinput"> <!-- Utiliza 'img' en lugar de 'product-img' -->
+          <input type="text" name="clase" id="class" placeholder="Clase de calzado">
           <input type="text" name="history" id="history" placeholder="Historia del calzado">
           <p>Descuento</p>
           <div class="desc-radio">
-            <div class="radio-button">
-              <input type="radio" name="desc" id=""><span class="blue">10%</span>
-            </div>
-            <div class="radio-button">
-              <input type="radio" name="desc" id="">No
-            </div>
+              <div class="radio-button">
+                  <input type="radio" name="discount" id=""><span class="blue">10%</span>
+              </div>
+              <div class="radio-button">
+                  <input type="radio" name="discount" id="">No
+              </div>
           </div>
           <input type="number" name="price" id="price" placeholder="Precio">
-          <input type="number" name="price" id="price" placeholder="Stock Disponible">
           <button type="submit">Publicar</button>
-        </form>
+      </form>
       </section>
     </main>
     <%- include('../partials/footer.ejs') %>

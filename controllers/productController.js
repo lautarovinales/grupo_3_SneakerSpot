@@ -1,6 +1,19 @@
 // Importación de módulos necesarios
 const path = require('path'); // Módulo para manejar rutas de archivos y directorios
 const dataBase = require('../dataBase/productList.json'); // Importa los datos desde productList.json
+const multer = require('multer');
+const fs = require('fs');
+
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, 'public/images'); // Ruta donde se guardarán las imágenes
+    },
+    filename: function (req, file, cb) {
+        cb(null, Date.now() + '-' + file.originalname); // Nombre único del archivo
+    }
+});
+
+const upload = multer({ storage: storage });
 
 // Definición del controlador de productos
 const productController = {
@@ -15,6 +28,40 @@ const productController = {
     creation:(req, res) =>{
         res.render('./product/productCreation');
     },
+    createProduct: [
+        upload.single('img'),
+        (req, res) => {
+            try {
+                const { title, clase, history, discount, price, stock } = req.body;
+                const productImage = req.file;
+    
+                const imagePath = productImage ? `/images/${productImage.filename}` : '';
+    
+                // Convertir el ID de cadena a número
+                const newProductId = dataBase.results.length > 0 ? parseInt(dataBase.results[dataBase.results.length - 1].id) + 1 : 1;
+    
+                const newProduct = {
+                    id: newProductId.toString(), // Convertir de nuevo a cadena si es necesario
+                    title,
+                    clase,
+                    history,
+                    discount,
+                    price,
+                    stock,
+                    image: imagePath
+                };
+    
+                dataBase.results.push(newProduct);
+    
+                fs.writeFileSync(path.join(__dirname, '../dataBase/productList.json'), JSON.stringify(dataBase, null, 4));
+    
+                res.redirect('/product/creation');
+            } catch (error) {
+                console.error(error);
+                res.status(500).send('Error al crear el producto');
+            }
+        }
+    ],
     edit:(req, res) =>{
         res.render('./product/productEdit');
     },
