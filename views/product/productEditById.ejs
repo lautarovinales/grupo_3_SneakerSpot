@@ -26,13 +26,13 @@
                 <div class="div-img">
                     <img src="images/logo.png" alt="" class="imagen-login">
                 </div>
-                <form action="/product/edit?_method=PUT" method="POST">
+                <form action="/product/edit/<%= producto.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
                     <p>Editar producto</p>
-                    <label for="name">Nombre del calzado:</label>
-                    <input type="text" name="name" id="name" placeholder="Nombre del calzado" value="<%= producto.title %>">
+                    <label for="title">Nombre del calzado:</label>
+                    <input type="text" name="title" id="title" placeholder="Nombre del calzado" value="<%= producto.title %>">
 
-                    <label for="product-img">Imagen del calzado:</label>
-                    <input type="file" name="product-img" class="fileinput">
+                    <label for="img">Imagen del calzado:</label>
+                    <input type="file" name="img" class="fileinput">
 
                     <label for="class">Clase de calzado:</label>
                     <input type="text" name="class" id="class" placeholder="Clase de calzado" value="<%= producto.class %>">
@@ -40,19 +40,16 @@
                     <label for="history">Descripcion del calzado:</label>
                     <textarea name="history" id="history" cols="60" rows="7"><%= producto.history %></textarea>
                     
-                    <!-- <input type="text" name="history" id="history" placeholder="Historia del calzado" value=""> -->
                     <p>Descuento</p>
                     <div class="desc-radio">
                         <div class="radio-button">
-                            <label for="desc">Descuento del calzado:</label>
-                            <input type="text" name="desc" id="" value="<%= producto.discount %>">
+                            <label for="discount">Descuento del calzado:</label>
+                            <input type="text" name="discount" id="" value="<%= producto.discount %>">
                         </div>
-                        <!-- <div class="radio-button">
-          <input type="radio" name="desc" id="">No -->
                     </div>
-                    <!-- </div> -->
-                    <input type="number" name="price" id="price" placeholder="Precio" value="<%= producto.price %>">
-                    <input type="number" name="price" id="price" placeholder="Stock Disponible">
+                    
+                    <label for="price">Precio:</label>
+                    <input type="text" name="price" id="price" placeholder="Precio" value="<%= producto.price %>">
                     <button type="submit">Guardar cambios</button>
                 </form>
             </section>

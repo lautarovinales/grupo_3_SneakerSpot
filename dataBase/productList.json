@@ -158,6 +158,15 @@
             "discount": "on",
             "price": "123",
             "image": "/images/1692547392185-fcFMd3HdyX7r5gtFwVnn2qr5Yhq-200x300.jpg"
+        },
+        {
+            "id": "17",
+            "title": "",
+            "clase": "madvillain",
+            "history": "duo de mf doom y madlib",
+            "discount": "on",
+            "price": "100",
+            "image": "/images/1692651226252-madvillain.jpg"
         }
     ]
 }
