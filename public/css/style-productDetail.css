@@ -91,6 +91,22 @@ input{
     color: #ffffff;
 }
 
+.button-form-delete{
+    width: 100%;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    background-color: #ff3654;
+    color: #ffffff;
+}
+
+form{
+    width: 100%;
+}
+
+.button-form-delete:hover{
+    cursor: pointer;
+}
 
 
 

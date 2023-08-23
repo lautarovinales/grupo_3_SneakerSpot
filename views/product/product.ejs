@@ -31,6 +31,10 @@
         <input type="number" id="cantidad" name="cantidad" min="1" max="10" step="1">
         <button class="button-form" type="submit">Añadir al carrito</button>
         <button class="button-form" type="submit">Comprar</button>
+        <form method="POST" action="/product/<%= product.id %>?_method=DELETE">
+          <!-- Cambiar el método del formulario a POST y agregar _method=DELETE en la URL -->
+          <button class="button-form-delete" type="submit">Eliminar</button>
+        </form>
       </div>
     </div>
   </main>

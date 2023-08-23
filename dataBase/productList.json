@@ -9,7 +9,7 @@
             "img": "/images/nikejordan1retrohigh.png",
             "history": "En el vibrante escenario urbano, las zapatillas Nike Jordan 1 Zoom fusionan la legendaria silueta con la innovadora tecnología Zoom Air, brindando un confort sublime y un retorno de energía sorprendente. Su cuero premium, colores clásicos y el icónico logotipo Jumpman en el talón hacen de ellas un símbolo de estilo audaz y autenticidad en cada paso. Una fusión perfecta entre pasado y futuro, las Jordan 1 Zoom son la elección definitiva para quienes buscan dominar las calles con un toque de elegancia rebelde.",
             "enOferta": true
-        },
+        },        
         {
             "id": "2",
             "title": "Nike AirMax 90",
@@ -54,8 +54,8 @@
             "id": "6",
             "title": "Adidas Forum 84 low",
             "class": "URBANO",
-            "price": 567650,
-            "discount": 666,
+            "price": "567650",
+            "discount": "666",
             "img": "/images/adidasforum84low.png",
             "history": "En un rincón nostálgico de la ciudad, el espíritu del baloncesto clásico cobraba vida una vez más. Un joven apasionado por la cultura retro vestía sus Adidas Forum 83Low, un tributo al patrimonio deportivo y al estilo atemporal. Cada paso que daba resonaba con la energía de las canchas de baloncesto de antaño, mientras el diseño moderno le otorgaba un aire fresco y contemporáneo. Las Forum 83Low no solo eran unas zapatillas, sino un recordatorio de la historia que moldea el presente y un faro de autenticidad en un mundo en constante cambio.",
             "enOferta": true
@@ -142,31 +142,13 @@
         },
         {
             "id": "15",
-            "title": "Adidas Forum 84 low",
+            "title": "Adidas Forum 84 tacs",
             "class": "URBANO",
-            "price": 567650,
-            "discount": 666,
+            "price": "567650",
+            "discount": "666",
             "img": "/images/adidasforum84low.png",
             "history": "En un rincón nostálgico de la ciudad, el espíritu del baloncesto clásico cobraba vida una vez más. Un joven apasionado por la cultura retro vestía sus Adidas Forum 83Low, un tributo al patrimonio deportivo y al estilo atemporal. Cada paso que daba resonaba con la energía de las canchas de baloncesto de antaño, mientras el diseño moderno le otorgaba un aire fresco y contemporáneo. Las Forum 83Low no solo eran unas zapatillas, sino un recordatorio de la historia que moldea el presente y un faro de autenticidad en un mundo en constante cambio.",
             "enOferta": false
-        },
-        {
-            "id": "16",
-            "title": "123",
-            "clase": "123",
-            "history": "123",
-            "discount": "on",
-            "price": "123",
-            "image": "/images/1692547392185-fcFMd3HdyX7r5gtFwVnn2qr5Yhq-200x300.jpg"
-        },
-        {
-            "id": "17",
-            "title": "",
-            "clase": "madvillain",
-            "history": "duo de mf doom y madlib",
-            "discount": "on",
-            "price": "100",
-            "image": "/images/1692651226252-madvillain.jpg"
         }
     ]
 }

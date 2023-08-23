@@ -6,7 +6,10 @@ const router = express.Router(); // Crea un enrutador utilizando Express
 const mainController = require('../controllers/mainController'); // Importa el controlador principal
 
 // Definición de la ruta y su controlador
-router.get('/', mainController.home); // Cuando se reciba una solicitud GET en la ruta '/', se llama a mainController.home
+// Ruta: /
+// Método: GET
+// Controlador: mainController.home
+router.get('/', mainController.home);
 
 // Exporta el enrutador para que pueda ser utilizado en otros archivos
 module.exports = router;

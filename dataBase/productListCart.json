@@ -1,0 +1,44 @@
+{
+    "results": [
+        {
+            "id": "1",
+            "title": "Nike Jordan 1 retro",
+            "class": "BASKET",
+            "price": 75000,
+            "discount": 666,
+            "img": "/images/nikejordan1retrohigh.png",
+            "history": "En el vibrante escenario urbano, las zapatillas Nike Jordan 1 Zoom fusionan la legendaria silueta con la innovadora tecnología Zoom Air, brindando un confort sublime y un retorno de energía sorprendente. Su cuero premium, colores clásicos y el icónico logotipo Jumpman en el talón hacen de ellas un símbolo de estilo audaz y autenticidad en cada paso. Una fusión perfecta entre pasado y futuro, las Jordan 1 Zoom son la elección definitiva para quienes buscan dominar las calles con un toque de elegancia rebelde.",
+            "enOferta": true
+        },
+        {
+            "id": "2",
+            "title": "Nike AirMax 90",
+            "class": "RUNNING",
+            "price": 567650,
+            "discount": 666,
+            "img": "/images/nikeairmax90.png",
+            "history": "En los albores de la mañana, cuando el rocío aún cubría la pista de atletismo, un corredor apasionado se preparaba para un nuevo día de desafíos. Calzó sus Nike Vaporfly 3, una obra maestra de ingeniería deportiva. Cada paso que daba estaba imbuido de una magia especial, gracias a la tecnología avanzada de amortiguación y retorno de energía que impulsaba sus movimientos con una eficiencia asombrosa. Cada zancada lo acercaba más a su meta, mientras el mundo a su alrededor parecía desvanecerse en una neblina de esfuerzo y determinación. Las Vaporfly 3 se convirtieron en su aliado inquebrantable, llevándolo a logros que una vez solo habían existido en sus sueños más audaces.",
+            "enOferta": true
+        },
+        {
+            "id": "3",
+            "title": "Adidas 4DFWD2",
+            "class": "RUNNING",
+            "price": 567650,
+            "discount": 666,
+            "img": "/images/adidas4dfwd2.png",
+            "history": "En una metrópolis futurista donde la tecnología y el estilo convergían en cada esquina, un joven aventurero se preparaba para una expedición urbana. Sus Adidas 4DFWD2, con su entramado de fibra de carbono y diseño futurista, eran mucho más que zapatillas: eran una declaración de intención. Cada paso parecía impulsado por una fuerza invisible, una combinación perfecta de comodidad y energía. Ascendió rascacielos, exploró callejones y desafió las calles empedradas con una gracia y agilidad que parecían desafiar la gravedad. Las 4DFWD2 se convirtieron en su compañero en esta búsqueda de descubrimiento y empoderamiento.",
+            "enOferta": true
+        },
+        {
+            "id": "4",
+            "title": "Fila Oakmont",
+            "class": "TREKKING",
+            "price": 567650,
+            "discount": 666,
+            "img": "/images/niketeamhustled10.png",
+            "history": "En el tranquilo escenario de un bosque encantado, un grupo de amigos se preparaba para una caminata memorable. Calzaron sus Fila Oakmont, una reminiscencia de la época dorada de la exploración al aire libre. Con cada paso, sentían la resistencia y durabilidad de estas zapatillas clásicas, diseñadas para enfrentar los elementos con confianza. Las Oakmont los llevaron por senderos serpenteantes, a través de riachuelos cristalinos y hacia lo desconocido, recordándoles que la verdadera aventura siempre está a la vuelta de la esquina.",
+            "enOferta": true
+        }
+    ]
+}
