@@ -117,7 +117,8 @@ const productController = {
     ],
     // Método para mostrar la página de catálogo de productos
     catalogo: (req, res) => {
-        res.render('./product/productCatalogue');
+        const { results } = dataBase;
+        res.render('./product/productCatalogue', { results });
     },
     // Método para mostrar detalles de un producto por su ID
     productDetail: (req, res) => {

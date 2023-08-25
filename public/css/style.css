@@ -151,7 +151,6 @@ section{
 
 .img-shoe{
     background-color: #ffffff;
-    height: calc(80% - 150px);
     width: fit-content;
     border-radius: 15px 15px 0px 0px;
 }
@@ -478,5 +477,11 @@ footer a{
 
     .cont-faq{
         margin-top: 20px;
+    }
+}
+
+@media (max-width: 310px) {
+    .disc-shoe{
+        display: none;
     }
 }

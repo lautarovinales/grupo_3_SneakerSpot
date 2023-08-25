@@ -11,29 +11,78 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon">
   <title>Sneaker Spot | Detalle de producto</title>
-  <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="/css/style-catalogo.css">
+  <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
   <%- include('../partials/header.ejs') %>
   <main>
     <div class="filters">
-        <div class="filtro-title">
-
+        <div class="filter-borrar">
+          <p class="title-filter">Filtros</p>
+          <button class="b-limpiar">Limpiar filtros</button>
         </div>
-        <div class="talle">
-
+        <div class="talles">
+          <p class="title-filter">Talle</p>
+          <div class="buttons-talle">
+            <label for="radio">
+            <input type="radio" name="radio" id="">
+            <input type="radio" name="radio" id="">
+            <input type="radio" name="radio" id="">
+            <input type="radio" name="radio" id="">
+            <input type="radio" name="radio" id="">
+            <input type="radio" name="radio" id="">
+            <input type="radio" name="radio" id="">
+            <input type="radio" name="radio" id="">
+          </label>
+          </div>
         </div>
-        <div class="clase-shoes">
-
+        <div class="clases">
+          <p class="title-filter">Clase de calzado</p>
+          <div class="buttons-clase">
+          <label for="clase">
+            <input type="radio" name="clase" id="">
+            <input type="radio" name="clase" id="">
+            <input type="radio" name="clase" id="">
+            <input type="radio" name="clase" id="">
+          </label>
         </div>
-        <div class="colors">
-
         </div>
+        <div class="colores">
+          <p class="title-filter"title-filter>Color</p>
+          <div class="buttons-colors">
+          <label for="colores">
+            <input type="radio" name="colores" id="">
+            <input type="radio" name="colores" id="">
+            <input type="radio" name="colores" id="">
+            <input type="radio" name="colores" id="">
+          </label>
+        </div>
+      </div>
     </div>
     <div class="product-list">
-
+      <% results.forEach(result => { %>
+        <div class="producto">
+          <a class="link" href="/product/<%= result.id %>">
+          <div class="img-shoe">
+            <img src="<%= result.img %>" alt="" srcset="" width="100%" height="100%">
+          </div>
+          <div class="desc-shoe">
+            <div class="envio-fav">
+              <p class="envio">Envio gratis</p>
+              <button><i class="fa-solid fa-heart" style="color: #5A56E9;"></i></button>
+            </div>
+            <p class="name-shoe"><%= result.title %></p>
+            <p class="class-shoe"><%= result.class %></p>
+            <div class="disc-price">
+              <p class="disc-shoe">$ <%= result.discount %></p>
+              <p class="price-shoe">$ <%= result.price %></p>
+            </div>
+          </div>
+        </a>
+        </div>
+        <% }) %>
     </div>
   </main>
   <%- include('../partials/footer.ejs') %>
