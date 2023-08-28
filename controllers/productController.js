@@ -36,9 +36,8 @@ const productController = {
     // Método para crear un nuevo producto
     createProduct: [
         upload.single('img'), // Middleware para cargar una imagen
-        (req, res) => {
-            try {
-                const { title, clase, history, discount, price, stock } = req.body;
+        async (req, res) => {
+                const { title, class: clase, history, discount, price } = req.body;
                 const productImage = req.file;
 
                 // Construye la ruta de la imagen si se ha cargado
@@ -51,12 +50,12 @@ const productController = {
                 const newProduct = {
                     id: newProductId.toString(),
                     title,
-                    clase,
+                    class: clase,
                     history,
                     discount,
                     price,
-                    stock,
-                    image: imagePath
+                    img: imagePath,
+                    enOferta: "true",
                 };
 
                 // Agrega el nuevo producto a la base de datos
@@ -66,10 +65,6 @@ const productController = {
                 fs.writeFileSync(path.join(__dirname, '../dataBase/productList.json'), JSON.stringify(dataBase, null, 4));
 
                 res.redirect('/product/creation'); // Redirige después de crear el producto
-            } catch (error) {
-                console.error(error);
-                res.status(500).send('Error al crear el producto');
-            }
         }
     ],
     // Método para mostrar la página de edición de un producto por su ID
@@ -103,11 +98,11 @@ const productController = {
             imagePath ? foundById.img = imagePath : foundById.img;
 
             // Filtra los productos para eliminar el producto original y agrega el producto editado
-            const productos = results.filter(pro => pro.id != foundById.id);
-            productos.push(foundById);
+            // const productos = results.filter(pro => pro.id != foundById.id);
+            // productos.push(foundById);
 
             // Ordena los objetos en base a su ID
-            productos.sort((a, b) => a.id > b.id ? 1 : -1);
+            // productos.sort((a, b) => a.id > b.id ? 1 : -1);
 
             // Escribe los cambios en el archivo JSON
             fs.writeFileSync(path.join(__dirname, '../dataBase/productList.json'), JSON.stringify(dataBase, null, 4));

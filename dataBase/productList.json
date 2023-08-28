@@ -12,10 +12,10 @@
         },
         {
             "id": "2",
-            "title": "Nike AirMax 90",
+            "title": "Nike Air Max 90",
             "class": "RUNNING",
-            "price": 567650,
-            "discount": 666,
+            "price": "567650",
+            "discount": "666",
             "img": "/images/nikeairmax90.png",
             "history": "En los albores de la mañana, cuando el rocío aún cubría la pista de atletismo, un corredor apasionado se preparaba para un nuevo día de desafíos. Calzó sus Nike Vaporfly 3, una obra maestra de ingeniería deportiva. Cada paso que daba estaba imbuido de una magia especial, gracias a la tecnología avanzada de amortiguación y retorno de energía que impulsaba sus movimientos con una eficiencia asombrosa. Cada zancada lo acercaba más a su meta, mientras el mundo a su alrededor parecía desvanecerse en una neblina de esfuerzo y determinación. Las Vaporfly 3 se convirtieron en su aliado inquebrantable, llevándolo a logros que una vez solo habían existido en sus sueños más audaces.",
             "enOferta": true
