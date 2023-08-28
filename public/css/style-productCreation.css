@@ -52,7 +52,15 @@ form{
 }
 
 h2 {
-    margin-bottom: 20px;
+    color: #8483ee;
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    border: 2px solid #5A56E9;
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    text-align: center;
 }
 
 input{

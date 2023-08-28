@@ -27,29 +27,24 @@
                     <img src="images/logo.png" alt="" class="imagen-login">
                 </div>
                 <form action="/product/edit/<%= producto.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
-                    <p>Editar producto</p>
+                    <h2>Editar producto</h2>
                     <label for="title">Nombre del calzado:</label>
-                    <input type="text" name="title" id="title" placeholder="Nombre del calzado" value="<%= producto.title %>">
+                    <input type="text" name="title" placeholder="Nombre del calzado" value="<%= producto.title %>">
 
                     <label for="img">Imagen del calzado:</label>
                     <input type="file" name="img" class="fileinput">
 
                     <label for="class">Clase de calzado:</label>
-                    <input type="text" name="class" id="class" placeholder="Clase de calzado" value="<%= producto.class %>">
+                    <input type="text" name="class" placeholder="Clase de calzado" value="<%= producto.class %>">
 
                     <label for="history">Descripcion del calzado:</label>
-                    <textarea name="history" id="history" cols="60" rows="7"><%= producto.history %></textarea>
-                    
-                    <p>Descuento</p>
-                    <div class="desc-radio">
-                        <div class="radio-button">
-                            <label for="discount">Descuento del calzado:</label>
-                            <input type="text" name="discount" id="" value="<%= producto.discount %>">
-                        </div>
-                    </div>
-                    
+                    <textarea name="history" cols="60" rows="7"><%= producto.history %></textarea>
+
+                    <label for="discount">Descuento del calzado:</label>
+                    <input type="text" name="discount" value="<%= producto.discount %>">
+
                     <label for="price">Precio:</label>
-                    <input type="text" name="price" id="price" placeholder="Precio" value="<%= producto.price %>">
+                    <input type="text" name="price" placeholder="Precio" value="<%= producto.price %>">
                     <button type="submit">Guardar cambios</button>
                 </form>
             </section>
