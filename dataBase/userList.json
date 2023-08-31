@@ -2,18 +2,21 @@
     "user": [
         {
             "id":"1",
-            "title": "Nike Jordan 1 retro",
-            "class":"BASKET",
-            "price": 75000,
-            "discount": 666,
+            "type": "user",
+            "name": "Miguel",
+            "lastName": "Abuelo",
+            "email": "Miguel@gmail.com",
+            "password": "miguel1234",
             "img": "/images/nikejordan1retrohigh.png"
         },
         {
             "id":"2",
-            "title": "Nike AirMax 90",
-            "class":"RUNNING",
-            "price": 567650,
-            "discount": 666,
-            "img": "/images/nikeairmax90.png"        }
+            "type": "admin",
+            "name": "Britney",
+            "lastName": "Spears",
+            "email": "Britney@gmail.com",
+            "password": "britney1234",
+            "img": "/images/nikeairmax90.png"
+        }
     ]
 }
