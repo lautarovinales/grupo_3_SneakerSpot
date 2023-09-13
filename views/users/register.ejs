@@ -22,11 +22,13 @@
       <div class="div-img">
         <img src="images/logo.png" alt="" class="imagen-login">
       </div>
-      <form action="/" method="POST">
+      <form action="/register" method="POST" enctype="multipart/form-data"> <!-- Agrega el atributo enctype para admitir la carga de archivos -->
         <p>Registrate</p>
-        <input type="name" name="name" id="name" placeholder="Nombre de usuari@">
+        <input type="name" name="name" id="name" placeholder="Nombre">
+        <input type="name" name="lastName" id="name" placeholder="apellido">
         <input type="email" name="email" id="email" placeholder="Correo Electrónico">
         <input type="password" name="password" id="password" placeholder="Contraseña">
+        <input type="file" name="img" accept=".jpg, .jpeg, .png"> <!-- Campo para cargar imágenes -->
         <button type="submit">Ingresar</button>
       </form>
       <p>¿Ya tenés una cuenta? <a href="/login" class="register">Inicia sesión aquí</a></p>

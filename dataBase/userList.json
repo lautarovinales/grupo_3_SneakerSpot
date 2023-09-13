@@ -1,7 +1,7 @@
 {
     "user": [
         {
-            "id":"1",
+            "id": "1",
             "type": "user",
             "name": "Miguel",
             "lastName": "Abuelo",
@@ -10,7 +10,7 @@
             "img": "/images/nikejordan1retrohigh.png"
         },
         {
-            "id":"2",
+            "id": "2",
             "type": "admin",
             "name": "Britney",
             "lastName": "Spears",
