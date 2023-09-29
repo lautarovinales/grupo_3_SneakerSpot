@@ -1,3 +1,5 @@
+const { body, validationResult } = require('express-validator');
+const bcrypt = require('bcrypt');
 const path = require('path');
 const dataBaseUsers = require('../dataBase/userList.json');
 const multer = require('multer');
@@ -5,10 +7,10 @@ const fs = require('fs');
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, 'public/usersImage'); // Ruta donde se guardarán las imágenes
+        cb(null, 'public/usersImage');
     },
     filename: function (req, file, cb) {
-        cb(null, Date.now() + '-' + file.originalname); // Nombre único del archivo
+        cb(null, Date.now() + '-' + file.originalname);
     }
 });
 
@@ -16,54 +18,66 @@ const upload = multer({ storage: storage });
 
 const authController = {
     login: (req, res) => {
-        // Lógica para mostrar la página de inicio de sesión
         res.render('users/login');
     },
 
     register: (req, res) => {
-        // Lógica para mostrar la página de registro
-        res.render('users/register');
+        res.render('users/register', { errors: [] });
     },
 
     doRegister: [
-        upload.single('img'), // Middleware para cargar una imagen
+        upload.single('img'),
+        [
+            body('name').notEmpty().withMessage('El campo nombre es obligatorio'),
+            body('lastName').notEmpty().withMessage('El campo apellido es obligatorio'),
+            body('email').isEmail().withMessage('El campo correo electrónico no es válido'),
+            body('password').notEmpty().withMessage('El campo contraseña es obligatorio'),
+            body('img').custom((value, { req }) => {
+                if (!req.file) {
+                    throw new Error('La imagen es obligatoria');
+                }
+                return true;
+            }),
+        ],
         async (req, res) => {
-            const {type, name, lastName, email, password} = req.body;
+            const errors = validationResult(req);
+
+            if (!errors.isEmpty()) {
+                return res.render('users/register', { errors: errors.array() });
+            }
+
+            const { name, lastName, email, password } = req.body;
             const userImage = req.file;
 
-            // Construye la ruta de la imagen si se ha cargado
+            // Encriptar la contraseña con bcrypt
+            const hashedPassword = await bcrypt.hash(password, 10);
+
             const imagePath = userImage ? `/usersImage/${userImage.filename}` : '';
 
-            // Genera un nuevo ID para el producto
             const newUserId = dataBaseUsers.user.length > 0 ? parseInt(dataBaseUsers.user[dataBaseUsers.user.length - 1].id) + 1 : 1;
 
-            // Crea un nuevo objeto de producto
             const newUser = {
                 id: newUserId.toString(),
                 type: 'user',
                 name,
                 lastName,
                 email,
-                password,
+                password: hashedPassword, // Usar la contraseña encriptada
                 img: imagePath,
             };
 
-            // Agrega el nuevo producto a la base de datos
             dataBaseUsers.user.push(newUser);
 
-            // Escribe los cambios en el archivo JSON
             fs.writeFileSync(path.join(__dirname, '../dataBase/userList.json'), JSON.stringify(dataBaseUsers, null, 4));
 
-            res.redirect('/login'); // Redirige después de crear el producto
-    }
+            res.redirect('/login');
+        }
     ],
 
     doLogin: (req, res) => {
         // Lógica para procesar el inicio de sesión del usuario
         // ...
     },
-
-    // Otras acciones relacionadas con la autenticación
 };
 
 module.exports = authController;

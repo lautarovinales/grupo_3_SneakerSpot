@@ -11,27 +11,53 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon">
   <title>Sneaker Spot | Registrarse</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/style-register.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style-register.css">
 </head>
 
 <body>
   <%- include('../partials/header.ejs') %>
   <main>
     <section>
-      <form action="/register" method="POST" enctype="multipart/form-data"> <!-- Agrega el atributo enctype para admitir la carga de archivos -->
+      <% if (errors.length > 0) { %>
+        <ul class="error-messages">
+          <% errors.forEach(error => { %>
+            <li class="error-alert"><%= error.msg %></li>
+          <% }); %>
+        </ul>
+      <% } %>
+
+      <form action="/register" method="POST" enctype="multipart/form-data">
         <p>Registrate</p>
         <input type="name" name="name" id="name" placeholder="Nombre">
-        <input type="name" name="lastName" id="name" placeholder="apellido">
+        <input type="name" name="lastName" id="name" placeholder="Apellido">
         <input type="email" name="email" id="email" placeholder="Correo Electrónico">
         <input type="password" name="password" id="password" placeholder="Contraseña">
-        <input type="file" name="img" accept=".jpg, .jpeg, .png"> <!-- Campo para cargar imágenes -->
+        <input type="file" name="img" accept=".jpg, .jpeg, .png">
         <button type="submit">Ingresar</button>
       </form>
       <p>¿Ya tenés una cuenta? <a href="/login" class="register">Inicia sesión aquí</a></p>
     </section>
   </main>
   <%- include('../partials/footer.ejs') %>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var errorMessages = document.querySelectorAll('.error-alert');
+
+      errorMessages.forEach(function (errorMessage, index) {
+        setTimeout(function () {
+          // Agrega la clase 'fade-out' para aplicar el efecto fade-out
+          errorMessage.classList.add('fade-out');
+
+          // Elimina el elemento después de 0.5 segundos (el tiempo de la transición)
+          setTimeout(function () {
+            errorMessage.remove();
+          }, 500);
+        }, 3000 * (index + 1)); // Ajusta el tiempo de espera en milisegundos
+      });
+    });
+  </script>
 </body>
 
 </html>
