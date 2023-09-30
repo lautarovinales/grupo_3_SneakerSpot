@@ -22,6 +22,18 @@
     color: #afafaf;
 }
 
+.user{
+    padding: 15px;
+    border-radius: 50%;
+    transition: 0.5s;
+    color: #afafaf;
+}
+
+.user:hover{
+    background-color: #1e1e1e;
+    color: #f1f1f1;
+}
+
 .login:hover{
     background-color: #1e1e1e;
     color: #f1f1f1;
@@ -86,7 +98,6 @@ header img:hover{
     display: none;
     background-color: #5A56E9;
     color: #ffffff;
-    transition: 0.5s;
 }
 
 .cart-icon:hover{
@@ -94,6 +105,7 @@ header img:hover{
     transition: 0.5s;
     cursor: pointer;
     font-size: 1em;
+    transition: 0.5s;
 }
 
 .header-nav a{
@@ -101,13 +113,13 @@ header img:hover{
     padding: 10px 20px 10px 20px;
     border-radius: 25px;
     font-size: 0.9em;
-    transition: 0.5s;
 }
 
 .header-nav a:hover{
     transition: 0.5s;
     background-color: #7470e8;
     color: #ffffff;
+    transition: 0.5s;
 }
 
 .menuIcon {

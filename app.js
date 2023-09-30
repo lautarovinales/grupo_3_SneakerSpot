@@ -1,5 +1,6 @@
 // Importa los módulos necesarios
 const express = require('express');
+const session = require('express-session');
 const path = require('path');
 const multer = require('multer'); // Importa Multer para manejar la carga de imágenes
 const methodOverride = require('method-override'); // Importa method-override para habilitar métodos HTTP PUT y DELETE
@@ -20,6 +21,15 @@ app.use(express.urlencoded({ extended: false })); // Analiza datos de formulario
 app.use(methodOverride('_method')); // Habilita el uso de _method para métodos PUT y DELETE
 app.use(express.json()); // Analiza datos JSON en las solicitudes
 app.use('/', express.static(__dirname + '/public')); // Sirve archivos estáticos desde 'public'
+app.use(session({
+    secret: 'tu_secreto_super_secreto',
+    resave: false,
+    saveUninitialized: false,
+  }));
+  app.use((req, res, next) => {
+    res.locals.userId = req.session.userId || null;
+    next();
+  });
 app.set('view engine', 'ejs'); // Establece el motor de plantillas como EJS
 app.set('views', path.join(__dirname, 'views')); // Establece el directorio de vistas
 

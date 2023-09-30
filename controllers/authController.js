@@ -17,6 +17,10 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 
 const authController = {
+  profile: (req, res) => {
+    res.render('users/profile');
+  },
+
     login: (req, res) => {
         res.render('users/login');
     },
@@ -74,10 +78,39 @@ const authController = {
         }
     ],
 
-    doLogin: (req, res) => {
-        // Lógica para procesar el inicio de sesión del usuario
-        // ...
-    },
+    doLogin: async (req, res) => {
+        const { email, password } = req.body;
+    
+        // Buscar el usuario en la base de datos
+        const usuario = dataBaseUsers.user.find(user => user.email === email);
+    
+        if (usuario) {
+          // Verificar la contraseña con bcrypt
+          const contraseñaValida = await bcrypt.compare(password, usuario.password);
+    
+          if (contraseñaValida) {
+            // Almacenar el ID del usuario en la sesión
+            req.session.userId = usuario.id;
+    
+            // Redirigir a la página principal con un mensaje de éxito
+            return res.redirect('/?mensaje=¡Enhorabuena, iniciaste sesión!');
+          } else {
+            // Credenciales incorrectas
+            return res.send('Credenciales incorrectas');
+          }
+        } else {
+          // Credenciales incorrectas
+          return res.send('Credenciales incorrectas');
+        }
+      },
+      doLogout: (req, res) => {
+        req.session.destroy(err => {
+          if (err) {
+            return res.status(500).send('Error al cerrar sesión');
+          }
+          res.redirect('/login'); // Puedes redirigir a donde quieras después del cierre de sesión
+        });
+      }
 };
 
 module.exports = authController;

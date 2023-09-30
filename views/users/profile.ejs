@@ -12,21 +12,30 @@
   <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon">
   <title>Sneaker Spot | Iniciar sesión</title>
   <link rel="stylesheet" href="./css/style.css">
-  <link rel="stylesheet" href="css/style-login.css">
+  <link rel="stylesheet" href="css/style-profile.css">
 </head>
 
 <body>
   <%- include('../partials/header.ejs') %>
   <main>
-    <section>
-      <form action="/login" method="POST">
-        <p>Iniciar sesión</p>
-        <input type="email" name="email" id="email" placeholder="Correo Electrónico">
-        <input type="password" name="password" id="password" placeholder="Contraseña">
-        <button type="submit">Ingresar</button>
-      </form>
-      <p>¿No tienes cuenta? <a href="/register" class="register">Crea una</a></p>
-    </section>
+   <div class="card-profile">
+    <div class="user-profile-img">
+
+    </div>
+    <div class="username-type">
+    <p class="username">Lautaro viñales</p>
+    <div class="user-type">
+        <i class="fa-solid fa-crown" style="color: #ffea84;"></i>
+    </div>
+    </div>
+    <div class="buttons-profile">
+        <button style="background-color: #5A56E9;"><i class="fa-solid fa-headset"></i></i>Soporte</button>
+        <button style="background-color: #5A56E9;"><i class="fa-solid fa-user-gear"></i>Configuracion</button>
+        <form action="/logout" method="post">
+        <button style="background-color: #ff5263;"><i class="fa-solid fa-right-from-bracket"></i>Cerrar sesion</button>
+    </form>
+    </div>
+   </div>
   </main>
   <%- include('../partials/footer.ejs') %>
 </body>

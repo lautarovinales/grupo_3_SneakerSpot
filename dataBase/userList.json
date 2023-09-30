@@ -17,6 +17,15 @@
             "email": "Britney@gmail.com",
             "password": "britney1234",
             "img": "/images/nikeairmax90.png"
+        },
+        {
+            "id": "3",
+            "type": "user",
+            "name": "lauti",
+            "lastName": "a",
+            "email": "lautarovinales14@gmail.com",
+            "password": "$2b$10$iWEk1vYlhYVvkAN6.gw4BOtv8pKeTNusUv7Ji1eVHurj5YXVKuGY6",
+            "img": "/usersImage/1696045265129-Season_2022_-_Diamond (1).png"
         }
     ]
 }

@@ -9,6 +9,8 @@ const authController = require('../controllers/authController'); // Importa el c
 // Controlador: authController.login
 router.get('/login', authController.login);
 
+router.get('/profile', authController.profile);
+
 // Ruta para mostrar la página de registro
 // Ruta: /register
 // Método: GET
@@ -26,6 +28,8 @@ router.post('/register', authController.doRegister);
 // Método: POST
 // Controlador: authController.doLogin
 router.post('/login', authController.doLogin);
+
+router.post('/logout', authController.doLogout);
 
 // Exporta el enrutador para que pueda ser utilizado en otros archivos
 module.exports = router;

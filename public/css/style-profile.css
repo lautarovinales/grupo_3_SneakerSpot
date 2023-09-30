@@ -1,0 +1,62 @@
+main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-profile{
+    background-color: #ffffff;
+    width: 50%;
+    min-width: 250px;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 20px;
+    gap: 20px;
+    border-radius: 5px;
+}
+
+.user-profile-img{
+    background-color: aqua;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
+
+.username-type{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.username{
+    font-size: 1.5em;
+}
+
+.user-type{
+    font-size: 1.2em;
+}
+
+.buttons-profile{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.buttons-profile button{
+    display: flex;
+    gap: 40px;
+    padding: 10px 20px 10px 20px;
+    border: none;
+    border-radius: 5px;
+    justify-content: space-between;
+    align-items: baseline;
+    color: #ffffff;
+    font-size: 1em;
+}
+
+.buttons-profile button:hover{
+    cursor: pointer;
+}
