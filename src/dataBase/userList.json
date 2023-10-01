@@ -26,6 +26,42 @@
             "email": "lautarovinales14@gmail.com",
             "password": "$2b$10$iWEk1vYlhYVvkAN6.gw4BOtv8pKeTNusUv7Ji1eVHurj5YXVKuGY6",
             "img": "/usersImage/1696045265129-Season_2022_-_Diamond (1).png"
+        },
+        {
+            "id": "4",
+            "type": "user",
+            "name": "Rina",
+            "lastName": "Sawayama",
+            "email": "rina@gmail.com",
+            "password": "$2b$10$nQ0k5mb9PnvvZV2OOiFKh.qvB6XgIH7IYSHOSKLhwdlXc1nGCDtPm",
+            "img": "/images/users/1696192517166-380209948_2791320521041365_6763448281467795452_n.jpg"
+        },
+        {
+            "id": "5",
+            "type": "user",
+            "name": "",
+            "lastName": "",
+            "email": "",
+            "password": "$2b$10$ZvUcguzfW7rKUlJ3idRpSe3Umx37Yi13onT5nLAVv/cdNpKB1VwrC",
+            "img": ""
+        },
+        {
+            "id": "6",
+            "type": "user",
+            "name": "",
+            "lastName": "",
+            "email": "",
+            "password": "$2b$10$bHFIepLo9wwOLluY51opPeZS5GUYiHndtzjzoiU55Xrq2Rljl09JG",
+            "img": ""
+        },
+        {
+            "id": "7",
+            "type": "user",
+            "name": "Billie",
+            "lastName": "Eilish",
+            "email": "billie@gmail.com",
+            "password": "$2b$10$lwU.CpwtktUeKCHzu3dyXO4NYZthzZ1DL3WBkA3hzJRGNLK2rOKkG",
+            "img": ""
         }
     ]
 }

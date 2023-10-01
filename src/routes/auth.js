@@ -1,35 +1,35 @@
-// Importación del módulo Express y creación de un enrutador
 const express = require('express');
 const router = express.Router();
-const authController = require('../controllers/authController'); // Importa el controlador de autenticación
+const multer = require("multer");
+const methodOverride = require('method-override');
+const authController = require('../controllers/authController');
 
-// Ruta para mostrar la página de inicio de sesión
-// Ruta: /login
-// Método: GET
-// Controlador: authController.login
+
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+      cb(null, "public/images/users");
+    },
+    filename: function (req, file, cb) {
+      cb(null, Date.now() + "-" + file.originalname);
+    },
+});
+  
+const upload = multer({ storage: storage });
+
+
 router.get('/login', authController.login);
 
 router.get('/profile', authController.profile);
 
-// Ruta para mostrar la página de registro
-// Ruta: /register
-// Método: GET
-// Controlador: authController.register
 router.get('/register', authController.register);
 
-// Ruta para procesar el registro del usuario
-// Ruta: /register
-// Método: POST
-// Controlador: authController.doRegister
-router.post('/register', authController.doRegister);
+//upload.single('img')
+router.post('/register', upload.any(), authController.doRegister);
+// router.post('/register', upload.any(), authController.rr);
 
-// Ruta para procesar el inicio de sesión del usuario
-// Ruta: /login
-// Método: POST
-// Controlador: authController.doLogin
+
 router.post('/login', authController.doLogin);
 
 router.post('/logout', authController.doLogout);
 
-// Exporta el enrutador para que pueda ser utilizado en otros archivos
 module.exports = router;

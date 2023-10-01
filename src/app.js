@@ -1,9 +1,9 @@
-// Importa los módulos necesarios
 const express = require('express');
 const session = require('express-session');
 const path = require('path');
 const multer = require('multer'); // Importa Multer para manejar la carga de imágenes
 const methodOverride = require('method-override'); // Importa method-override para habilitar métodos HTTP PUT y DELETE
+const bodyParser = require("body-parser");
 
 // Crea una instancia de la aplicación Express
 const app = express();
@@ -20,6 +20,8 @@ const authRoute = require('./routes/auth');
 app.use(express.urlencoded({ extended: false })); // Analiza datos de formularios
 app.use(methodOverride('_method')); // Habilita el uso de _method para métodos PUT y DELETE
 app.use(express.json()); // Analiza datos JSON en las solicitudes
+// app.use(bodyParser. text({type: '/'}));
+// app.use(bodyParser.urlencoded({extended: true,}));
 // app.use('/', express.static(__dirname + '../public')); // Sirve archivos estáticos desde 'public'
 
 const publicPath = path.resolve(__dirname, '../public');
@@ -49,9 +51,9 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 
 // Configuración de las rutas
-app.use('/', mainRoute); // Ruta raíz
-app.use('/product', productRoute); // Rutas relacionadas con productos
-app.use('/', authRoute); // Rutas relacionadas con autenticación
+app.use('/', mainRoute);
+app.use('/product', productRoute);
+app.use('/user', authRoute);
 
 // Inicia el servidor y escucha en el puerto especificado
 app.listen(puerto, () => {
