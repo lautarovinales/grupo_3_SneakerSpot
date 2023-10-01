@@ -20,7 +20,11 @@ const authRoute = require('./routes/auth');
 app.use(express.urlencoded({ extended: false })); // Analiza datos de formularios
 app.use(methodOverride('_method')); // Habilita el uso de _method para métodos PUT y DELETE
 app.use(express.json()); // Analiza datos JSON en las solicitudes
-app.use('/', express.static(__dirname + '/public')); // Sirve archivos estáticos desde 'public'
+// app.use('/', express.static(__dirname + '../public')); // Sirve archivos estáticos desde 'public'
+
+const publicPath = path.resolve(__dirname, '../public');
+app.use(express.static(publicPath));
+
 app.use(session({
     secret: 'tu_secreto_super_secreto',
     resave: false,
@@ -36,7 +40,7 @@ app.set('views', path.join(__dirname, 'views')); // Establece el directorio de v
 // Configuración de Multer para manejar la carga de imágenes
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, 'public/images'); // Ruta donde se guardarán las imágenes
+        cb(null, '../public/images'); // Ruta donde se guardarán las imágenes
     },
     filename: function (req, file, cb) {
         cb(null, Date.now() + '-' + file.originalname); // Nombre único del archivo
