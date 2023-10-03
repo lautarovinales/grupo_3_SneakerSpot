@@ -24,7 +24,7 @@ router.get('/profile', authController.profile);
 router.get('/register', authController.register);
 
 //upload.single('img')
-router.post('/register', upload.any(), authController.doRegister);
+router.post('/register', upload.single('img'), authController.doRegister);
 // router.post('/register', upload.any(), authController.rr);
 
 

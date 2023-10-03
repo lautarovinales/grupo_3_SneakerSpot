@@ -7,9 +7,9 @@ const fs = require("fs");
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    const folderToSave = path.join(__dirname, '..', '..', 'public', 'images', 'users');
-        cb(null, folderToSave);
-    // cb(null, "public/images/users");
+    // const folderToSave = path.join(__dirname, '..', '..', 'public', 'images', 'users');
+    //     cb(null, folderToSave);
+    cb(null, "public/images/users");
   },
   filename: function (req, file, cb) {
     cb(null, Date.now() + "-" + file.originalname);
@@ -31,14 +31,12 @@ const authController = {
     res.render("users/register", { errors: [] });
   },
 
-  rr: (req, res) => {
-    res.send("este funciona!");
-  },
+  // rr: (req, res) => {
+  //   res.send("este funciona!");
+  // },
 
-  doRegister: (req, res) => [
-    upload.single("img"),
-    async (req, res) => {
-      console.log("llegué aca al doregister");
+  doRegister: (req, res) => {
+    console.log("llegué aca al doregister");
       const errors = validationResult(req);
 
       if (!errors.isEmpty()) {
@@ -77,8 +75,7 @@ const authController = {
       );
 
       res.redirect("/user/login");
-    },
-  ],
+  },
 
   // doRegister: (req, res) => [
   //   // upload.single("img"),

@@ -1,26 +1,8 @@
 {
     "user": [
         {
-            "id": "1",
-            "type": "user",
-            "name": "Miguel",
-            "lastName": "Abuelo",
-            "email": "Miguel@gmail.com",
-            "password": "miguel1234",
-            "img": "/images/nikejordan1retrohigh.png"
-        },
-        {
-            "id": "2",
-            "type": "admin",
-            "name": "Britney",
-            "lastName": "Spears",
-            "email": "Britney@gmail.com",
-            "password": "britney1234",
-            "img": "/images/nikeairmax90.png"
-        },
-        {
             "id": "3",
-            "type": "user",
+            "type": "admin",
             "name": "lauti",
             "lastName": "a",
             "email": "lautarovinales14@gmail.com",
@@ -28,40 +10,13 @@
             "img": "/usersImage/1696045265129-Season_2022_-_Diamond (1).png"
         },
         {
-            "id": "4",
+            "id": "12",
             "type": "user",
-            "name": "Rina",
-            "lastName": "Sawayama",
-            "email": "rina@gmail.com",
-            "password": "$2b$10$nQ0k5mb9PnvvZV2OOiFKh.qvB6XgIH7IYSHOSKLhwdlXc1nGCDtPm",
-            "img": "/images/users/1696192517166-380209948_2791320521041365_6763448281467795452_n.jpg"
-        },
-        {
-            "id": "5",
-            "type": "user",
-            "name": "",
-            "lastName": "",
-            "email": "",
-            "password": "$2b$10$ZvUcguzfW7rKUlJ3idRpSe3Umx37Yi13onT5nLAVv/cdNpKB1VwrC",
-            "img": ""
-        },
-        {
-            "id": "6",
-            "type": "user",
-            "name": "",
-            "lastName": "",
-            "email": "",
-            "password": "$2b$10$bHFIepLo9wwOLluY51opPeZS5GUYiHndtzjzoiU55Xrq2Rljl09JG",
-            "img": ""
-        },
-        {
-            "id": "7",
-            "type": "user",
-            "name": "Billie",
-            "lastName": "Eilish",
-            "email": "billie@gmail.com",
-            "password": "$2b$10$lwU.CpwtktUeKCHzu3dyXO4NYZthzZ1DL3WBkA3hzJRGNLK2rOKkG",
-            "img": ""
+            "name": "brian",
+            "lastName": "velazquez",
+            "email": "brianezequielv2004@gmail.com",
+            "password": "$2b$10$GIv8bIMiKkdSwXPlJ.K6dunE/pD7sNG6dlm9/vEb.zhZ7tRWJlF1y",
+            "img": "/images/users/1696372175219-user1.jpg"
         }
     ]
 }
