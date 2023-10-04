@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon">
+  <title>Sneaker Spot | Iniciar sesión</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="css/style-profile.css">
+</head>
+
+<body>
+  <%- include('../partials/header.ejs') %>
+  <main>
+   <div class="card-profile">
+    <div class="user-profile-img">
+
+    </div>
+    <div class="username-type">
+      <p class="username"><%= usuario.name %> <%= usuario.lastName %></p>
+    <div class="user-type">
+        <i class="fa-solid fa-crown" style="color: #ffea84;"></i>
+    </div>
+    </div>
+    <div class="buttons-profile">
+        <button style="background-color: #5A56E9;"><i class="fa-solid fa-headset"></i></i>Soporte</button>
+        <button style="background-color: #5A56E9;"><i class="fa-solid fa-user-gear"></i>Configuracion</button>
+        <form action="/logout" method="post">
+        <button style="background-color: #ff5263;"><i class="fa-solid fa-right-from-bracket"></i>Cerrar sesion</button>
+    </form>
+    </div>
+   </div>
+  </main>
+  <%- include('../partials/footer.ejs') %>
+</body>
+
+</html>

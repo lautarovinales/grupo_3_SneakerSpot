@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon">
+  <title>Sneaker Spot | Inicio</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <%- include('partials/header.ejs') %>
+  <main>
+    <p class="title">Ofertas por tiempo limitado</p>
+    <section class="productsSection">
+      <% productosEnOferta.forEach(producto => { %>
+      <div class="producto">
+        <a class="link" href="/product/<%= producto.id %>">
+        <div class="img-shoe">
+          <img src="<%= producto.img %>" alt="" srcset="" width="100%" height="100%">
+        </div>
+        <div class="desc-shoe">
+          <div class="envio-fav">
+            <p class="envio">Envio gratis</p>
+            <button><i class="fa-solid fa-heart"></i></button>
+          </div>
+          <p class="name-shoe"><%= producto.title %></p>
+          <p class="class-shoe"><%= producto.class %></p>
+          <div class="disc-price">
+            <p class="disc-shoe">$ <%= producto.discount %></p>
+            <p class="price-shoe">$ <%= producto.price %></p>
+          </div>
+        </div>
+      </a>
+      </div>
+      <% }) %>
+    </section>
+
+    <p class="title">Lo más comprado</p>
+    <div class="cont-for-you">
+      <div class="cont-1">
+        <img src="/images/adidas-logo.png" alt="" srcset="" width="120px">
+      </div>
+      <div class="cont-2">
+        <img src="/images/nike-logo.png" alt="" srcset="" width="120px">
+      </div>
+    </div>
+    <div class="cont-faq">
+      <div class="contf">
+        <i class="fa-solid fa-credit-card icon" style="color: #5A56E9;"></i>
+        <p class="title">Elegí cómo pagar</p>
+        <p class="txt-g">Podés pagar con tarjeta, débito, efectivo o hasta 12 cuotas sin interés.</p>
+      </div>
+      <div class="contf">
+        <i class="fa-solid fa-gift icon" style="color: #5A56E9;"></i>
+        <p class="title">Envío gratis desde $ 8.000</p>
+        <p class="txt-g">Solo por estar registrado en Sneaker Spot tenés envíos gratis en miles de productos.</p>
+      </div>
+      <div class="contf">
+        <i class="fa-solid fa-shield-halved icon" style="color: #5A56E9;"></i>
+        <p class="title">Seguridad, de principio a fin</p>
+        <p class="txt-g">¿No te gusta? ¡Devolvelo! En Sneaker Spot, no hay nada que no puedas hacer, porque estás
+          siempre protegido.</p>
+      </div>
+    </div>
+  </main>
+  <%- include('partials/footer.ejs') %>
+  <script src="./js/script.js"></script>
+</body>
+
+</html>

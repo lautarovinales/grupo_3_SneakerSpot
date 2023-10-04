@@ -1,0 +1,34 @@
+<div class="register-login">
+  <% if (userId) { %>
+    <a href="/profile"><i class="fa-solid fa-user user"></i></a>
+    <!-- Mostrar el carrito solo cuando el usuario ha iniciado sesión -->
+    <a href="/product/cart"><button class="cart-icon"><i class="fas fa-shopping-cart"></i></button></a>
+  <% } else { %>
+    <a href="/login"><i class="fa-solid fa-right-to-bracket login"></i></a>
+  <% } %>
+</div>
+  <header>
+    <a href="/"><img src="/images/logo.png" id="logo" alt="" srcset="" width="100px" height="100px"></a>
+    <nav class="header-nav">
+      <a href="/product/catalogo">Catálogo</a>
+      <a href="">Niño/as</a>
+      <a href="">Hombre</a>
+      <a href="">Mujeres</a>
+    </nav>
+    <div class="searchbar">
+      <input class="search-txt" type="search" name="" id=""><button class="search-icon"><i class="fas fa-search search-button" style="color: #5A56E9;"></i></button>
+    </div>
+    <nav class="menu">
+      <input type="checkbox" id="check">
+      <label for="check" class="checkbtn">
+        <i class="fa-solid fa-bars menuIcon" style="color: #ffffff;"></i>
+      </label>
+      <ul>
+        <li><a class="active" href="">Catálogo</a></li>
+        <li><a class="active" href="">Niño/as</a></li>
+        <li><a class="active" href="">Hombre</a></li>
+        <li><a class="active" href="">Mujeres</a></li>
+        <li><a class="active" href="/login">Ingresar</a></li>
+      </ul>
+    </nav>
+  </header>

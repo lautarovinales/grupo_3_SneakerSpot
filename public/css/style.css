@@ -59,7 +59,6 @@ header{
     display: none;
     height: 40px;
     width: 20%;
-    padding-right: 30px;
 }
 
 .searchbar input{
@@ -91,21 +90,23 @@ header img:hover{
 }
 
 .cart-icon{
-    padding: 10px;
+    padding: 14px;
     border: none;
     border-radius: 100%;
     font-size: 1em;
     display: none;
-    background-color: #5A56E9;
-    color: #ffffff;
+    background-color: #101010;
+    color: #afafaf;
+    margin-left: 30px;
 }
 
 .cart-icon:hover{
-    background-color: #7470e8;
+    background-color: #1e1e1e;
     transition: 0.5s;
     cursor: pointer;
     font-size: 1em;
     transition: 0.5s;
+    color: #f1f1f1;
 }
 
 .header-nav a{

@@ -1,0 +1,40 @@
+{
+    "user": [
+        {
+            "id": "1",
+            "type": "user",
+            "name": "Miguel",
+            "lastName": "Abuelo",
+            "email": "Miguel@gmail.com",
+            "password": "miguel1234",
+            "img": "/images/nikejordan1retrohigh.png"
+        },
+        {
+            "id": "2",
+            "type": "admin",
+            "name": "Britney",
+            "lastName": "Spears",
+            "email": "Britney@gmail.com",
+            "password": "britney1234",
+            "img": "/images/nikeairmax90.png"
+        },
+        {
+            "id": "3",
+            "type": "user",
+            "name": "lauti",
+            "lastName": "vinales",
+            "email": "lautarovinales16@gmail.com",
+            "password": "$2b$10$P/.jD/eQ7OU.XxkuWqFECemIy1yCZulNP5YS.jPly8/hm8nhFNP8m",
+            "img": "/usersImage/1696202179385-logo2.png"
+        },
+        {
+            "id": "4",
+            "type": "user",
+            "name": "lauti",
+            "lastName": "vinales",
+            "email": "lautarovinales20@gmail.com",
+            "password": "$2b$10$NImpz1OL3/rJiLF43vEtb.d2AZ8H6ieQATPPwCyDIfR6J41B2VEx.",
+            "img": "/usersImage/1696437337798-tacs.png"
+        }
+    ]
+}
