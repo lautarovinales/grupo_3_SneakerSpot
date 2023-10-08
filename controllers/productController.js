@@ -19,21 +19,30 @@ const upload = multer({ storage: storage }); // Crea un middleware de carga con 
 
 // Definición del controlador de productos
 const productController = {
-    // Método para listar productos
+
     list: (req, res) => {
         // Envía el archivo product.ejs al cliente como respuesta
         res.sendFile(path.resolve(__dirname, '../views/product.ejs'));
     },
-    // Método para mostrar el carrito de compras
+
     cart: (req, res) => {
-        const { productCart } = dataCart;
         res.render('./product/productCart', { data: dataCart.results });
     },
-    // Método para mostrar la página de creación de productos
+    
+    addToCart: async (req, res) => {
+        // console.log("LLEGO ACA");
+        const cart = dataCart.results;
+        const { results } = dataBase;
+        const product = results.find((pro) => pro.id === req.params.id);
+        cart.push(product);
+        fs.writeFileSync(path.join(__dirname, '../dataBase/productListCart.json'), JSON.stringify(dataCart, null, 4));
+        res.render('./product/productCart', { data: dataCart.results });
+    },
+
     creation: (req, res) => {
         res.render('./product/productCreation');
     },
-    // Método para crear un nuevo producto
+
     createProduct: [
         upload.single('img'), // Middleware para cargar una imagen
         async (req, res) => {
@@ -41,7 +50,7 @@ const productController = {
                 const productImage = req.file;
 
                 // Construye la ruta de la imagen si se ha cargado
-                const imagePath = productImage ? `/images/${productImage.filename}` : '';
+                const imagePath = productImage ? `/images/products/${productImage.filename}` : '';
 
                 // Genera un nuevo ID para el producto
                 const newProductId = dataBase.results.length > 0 ? parseInt(dataBase.results[dataBase.results.length - 1].id) + 1 : 1;
@@ -67,14 +76,14 @@ const productController = {
                 res.redirect('/product/creation'); // Redirige después de crear el producto
         }
     ],
-    // Método para mostrar la página de edición de un producto por su ID
+
     showEditById: (req, res) => {
         const id = req.params.id;
         const { results } = dataBase;
         const producto = results.find(pro => pro.id == id);
         res.render('./product/productEditById', { producto });
     },
-    // Método para editar un producto por su ID
+
     editById: [
         upload.single('img'), // Middleware para cargar una imagen
         async (req, res) => {
@@ -82,7 +91,7 @@ const productController = {
             const id = req.params.id;
 
             const productImage = req.file;
-            const imagePath = productImage ? `/images/${productImage.filename}` : '';
+            const imagePath = productImage ? `/images/products/${productImage.filename}` : '';
 
             const { results } = dataBase;
 
@@ -110,12 +119,12 @@ const productController = {
             res.redirect('/'); // Redirige después de editar el producto
         }
     ],
-    // Método para mostrar la página de catálogo de productos
+
     catalogo: (req, res) => {
         const { results } = dataBase;
         res.render('./product/productCatalogue', { results });
     },
-    // Método para mostrar detalles de un producto por su ID
+
     productDetail: (req, res) => {
         const { id } = req.params;
         const { results } = dataBase;
@@ -124,7 +133,7 @@ const productController = {
         // Renderiza la vista 'product' utilizando el motor de plantillas EJS
         res.render('./product/product', { product });
     },
-    // Método para eliminar un producto por su ID
+
     productDelete: (req, res) => {
         const id = req.params.id; // Obtén el ID del parámetro de la solicitud
 

@@ -65,7 +65,7 @@ const authController = {
             // Encriptar la contraseña con bcrypt
             const hashedPassword = await bcrypt.hash(password, 10);
 
-            const imagePath = userImage ? `/usersImage/${userImage.filename}` : '';
+            const imagePath = userImage ? `/images/users/${userImage.filename}` : '';
 
             const newUserId = dataBaseUsers.user.length > 0 ? parseInt(dataBaseUsers.user[dataBaseUsers.user.length - 1].id) + 1 : 1;
 

@@ -6,7 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+    rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon">
@@ -17,28 +19,36 @@
 
 <body>
   <%- include('../partials/header.ejs') %>
-  <main>
-    <div class="shoe-img">
-      <img src="<%= product.img %>" alt="" srcset="">
-    </div>
-    <div class="shoe-desc">
-        <p class="desc">10% OFF</p>
-        <p class="titulo"><%= product.title %></p>
-        <p class="shoe-class"><%= product.class %></p>
-        <p class="envio">Envio Gratis</p>
-        <p class="shoe-history"><%= product.history %></p>
-        <div class="flex-cont">
-        <input type="number" id="cantidad" name="cantidad" min="1" max="10" step="1">
-        <button class="button-form" type="submit">Añadir al carrito</button>
-        <button class="button-form" type="submit">Comprar</button>
-        <form method="POST" action="/product/<%= product.id %>?_method=DELETE">
-          <!-- Cambiar el método del formulario a POST y agregar _method=DELETE en la URL -->
-          <button class="button-form-delete" type="submit">Eliminar</button>
-        </form>
+    <main>
+      <div class="shoe-img">
+        <img src="<%= product.img %>" alt="" srcset="">
       </div>
-    </div>
-  </main>
-  <%- include('../partials/footer.ejs') %>
+      <div class="shoe-desc">
+        <p class="desc">10% OFF</p>
+        <p class="titulo">
+          <%= product.title %>
+        </p>
+        <p class="shoe-class">
+          <%= product.class %>
+        </p>
+        <p class="envio">Envio Gratis</p>
+        <p class="shoe-history">
+          <%= product.history %>
+        </p>
+        <div class="flex-cont">
+          <input type="number" id="cantidad" name="cantidad" min="1" max="10" step="1">
+          <form method="POST" action="/product/<%= product.id %>?_method=PUT">
+            <button class="button-form" type="submit">Añadir al carrito</button>
+          </form>
+          <button class="button-form" type="submit">Comprar</button>
+          <form method="POST" action="/product/<%= product.id %>?_method=DELETE">
+            <!-- Cambiar el método del formulario a POST y agregar _method=DELETE en la URL -->
+            <!-- <button class="button-form-delete" type="submit">Eliminar</button> -->
+          </form>
+        </div>
+      </div>
+    </main>
+    <%- include('../partials/footer.ejs') %>
 </body>
 
 </html>

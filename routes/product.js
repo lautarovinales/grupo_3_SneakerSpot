@@ -24,7 +24,9 @@ router.put('/edit/:id', productController.editById);
 
 router.get('/:id', productController.productDetail);
 
-router.delete('/:id', productController.productDelete);
+router.put('/:id', productController.addToCart);
+
+// router.delete('/:id', productController.productDelete);
 
 // Exporta el enrutador para que pueda ser utilizado en otros archivos
 module.exports = router;

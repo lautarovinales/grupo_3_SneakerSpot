@@ -7,7 +7,7 @@
             "lastName": "Abuelo",
             "email": "Miguel@gmail.com",
             "password": "miguel1234",
-            "img": "/images/nikejordan1retrohigh.png"
+            "img": "/images/users/nikejordan1retrohigh.png"
         },
         {
             "id": "2",
@@ -16,7 +16,7 @@
             "lastName": "Spears",
             "email": "Britney@gmail.com",
             "password": "britney1234",
-            "img": "/images/nikeairmax90.png"
+            "img": "/images/users/nikeairmax90.png"
         },
         {
             "id": "3",
@@ -25,7 +25,7 @@
             "lastName": "vinales",
             "email": "lautarovinales16@gmail.com",
             "password": "$2b$10$P/.jD/eQ7OU.XxkuWqFECemIy1yCZulNP5YS.jPly8/hm8nhFNP8m",
-            "img": "/usersImage/1696202179385-logo2.png"
+            "img": "/images/users/1696202179385-logo2.png"
         },
         {
             "id": "4",
@@ -34,7 +34,16 @@
             "lastName": "vinales",
             "email": "lautarovinales20@gmail.com",
             "password": "$2b$10$NImpz1OL3/rJiLF43vEtb.d2AZ8H6ieQATPPwCyDIfR6J41B2VEx.",
-            "img": "/usersImage/1696437337798-tacs.png"
+            "img": "/images/users/1696437337798-tacs.png"
+        },
+        {
+            "id": "5",
+            "type": "user",
+            "name": "Blood",
+            "lastName": "Incantation",
+            "email": "blood@gmail.com",
+            "password": "$2b$10$ofGcKqqYgy6Y3c5O8/jNtuQSnpd7uBD9zvRf8iWU3znphXynCwJw2",
+            "img": "/usersImage/1696790515501-user3.jpeg"
         }
     ]
 }
