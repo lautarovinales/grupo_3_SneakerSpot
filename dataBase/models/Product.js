@@ -23,7 +23,7 @@ module.exports = (sequelize, dataTypes) => {
             allowNull: false,
         },
         enOferta: {
-            type: dataTypes.tinyInteger,
+            type: dataTypes.BOOLEAN,
             allowNull: false,
         },
         img: {
@@ -41,7 +41,7 @@ module.exports = (sequelize, dataTypes) => {
             allowNull: false,
         },
         sex: {
-            type: dataTypes.tinyInteger,
+            type: dataTypes.BOOLEAN,
         },
     };
 

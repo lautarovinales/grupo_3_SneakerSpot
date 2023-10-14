@@ -1,9 +1,8 @@
-// Importación de módulos necesarios
-const path = require('path'); // Módulo para manejar rutas de archivos y directorios
-const dataBase = require('../dataBase/productList.json'); // Importa los datos desde productList.json
-const dataCart = require('../dataBase/productListCart.json'); // Importa los datos del carrito
-const multer = require('multer'); // Módulo para manejar la carga de archivos
-const fs = require('fs'); // Módulo para manejar el sistema de archivos
+const path = require('path');
+const dataBase = require('../dataBase/productList.json');
+const dataCart = require('../dataBase/productListCart.json');
+const multer = require('multer');
+const fs = require('fs');
 
 // Configuración de almacenamiento para la carga de imágenes con Multer
 const storage = multer.diskStorage({
@@ -15,14 +14,14 @@ const storage = multer.diskStorage({
     }
 });
 
-const upload = multer({ storage: storage }); // Crea un middleware de carga con la configuración de almacenamiento
+const upload = multer({ storage: storage });
 
-// Definición del controlador de productos
 const productController = {
 
     list: (req, res) => {
         // Envía el archivo product.ejs al cliente como respuesta
-        res.sendFile(path.resolve(__dirname, '../views/product.ejs'));
+        // res.sendFile(path.resolve(__dirname, '../views/product.ejs'));
+        res.render('./product.ejs');
     },
 
     cart: (req, res) => {
@@ -30,7 +29,6 @@ const productController = {
     },
     
     addToCart: async (req, res) => {
-        // console.log("LLEGO ACA");
         const cart = dataCart.results;
         const { results } = dataBase;
         const product = results.find((pro) => pro.id === req.params.id);
