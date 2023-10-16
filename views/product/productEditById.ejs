@@ -12,7 +12,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon">
-    <title>Sneaker Spot | Crear producto</title>
+    <title>Sneaker Spot | Editar producto</title>
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/style-productEdit.css">
 </head>
@@ -26,17 +26,17 @@
                 </div>
                 <form action="/product/edit/<%= producto.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
                     <h2>Editar producto</h2>
-                    <label for="title">Nombre del calzado:</label>
-                    <input type="text" name="title" placeholder="Nombre del calzado" value="<%= producto.title %>">
+                    <label for="name">Nombre del calzado:</label>
+                    <input type="text" name="name" placeholder="Nombre del calzado" value="<%= producto.name %>">
 
                     <label for="img">Imagen del calzado:</label>
-                    <input type="file" name="img" class="fileinput">
+                    <input type="file" name="img" class="fileinput" value="<%= producto.img %>">
 
                     <label for="class">Clase de calzado:</label>
                     <input type="text" name="class" placeholder="Clase de calzado" value="<%= producto.class %>">
 
-                    <label for="history">Descripcion del calzado:</label>
-                    <textarea name="history" cols="60" rows="7"><%= producto.history %></textarea>
+                    <label for="description">Descripcion del calzado:</label>
+                    <textarea name="description" cols="60" rows="7"><%= producto.description %></textarea>
 
                     <label for="discount">Descuento del calzado:</label>
                     <input type="text" name="discount" value="<%= producto.discount %>">

@@ -8,10 +8,6 @@ const db = require('../dataBase/models');
 const mainController = {
     // Método para manejar la página principal (home)
     home: (req, res) => {
-        // const { results } = dataBase;
-        // const productosEnOferta = results.filter(producto => producto.enOferta);
-        // res.render('index', { productosEnOferta });
-
         db.Product.findAll((
             {
                 where: {
@@ -20,12 +16,13 @@ const mainController = {
             }
         ))
             .then((results) => {
-                // console.log(results);
-                // res.send(results);
                 res.render('index', {productosEnOferta: results})
             })
+
+        // const { results } = dataBase;
+        // const productosEnOferta = results.filter(producto => producto.enOferta);
+        // res.render('index', { productosEnOferta });
     }
-    
 };
 
 

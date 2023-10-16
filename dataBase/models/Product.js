@@ -24,7 +24,6 @@ module.exports = (sequelize, dataTypes) => {
         },
         enOferta: {
             type: dataTypes.BOOLEAN,
-            allowNull: false,
         },
         img: {
             type: dataTypes.STRING(255),

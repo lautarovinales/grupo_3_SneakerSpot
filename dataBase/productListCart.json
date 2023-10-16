@@ -239,6 +239,26 @@
             "img": "/images/products/nikenyjahfree2.png",
             "history": "En una ciudad que nunca dormía, un amante de la moda callejera se destacaba entre la multitud con sus Adidas Ultraboost Light. Estas zapatillas, una combinación perfecta de estilo y funcionalidad, lo acompañaban en sus días llenos de movimiento y expresión personal. Cada paso era como una sinfonía de confort y estilo, gracias a la amortiguación adaptable que respondía a cada movimiento. Las Ultraboost Light eran más que simples zapatillas; eran una extensión de su identidad, un lienzo en blanco para su creatividad en constante evolución.",
             "enOferta": true
+        },
+        {
+            "id": "1",
+            "title": "Nike Jordan 1 retro",
+            "class": "BASKET",
+            "price": 75000,
+            "discount": 666,
+            "img": "/images/products/nikejordan1retrohigh.png",
+            "history": "En el vibrante escenario urbano, las zapatillas Nike Jordan 1 Zoom fusionan la legendaria silueta con la innovadora tecnología Zoom Air, brindando un confort sublime y un retorno de energía sorprendente. Su cuero premium, colores clásicos y el icónico logotipo Jumpman en el talón hacen de ellas un símbolo de estilo audaz y autenticidad en cada paso. Una fusión perfecta entre pasado y futuro, las Jordan 1 Zoom son la elección definitiva para quienes buscan dominar las calles con un toque de elegancia rebelde.",
+            "enOferta": true
+        },
+        {
+            "id": "1",
+            "title": "Nike Jordan 1 retro",
+            "class": "BASKET",
+            "price": 75000,
+            "discount": 666,
+            "img": "/images/products/nikejordan1retrohigh.png",
+            "history": "En el vibrante escenario urbano, las zapatillas Nike Jordan 1 Zoom fusionan la legendaria silueta con la innovadora tecnología Zoom Air, brindando un confort sublime y un retorno de energía sorprendente. Su cuero premium, colores clásicos y el icónico logotipo Jumpman en el talón hacen de ellas un símbolo de estilo audaz y autenticidad en cada paso. Una fusión perfecta entre pasado y futuro, las Jordan 1 Zoom son la elección definitiva para quienes buscan dominar las calles con un toque de elegancia rebelde.",
+            "enOferta": true
         }
     ]
 }

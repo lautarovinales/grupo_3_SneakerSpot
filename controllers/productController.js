@@ -3,6 +3,7 @@ const dataBase = require('../dataBase/productList.json');
 const dataCart = require('../dataBase/productListCart.json');
 const multer = require('multer');
 const fs = require('fs');
+const db = require('../dataBase/models');
 
 // Configuración de almacenamiento para la carga de imágenes con Multer
 const storage = multer.diskStorage({
@@ -44,92 +45,111 @@ const productController = {
     createProduct: [
         upload.single('img'), // Middleware para cargar una imagen
         async (req, res) => {
-                const { title, class: clase, history, discount, price } = req.body;
-                const productImage = req.file;
-
-                // Construye la ruta de la imagen si se ha cargado
-                const imagePath = productImage ? `/images/products/${productImage.filename}` : '';
-
-                // Genera un nuevo ID para el producto
-                const newProductId = dataBase.results.length > 0 ? parseInt(dataBase.results[dataBase.results.length - 1].id) + 1 : 1;
-
-                // Crea un nuevo objeto de producto
-                const newProduct = {
-                    id: newProductId.toString(),
-                    title,
-                    class: clase,
-                    history,
-                    discount,
-                    price,
-                    img: imagePath,
-                    enOferta: "true",
-                };
-
-                // Agrega el nuevo producto a la base de datos
-                dataBase.results.push(newProduct);
-
-                // Escribe los cambios en el archivo JSON
-                fs.writeFileSync(path.join(__dirname, '../dataBase/productList.json'), JSON.stringify(dataBase, null, 4));
-
-                res.redirect('/product/creation'); // Redirige después de crear el producto
+            const { name, price, discount, description, class: clase, sex} = req.body;
+            const productImage = req.file ? `/images/products/${req.file.filename}` : '';
+            db.Product.create({
+                name,
+                price,
+                discount,
+                description,
+                enOferta: 'true',
+                img: productImage || '',
+                class: clase,
+                sex
+            })
+                .then((result) => {
+                    res.redirect('/product/creation');
+                })
         }
     ],
 
     showEditById: (req, res) => {
-        const id = req.params.id;
-        const { results } = dataBase;
-        const producto = results.find(pro => pro.id == id);
-        res.render('./product/productEditById', { producto });
+        let producto = '';
+        db.Product.findByPk(req.params.id)
+                .then((result) => {
+                    producto = result;
+                    res.render('./product/productEditById', { producto });
+                })
     },
 
     editById: [
         upload.single('img'), // Middleware para cargar una imagen
         async (req, res) => {
-            const { title, class: clase, price, discount, img, history } = req.body;
-            const id = req.params.id;
+            const { name, price, discount, description, class: clase, sex} = req.body;
+            const productImage = req.file ? `/images/products/${req.file.filename}` : '';
 
-            const productImage = req.file;
-            const imagePath = productImage ? `/images/products/${productImage.filename}` : '';
+            db.Product.findByPk(req.params.id)
+                .then((result) => {
+                    const productToUpdate = result;
+                })
 
-            const { results } = dataBase;
+            name ? productToUpdate.name = name : productToUpdate.name;
+            price ? productToUpdate.price = price : productToUpdate.price;
+            discount ? productToUpdate.discount = discount : productToUpdate.discount;
+            description ? productToUpdate.description = description : productToUpdate.description;
+            productImage ? productToUpdate.img = productImage : productToUpdate.img;
+            clase ? productToUpdate.class = clase : productToUpdate.class;
+            sex ? productToUpdate.sex = sex : productToUpdate.sex;
 
-            // Encuentra el producto por su ID
-            const foundById = results.find((pro) => pro.id === id);
+            db.Product.Update({
+                name,
+                price,
+                discount,
+                description,
+                img: productImage || '',
+                class: clase,
+                sex
+            })
+                .then((result) => {
+                    res.redirect('/');
+                })
 
-            // Actualiza los campos del producto con los nuevos valores si están presentes en la solicitud
-            title ? foundById.title = title : foundById.title;
-            clase ? foundById.class = clase : foundById.class;
-            price ? foundById.price = price : foundById.price;
-            discount ? foundById.discount = discount : foundById.discount;
-            history ? foundById.history = history : foundById.history;
-            imagePath ? foundById.img = imagePath : foundById.img;
 
-            // Filtra los productos para eliminar el producto original y agrega el producto editado
-            // const productos = results.filter(pro => pro.id != foundById.id);
-            // productos.push(foundById);
+            // const { title, class: clase, price, discount, img, history } = req.body;
+            // const id = req.params.id;
 
-            // Ordena los objetos en base a su ID
-            // productos.sort((a, b) => a.id > b.id ? 1 : -1);
+            // const productImage = req.file;
+            // const imagePath = productImage ? `/images/products/${productImage.filename}` : '';
 
-            // Escribe los cambios en el archivo JSON
-            fs.writeFileSync(path.join(__dirname, '../dataBase/productList.json'), JSON.stringify(dataBase, null, 4));
+            // const { results } = dataBase;
 
-            res.redirect('/'); // Redirige después de editar el producto
+            // // Encuentra el producto por su ID
+            // const foundById = results.find((pro) => pro.id === id);
+
+            // // Actualiza los campos del producto con los nuevos valores si están presentes en la solicitud
+            // title ? foundById.title = title : foundById.title;
+            // clase ? foundById.class = clase : foundById.class;
+            // price ? foundById.price = price : foundById.price;
+            // discount ? foundById.discount = discount : foundById.discount;
+            // history ? foundById.history = history : foundById.history;
+            // imagePath ? foundById.img = imagePath : foundById.img;
+
+            // // Filtra los productos para eliminar el producto original y agrega el producto editado
+            // // const productos = results.filter(pro => pro.id != foundById.id);
+            // // productos.push(foundById);
+
+            // // Ordena los objetos en base a su ID
+            // // productos.sort((a, b) => a.id > b.id ? 1 : -1);
+
+            // // Escribe los cambios en el archivo JSON
+            // fs.writeFileSync(path.join(__dirname, '../dataBase/productList.json'), JSON.stringify(dataBase, null, 4));
+
+            // res.redirect('/'); // Redirige después de editar el producto
         }
     ],
 
     catalogo: (req, res) => {
-        const { results } = dataBase;
-        res.render('./product/productCatalogue', { results });
+        db.Product.findAll()
+            .then((results) => {
+                res.render('./product/productCatalogue', {results})
+            })
     },
 
     productDetail: (req, res) => {
-        const { id } = req.params;
-        const { results } = dataBase;
-        const product = results.find(prod => prod.id === id);
-
-        // Renderiza la vista 'product' utilizando el motor de plantillas EJS
-        res.render('./product/product', { product });
+        db.Product.findByPk(req.params.id)
+            .then((result) => {
+                res.render('./product/product', {product: result})
+            })
     },
 
     productDelete: (req, res) => {
