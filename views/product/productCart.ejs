@@ -6,74 +6,79 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+    rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon">
   <title>Sneaker Spot | Carrito</title>
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/css/style-productCart.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/style-productCart.css">
 </head>
 
 <body>
   <%- include('../partials/header.ejs') %>
-  <main>
-    <p id="titulo-carrito">Carrito</p>
-    <section id="contenedor-carrito">
-      <section id="articulos-carrito">
-        <% data.map((product) =>{%>
-        <article class="articulo-carrito">
-          <div class="title-shoe">
-            <p><%= product.title %></p>
-          </div>
-          <div class="img-desc-buttons">
-            <div class="img-art">
-              <img src="<%= product.img %>" class="productImg" alt="" srcset="">
-            </div>
-            <div class="buttons-art">
-              <div class="contador">
-                <button class="menos"><i class="fa-solid fa-minus"></i></button>
-                <input type="number" name="" id="" class="productUnits">
-                <button class="mas"><i class="fa-solid fa-plus"></i></button>
+    <main>
+      <p id="titulo-carrito">Carrito</p>
+      <section id="contenedor-carrito">
+        <section id="articulos-carrito">
+          <% data.map((product)=>{%>
+            <article class="articulo-carrito">
+              <div class="title-shoe">
+                <p>
+                  <%= product.name %>
+                </p>
               </div>
-              <div class="flex-400">
-              <p class="price-art">$ <%= product.price %></p>
-              <button class="trashcan"><i class="fa-solid fa-trash-can"></i></button>
-            </div>
-            </div>
+              <div class="img-desc-buttons">
+                <div class="img-art">
+                  <img src="<%= product.img %>" class="productImg" alt="" srcset="">
+                </div>
+                <div class="buttons-art">
+                  <div class="contador">
+                    <button class="menos"><i class="fa-solid fa-minus"></i></button>
+                    <input type="number" name="" id="" class="productUnits">
+                    <button class="mas"><i class="fa-solid fa-plus"></i></button>
+                  </div>
+                  <div class="flex-400">
+                    <p class="price-art">$ <%= product.price %>
+                    </p>
+                    <button class="trashcan"><i class="fa-solid fa-trash-can"></i></button>
+                  </div>
+                </div>
+              </div>
+              <div class="envio-art">
+                <p>Envío</p>
+                <p class="blue">Gratis</p>
+              </div>
+            </article>
+            <% }) %>
+        </section>
+        <section id="total-carrito">
+          <div class="resumen">
+            <p>Resumen de compra</p>
           </div>
-          <div class="envio-art">
-            <p>Envío</p>
+          <div class="productos-cart">
+            <p>Productos(4)</p>
+            <p>$ 180.000</p>
+          </div>
+          <div class="envios">
+            <p>Envíos</p>
             <p class="blue">Gratis</p>
           </div>
-        </article>
-        <% }) %>
-      </section>
-      <section id="total-carrito">
-        <div class="resumen">
-          <p>Resumen de compra</p>
-        </div>
-        <div class="productos-cart">
-          <p>Productos(4)</p>
-          <p>$ 180.000</p>
-        </div>
-        <div class="envios">
-          <p>Envíos</p>
-          <p class="blue">Gratis</p>
-        </div>
-        <div class="total">
-          <p>Total</p>
-          <p>$ 180.000</p>
-        </div>
-        <button class="button-comprar" type="submit">
-          Finalizar compra
-        </button>
+          <div class="total">
+            <p>Total</p>
+            <p>$ 180.000</p>
+          </div>
+          <button class="button-comprar" type="submit">
+            Finalizar compra
+          </button>
+        </section>
+
       </section>
 
-    </section>
-
-  </main>
-  <%- include('../partials/footer.ejs') %>
+    </main>
+    <%- include('../partials/footer.ejs') %>
 </body>
 
 </html>
