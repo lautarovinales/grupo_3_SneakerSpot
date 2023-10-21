@@ -42,6 +42,9 @@ module.exports = (sequelize, dataTypes) => {
         sex: {
             type: dataTypes.BOOLEAN,
         },
+        sizes: {
+            type: dataTypes.STRING(100),
+        }
     };
 
     let config = {
@@ -51,15 +54,15 @@ module.exports = (sequelize, dataTypes) => {
 
     const Product = sequelize.define(alias, cols, config);
 
-    Product.associate = function (models) {
-        Product.belongsToMany(models.Size, {
-            as: 'sizes',
-            through: 'sizes_has_products',
-            foreignKey: 'product_id',
-            otherKey: 'size_id',
-            timestamps: false
-        });
-    }
+    // Product.associate = function (models) {
+    //     Product.belongsToMany(models.Size, {
+    //         as: 'sizes',
+    //         through: 'sizes_has_products',
+    //         foreignKey: 'product_id',
+    //         otherKey: 'size_id',
+    //         timestamps: false
+    //     });
+    // }
 
     return Product;
 }

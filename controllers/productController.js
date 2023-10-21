@@ -20,8 +20,6 @@ const upload = multer({ storage: storage });
 const productController = {
 
     list: (req, res) => {
-        // Envía el archivo product.ejs al cliente como respuesta
-        // res.sendFile(path.resolve(__dirname, '../views/product.ejs'));
         res.render('./product.ejs');
     },
 
@@ -45,17 +43,19 @@ const productController = {
     createProduct: [
         upload.single('img'), // Middleware para cargar una imagen
         async (req, res) => {
-            const { name, price, discount, description, class: clase, sex } = req.body;
-            const productImage = req.file ? `/images/products/${req.file.filename}` : '';
+            const { name, price, discount, description, class: clase, sex, sizes } = req.body;
+            // const productImage = req.file ? `/images/products/${req.file.filename}` : '';
+
             db.Product.create({
                 name,
                 price,
                 discount,
                 description,
                 enOferta: 'true',
-                img: productImage || '',
+                img: req.file.filename || '',
                 class: clase,
-                sex
+                sex,
+                sizes
             })
                 .then((result) => {
                     res.redirect('/product/creation');
@@ -75,8 +75,12 @@ const productController = {
     editById: [
         upload.single('img'), // Middleware para cargar una imagen
         async (req, res) => {
-            const { name, price, discount, description, class: clase, sex } = req.body;
-            const productImage = req.file ? `/images/products/${req.file.filename}` : '';
+            let { name, price, discount, description, class: clase, sex, enOferta } = req.body;
+            // const productImage = req.file ? `/images/products/${req.file.filename}` : '';
+
+            if(enOferta != undefined) {
+                enOferta = '1';
+            }
 
             db.Product.findByPk(req.params.id)
                 .then((result) => {
@@ -86,18 +90,19 @@ const productController = {
                     price ? productToUpdate.price = price : productToUpdate.price;
                     discount ? productToUpdate.discount = discount : productToUpdate.discount;
                     description ? productToUpdate.description = description : productToUpdate.description;
-                    productImage ? productToUpdate.img = productImage : productToUpdate.img;
+                    req.file.filename ? productToUpdate.img = req.file.filename : productToUpdate.img;
                     clase ? productToUpdate.class = clase : productToUpdate.class;
                     sex ? productToUpdate.sex = sex : productToUpdate.sex;
 
                     db.Product.update({
-                        name,
-                        price,
-                        discount,
-                        description,
-                        img: productImage || '',
-                        class: clase,
-                        sex
+                        name: productToUpdate.name,
+                        price: productToUpdate.price,
+                        discount: productToUpdate.discount,
+                        description: productToUpdate.description,
+                        enOferta: enOferta,
+                        img: productToUpdate.img,
+                        class: productToUpdate.class,
+                        sex: productToUpdate.sex
                     }, {
                         where: { id: req.params.id }
                     }).then((result) => {
