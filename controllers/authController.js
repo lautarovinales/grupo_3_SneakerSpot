@@ -1,10 +1,13 @@
 const { body, validationResult } = require('express-validator');
 const bcrypt = require('bcrypt');
+const saltRounds = 10;
 const path = require('path');
 const dataBaseUsers = require('../dataBase/userList.json');
 const multer = require('multer');
 const fs = require('fs');
 const db = require('../dataBase/models');
+const { log } = require('console');
+
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -37,37 +40,57 @@ const authController = {
   },
 
   register: (req, res) => {
-    res.render('users/register', { errors: [] });
+    res.render('users/register');
   },
 
   doRegister: [
-    // [
-    //     body('name').notEmpty().withMessage('El campo nombre es obligatorio'),
-    //     body('lastName').notEmpty().withMessage('El campo apellido es obligatorio'),
-    //     body('email').isEmail().withMessage('El campo correo electrónico no es válido'),
-    //     body('password').notEmpty().withMessage('El campo contraseña es obligatorio'),
-    //     body('img').custom((value, { req }) => {
-    //         if (!req.file) {
-    //             throw new Error('La imagen es obligatoria');
-    //         }
-    //         return true;
-    //     }),
-    // ],
+    [
+        body('username').notEmpty().withMessage('El campo nombre es obligatorio'),
+        body('email').isEmail().withMessage('El campo correo electrónico no es válido'),
+        body('password').notEmpty().withMessage('El campo contraseña es obligatorio'),
+        body('img').custom((value, { req }) => {
+            if (!req.file) {
+                throw new Error('La imagen es obligatoria');
+            }
+            return true;
+        }),
+    ],
     async (req, res) => {
-      const { username, password, email } = req.body;
-      // const userImage = req.file ? `/images/users/${req.file.filename}` : '';
-      db.User.create({
-        username,
-        password,
-        img: req.file.filename || '',
-        email,
-        type: 'user'
-      })
-        .then((result) => {
-          res.redirect('/login');
-        })
+        const errors = validationResult(req);
+
+        if (!errors.isEmpty()) {
+            // Si hay errores de validación, pasa los errores y un mensaje adicional a la vista
+            const errorMessage = 'Hay campos sin completar';
+            return res.render('users/register', { errors: errors.array(), errorMessage });
+        }
+
+        const { username, password, email } = req.body;
+
+        try {
+            // Hacer hash de la contraseña
+            const hashedPassword = await bcrypt.hash(password, saltRounds);
+
+            // Resto del código para crear el usuario en la base de datos
+            const result = await db.User.create({
+                username,
+                password: hashedPassword, // Usamos el hash en lugar de la contraseña original
+                img: req.file ? req.file.filename : '',
+                email,
+                type: 'user'
+            });
+
+            console.log('Usuario creado:', result);
+            res.redirect('/login');
+        } catch (error) {
+            // Manejar errores al crear el usuario
+            console.error('Error al crear el usuario:', error);
+            res.status(500).send('Error interno del servidor');
+        }
     }
-  ],
+]
+
+
+,
 
   doLogin: (req, res) => {
     const { email, password } = req.body;

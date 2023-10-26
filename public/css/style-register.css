@@ -9,33 +9,48 @@ body {
     justify-content: center;
     align-items: center;
   }
-  
-  .error-messages {
-    width: 50%;
-    position: fixed;
+
+/* Estilos para el botón de cerrar */
+.close-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.error-messages{
+  width: 100%;
+  position: fixed;
+  top: 0;
+}
+
+/* Estilos adicionales para la lista de mensajes de error */
+.error-messages ul {
+    list-style-type: none;
+}
+
+.error-messages li {
+    background-color: #ff465b;
+    color: #ffffff;
+    top: 0;
+    height: 70px;
     display: flex;
     align-items: center;
     justify-content: center;
-    height: fit-content;
-    flex-direction: column;
-    padding: 10px;
-    text-align: center;
-    gap: 20px;
-    list-style: none;
-  }
-  
-  .error-messages li {
-    background-color: #ff3a4a;
-    padding: 10px 20px 10px 20px;
-    color: #ffffff;
-    border-radius: 5px;
-    opacity: 1;
-    transition: opacity 0.5s ease-out;
-  }
-  
-  .error-messages li.fade-out {
-    opacity: 0;
-  }
+    padding: 20px;
+}
+
+.error-messages .close-button {
+    top: 20px;
+    right: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+}
   
   .imagen-login {
     width: 150px;
@@ -117,4 +132,13 @@ body {
       width: 100%;
     }
   }
-  
+
+  @media (max-width: 400px) {
+    .error-messages li{
+      padding-right: 60px;
+    }
+
+    .error-messages li {
+      justify-content: left;
+  }
+}

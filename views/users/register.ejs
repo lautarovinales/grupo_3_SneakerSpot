@@ -19,13 +19,18 @@
   <%- include('../partials/header.ejs') %>
   <main>
     <section>
-      <% if (errors.length > 0) { %>
-        <ul class="error-messages">
-          <% errors.forEach(error => { %>
-            <li class="error-alert"><%= error.msg %></li>
-          <% }); %>
-        </ul>
-      <% } %>
+      <% if (typeof errors !== 'undefined' && errors.length > 0) { %>
+        <div class="error-messages">
+            <ul>
+                <% errors.forEach((error, index) => { %>
+                    <li id="error-message-<%= index + 1 %>" class="error-message">
+                        <span onclick="closeAllErrorMessages()" class="close-button"><i class="fa-solid fa-xmark"></i></span>
+                        <%= error.msg %>
+                    </li>
+                <% }); %>
+            </ul>
+        </div>
+    <% } %>
 
       <form action="/register" method="POST" enctype="multipart/form-data">
         <p>Registrate</p>
@@ -40,24 +45,15 @@
     </section>
   </main>
   <%- include('../partials/footer.ejs') %>
-
   <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      var errorMessages = document.querySelectorAll('.error-alert');
-
-      errorMessages.forEach(function (errorMessage, index) {
-        setTimeout(function () {
-          // Agrega la clase 'fade-out' para aplicar el efecto fade-out
-          errorMessage.classList.add('fade-out');
-
-          // Elimina el elemento después de 0.5 segundos (el tiempo de la transición)
-          setTimeout(function () {
-            errorMessage.remove();
-          }, 500);
-        }, 3000 * (index + 1)); // Ajusta el tiempo de espera en milisegundos
-      });
-    });
-  </script>
+    // Función para cerrar todos los mensajes de error
+    function closeAllErrorMessages() {
+        var elements = document.querySelectorAll('.error-message');
+        elements.forEach(function(element) {
+            element.style.display = 'none';
+        });
+    }
+</script>
 </body>
 
 </html>
