@@ -23,37 +23,45 @@
       <p id="titulo-carrito">Carrito</p>
       <section id="contenedor-carrito">
         <section id="articulos-carrito">
-          <% data.map((product)=>{%>
-            <article class="articulo-carrito">
-              <div class="title-shoe">
-                <p>
-                  <%= product.name %>
-                </p>
-              </div>
-              <div class="img-desc-buttons">
-                <div class="img-art">
-                  <img src="<%= product.img %>" class="productImg" alt="" srcset="">
+          <% if (data && Array.isArray(data) && data.length> 0) { %>
+            <% data.map((product)=> { %>
+              <article class="articulo-carrito">
+                <div class="title-shoe">
+                  <p>
+                    <%= product.name %>
+                  </p>
                 </div>
-                <div class="buttons-art">
-                  <div class="contador">
-                    <button class="menos"><i class="fa-solid fa-minus"></i></button>
-                    <input type="number" name="" id="" class="productUnits">
-                    <button class="mas"><i class="fa-solid fa-plus"></i></button>
+                <div class="img-desc-buttons">
+                  <div class="img-art">
+                    <img src="<%= product.img %>" class="productImg" alt="" srcset="">
                   </div>
-                  <div class="flex-400">
-                    <p class="price-art">$ <%= product.price %>
-                    </p>
-                    <button class="trashcan"><i class="fa-solid fa-trash-can"></i></button>
+                  <div class="buttons-art">
+                    <div class="contador">
+                      <button class="menos"><i class="fa-solid fa-minus"></i></button>
+                      <input type="number" name="" id="" class="productUnits">
+                      <button class="mas"><i class="fa-solid fa-plus"></i></button>
+                    </div>
+                    <div class="flex-400">
+                      <p class="price-art">$ <%= product.price %>
+                      </p>
+                      <!-- Agregamos un formulario para eliminar productos del carrito -->
+                      <form method="POST" action="/product/<%= product.id %>/removeFromCart">
+                        <button class="trashcan" type="submit"><i class="fa-solid fa-trash-can"></i></button>
+                      </form>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div class="envio-art">
-                <p>Envío</p>
-                <p class="blue">Gratis</p>
-              </div>
-            </article>
-            <% }) %>
+                <div class="envio-art">
+                  <p>Envío</p>
+                  <p class="blue">Gratis</p>
+                </div>
+              </article>
+              <% }); %>
+                <% } else { %>
+                  <p>El carrito está vacío</p>
+                  <% } %>
         </section>
+
         <section id="total-carrito">
           <div class="resumen">
             <p>Resumen de compra</p>
@@ -74,9 +82,7 @@
             Finalizar compra
           </button>
         </section>
-
       </section>
-
     </main>
     <%- include('../partials/footer.ejs') %>
 </body>

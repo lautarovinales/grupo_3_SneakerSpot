@@ -1,9 +1,8 @@
 const path = require('path');
-const dataBase = require('../dataBase/productList.json');
-const dataCart = require('../dataBase/productListCart.json');
 const multer = require('multer');
 const fs = require('fs');
 const db = require('../dataBase/models');
+const { Product } = require('../dataBase/models');
 
 // Configuración de almacenamiento para la carga de imágenes con Multer
 const storage = multer.diskStorage({
@@ -23,17 +22,49 @@ const productController = {
         res.render('./product.ejs');
     },
 
-    cart: (req, res) => {
-        res.render('./product/productCart', { data: dataCart.results });
+    addToCart: async (req, res) => {
+        const productId = parseInt(req.params.id, 10);
+
+        try {
+            // Busca el producto en la base de datos
+            const product = await Product.findByPk(productId);
+
+            if (!product) {
+                return res.status(404).send('Producto no encontrado');
+            }
+
+            // Obtiene o inicializa el carrito en la sesión
+            req.session.cart = req.session.cart || [];
+
+            // Agrega el producto al carrito en la sesión
+            req.session.cart.push(product);
+
+            // Redirige o renderiza la vista del carrito
+            res.redirect('/product/cart'); // Cambia '/cart' por la ruta de tu vista del carrito
+        } catch (error) {
+            console.error('Error al agregar al carrito:', error);
+            res.status(500).send('Error interno del servidor');
+        }
     },
 
-    addToCart: async (req, res) => {
-        const cart = dataCart.results;
-        const { results } = dataBase;
-        const product = results.find((pro) => pro.id === req.params.id);
-        cart.push(product);
-        fs.writeFileSync(path.join(__dirname, '../dataBase/productListCart.json'), JSON.stringify(dataCart, null, 4));
-        res.render('./product/productCart', { data: dataCart.results });
+    removeFromCart: async (req, res) => {
+        const productId = parseInt(req.params.id, 10);
+
+        try {
+            // Filtra los productos para quitar el que tenga el ID proporcionado
+            req.session.cart = req.session.cart.filter((item) => item.id !== productId);
+
+            // Redirige o renderiza la vista del carrito
+            res.redirect('/product/cart'); // Cambia '/cart' por la ruta de tu vista del carrito
+        } catch (error) {
+            console.error('Error al quitar del carrito:', error);
+            res.status(500).send('Error interno del servidor');
+        }
+    },
+
+    cart: (req, res) => {
+        // Renderiza la vista del carrito con los productos almacenados en la sesión
+        res.render('./product/productCart', { data: req.session.cart });
     },
 
     creation: (req, res) => {
@@ -78,7 +109,7 @@ const productController = {
             let { name, price, discount, description, class: clase, sex, enOferta } = req.body;
             // const productImage = req.file ? `/images/products/${req.file.filename}` : '';
 
-            if(enOferta != undefined) {
+            if (enOferta != undefined) {
                 enOferta = '1';
             }
 

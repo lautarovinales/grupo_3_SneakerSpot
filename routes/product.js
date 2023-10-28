@@ -24,7 +24,9 @@ router.put('/edit/:id', productController.editById);
 
 router.get('/:id', productController.productDetail);
 
-router.put('/:id', productController.addToCart);
+router.post('/:id/addToCart', productController.addToCart);
+
+router.post('/:id/removeFromCart', productController.removeFromCart); // Nueva ruta para quitar del carrito
 
 // router.delete('/:id', productController.productDelete);
 
