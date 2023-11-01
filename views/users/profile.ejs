@@ -20,10 +20,17 @@
   <main>
    <div class="card-profile">
     <div class="user-profile-img">
-
+      <!-- Verificar si el usuario tiene una imagen antes de mostrarla -->
+      <% if (usuario && usuario.img) { %>
+        <img src="<%= usuario.img %>" alt="Foto de perfil del usuario">
+      <% } else { %>
+        <!-- Si el usuario no tiene una imagen, puedes mostrar una imagen predeterminada o dejarlo en blanco -->
+        <img src="/images/users/logo.png" alt="Imagen predeterminada">
+      <% } %>
     </div>
+    
     <div class="username-type">
-      <p class="username"><%= usuario.name %> <%= usuario.lastName %></p>
+      <p class="username"><%= usuario.username %></p>
     <div class="user-type">
         <i class="fa-solid fa-crown" style="color: #ffea84;"></i>
     </div>

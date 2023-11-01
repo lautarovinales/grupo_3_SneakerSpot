@@ -18,25 +18,25 @@
 .login{
     padding: 15px;
     border-radius: 50%;
-    transition: 0.5s;
     color: #afafaf;
 }
 
 .user{
     padding: 15px;
     border-radius: 50%;
-    transition: 0.5s;
     color: #afafaf;
 }
 
 .user:hover{
     background-color: #1e1e1e;
     color: #f1f1f1;
+    transition: 0.5s;
 }
 
 .login:hover{
     background-color: #1e1e1e;
     color: #f1f1f1;
+    transition: 0.5s;
 }
 
 header{
@@ -346,16 +346,9 @@ footer a{
     color: red;
 }
 
-.social-icons a {
-    transition: all 0.2s;
-}
-
-.social-icons i{
-    transition: all 0.2s;
-}
-
 .social-icons a i:hover {
     transform: scale(1.1);
+    transition: 0.5s;
 }
 
 .social-icons a:nth-child(1):hover {

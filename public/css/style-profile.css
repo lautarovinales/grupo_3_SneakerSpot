@@ -60,3 +60,7 @@ main{
 .buttons-profile button:hover{
     cursor: pointer;
 }
+
+form button{
+    width: 100%;
+}

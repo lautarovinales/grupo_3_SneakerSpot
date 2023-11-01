@@ -2,7 +2,6 @@ const { body, validationResult } = require('express-validator');
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
 const path = require('path');
-const dataBaseUsers = require('../dataBase/userList.json');
 const multer = require('multer');
 const fs = require('fs');
 const db = require('../dataBase/models');

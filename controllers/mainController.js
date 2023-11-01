@@ -1,6 +1,5 @@
 // Importación de módulos necesarios
 const path = require('path');
-// const dataBase = require('../dataBase/productList.json');
 const productController = require('./productController')
 const db = require('../dataBase/models');
 
