@@ -1,3 +1,5 @@
+const bcrypt = require('bcrypt');
+
 module.exports = (sequelize, dataTypes) => {
     let alias = 'User';
 
@@ -14,6 +16,10 @@ module.exports = (sequelize, dataTypes) => {
         email: {
             type: dataTypes.STRING(255),
             allowNull: false,
+            unique: true, // Asegura la unicidad
+            validate: {
+                isEmail: true, // Valida el formato del correo electrónico
+            },
         },
         password: {
             type: dataTypes.STRING(255),
@@ -36,4 +42,4 @@ module.exports = (sequelize, dataTypes) => {
     const User = sequelize.define(alias, cols, config);
 
     return User;
-}
+};

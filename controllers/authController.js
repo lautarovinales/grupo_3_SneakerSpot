@@ -5,7 +5,6 @@ const path = require('path');
 const multer = require('multer');
 const fs = require('fs');
 const db = require('../dataBase/models');
-const { log } = require('console');
 
 
 const storage = multer.diskStorage({
@@ -86,52 +85,67 @@ const authController = {
             res.status(500).send('Error interno del servidor');
         }
     }
-]
-
-
-,
-
-  doLogin: (req, res) => {
-    const { email, password } = req.body;
-
-    // Buscar el usuario en la base de datos
-    // const usuario = dataBaseUsers.user.find(user => user.email === email);
-    db.User.findOne({
-      where: {
-        email: email
-      }
-    })
-    .then((result) => {
-      const contra = bcrypt.compare(password, result.password);
-      if(contra){
-        db.User.findOne({
-          where: {
-            email: email,
-            password: result.password
-          }
-        })
-        .then((result) => {
-          req.session.userId = result.id;
-          req.session.username = result.username;
-          req.session.userImg = result.img;
-          req.session.userType = result.type;
-          res.redirect('/profile');
-        });
-
-      } else {
-        res.send('contraseña INCORRECTA');
-      }
-    })
+],
+doLogin: async (req, res) => {
+  // Validación de campos
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
   }
-  ,
-  doLogout: (req, res) => {
-    req.session.destroy(err => {
-      if (err) {
-        return res.status(500).send('Error al cerrar sesión');
-      }
-      res.redirect('/login'); // Puedes redirigir a donde quieras después del cierre de sesión
-    });
+
+  // Obtener el usuario de la base de datos por el correo electrónico
+  const { email, password } = req.body;
+  try {
+    const user = await db.User.findOne({ where: { email } });
+
+    if (!user || user.type !== 'user') {
+      console.log('Usuario no encontrado o tipo de usuario incorrecto para el correo electrónico:', email);
+      return res.status(401).json({ error: 'Correo electrónico no encontrado o tipo de usuario incorrecto' });
+    }
+
+    // Comparar contraseñas hasheadas
+    const passwordMatch = await bcrypt.compare(password, user.password);
+
+    console.log('Contraseña ingresada:', password);
+    console.log('Contraseña almacenada en la base de datos:', user.password);
+
+    if (passwordMatch) {
+      // Contraseña correcta, establecer información del usuario en la sesión
+      req.session.userId = user.id;
+      req.session.username = user.username;
+      req.session.userImg = user.img;
+      req.session.userType = user.type;
+
+      // Mostrar el correo electrónico del usuario en la consola
+      console.log('Login exitoso para el correo electrónico:', user.email);
+      
+      // Redirigir al usuario a la página de inicio (ajusta la ruta según tu configuración)
+      return res.redirect('/profile'); // Cambia '/inicio' por la ruta deseada
+    } else {
+      // Contraseña incorrecta
+      console.log('Contraseña incorrecta para el correo electrónico:', email);
+      return res.status(401).json({ error: 'Contraseña incorrecta' });
+    }
+  } catch (error) {
+    console.error('Error en el servidor:', error);
+    return res.status(500).json({ error: 'Error en el servidor' });
   }
+},
+doLogout: (req, res) => {
+  // Eliminar la información del usuario de la sesión
+  req.session.destroy((err) => {
+    if (err) {
+      console.error('Error al cerrar sesión:', err);
+      return res.status(500).json({ error: 'Error al cerrar sesión' });
+    }
+
+    // Mostrar mensaje en la consola al cerrar sesión
+    console.log('Sesión cerrada exitosamente.');
+
+    // Redirigir al usuario a la página de inicio de sesión (ajusta la ruta según tu configuración)
+    return res.redirect('/login'); // Cambia '/inicio' por la ruta deseada
+  });
+}
 };
 
 module.exports = authController;
