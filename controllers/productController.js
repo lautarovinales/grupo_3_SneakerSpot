@@ -145,16 +145,28 @@ const productController = {
 
     catalogo: (req, res) => {
         db.Product.findAll()
-            .then((results) => {
-                res.render('./product/productCatalogue', { results })
-            })
+        .then((results) => {
+            res.render('./product/productCatalogue', { results })
+        })
+        .catch((error) => {
+            console.error(error);
+            res.status(500).send('Error interno del servidor');
+        });
     },
 
     productDetail: (req, res) => {
         db.Product.findByPk(req.params.id)
-            .then((result) => {
-                res.render('./product/product', { product: result })
+            .then((product) => {
+                if (!product) {
+                    return res.status(404).send('Producto no encontrado');
+                }
+    
+                res.render('./product/product', { product });
             })
+            .catch((error) => {
+                console.error(error);
+                res.status(500).send('Error interno del servidor');
+            });
     },
 
     productDelete: (req, res) => {

@@ -21,28 +21,26 @@
   <%- include('../partials/header.ejs') %>
   <main>
     <div class="shoe-img">
-      <img src="<%= product.img %>" alt="" srcset="">
+      <img src="/images/<%= product.img %>" alt="" srcset="">
     </div>
     <div class="shoe-desc">
       <p class="desc">10% OFF</p>
       <p class="titulo">
-        <%= product.title %>
+        <%= product.name %>
       </p>
       <p class="shoe-class">
         <%= product.class %>
       </p>
       <p class="envio">Envio Gratis</p>
       <p class="shoe-history">
-        <%= product.history %>
+        <%= product.description %>
       </p>
       <div class="flex-cont">
         <input type="number" id="cantidad" name="cantidad" min="1" max="10" step="1">
         <form method="POST" action="/product/<%= product.id %>/addToCart">
-          <!-- Cambiado el método a POST y la acción a la ruta que maneja agregar al carrito -->
           <button class="button-form" type="submit">Añadir al carrito</button>
         </form>
         <button class="button-form" type="submit">Comprar</button>
-        <!-- Eliminado el formulario DELETE ya que no estás utilizando DELETE para eliminar productos -->
       </div>
     </div>
   </main>
