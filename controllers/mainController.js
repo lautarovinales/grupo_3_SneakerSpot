@@ -5,24 +5,20 @@ const db = require('../dataBase/models');
 
 // Definición del controlador principal
 const mainController = {
-    // Método para manejar la página principal (home)
     home: (req, res) => {
-        db.Product.findAll((
-            {
-                where: {
-                    enOferta: true
-                }
+        db.Product.findAll({
+            where: {
+                enOferta: true
             }
-        ))
-            .then((results) => {
-                res.render('index', {productosEnOferta: results})
-            })
-
-        // const { results } = dataBase;
-        // const productosEnOferta = results.filter(producto => producto.enOferta);
-        // res.render('index', { productosEnOferta });
+        })
+        .then((results) => {
+            res.render('index', { productosEnOferta: results });
+        })
+        .catch((error) => {
+            console.error('Error al obtener productos en oferta:', error);
+            res.render('error');
+        });
     }
 };
-
 
 module.exports = mainController;
