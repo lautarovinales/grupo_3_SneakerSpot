@@ -64,7 +64,6 @@ const authController = {
       res.status(500).send('Error interno del servidor');
     }
   },
-
   doEditProfile: async (req, res) => {
     const errors = validationResult(req);
   
@@ -82,14 +81,29 @@ const authController = {
       if (usuario) {
         console.log('Usuario antes de la modificación:', usuario);
   
-        // Actualizar la información del usuario con los datos proporcionados
+        // Actualizar la información del usuario
         usuario.username = username;
         usuario.email = email;
   
         if (password) {
-          // Si se proporciona una nueva contraseña, actualizarla
           const hashedPassword = await bcrypt.hash(password, saltRounds);
           usuario.password = hashedPassword;
+        }
+  
+        // Eliminar la imagen anterior si existe
+        if (req.file && usuario.img) {
+          const imagePath = path.join(__dirname, '../public/usersImage', usuario.img);
+  
+          // Verificar que el archivo exista antes de intentar eliminarlo
+          if (fs.existsSync(imagePath)) {
+            fs.unlinkSync(imagePath);
+            console.log('Imagen anterior eliminada:', usuario.img);
+          }
+        }
+  
+        // Actualizar la imagen de perfil si se carga un nuevo archivo
+        if (req.file) {
+          usuario.img = req.file.filename;
         }
   
         console.log('Usuario después de la modificación:', usuario);
@@ -163,9 +177,9 @@ doLogin: async (req, res) => {
   try {
     const user = await db.User.findOne({ where: { email } });
 
-    if (!user || user.type !== 'user') {
-      console.log('Usuario no encontrado o tipo de usuario incorrecto para el correo electrónico:', email);
-      return res.status(401).json({ error: 'Correo electrónico no encontrado o tipo de usuario incorrecto' });
+    if (!user) {
+      console.log('Usuario no encontrado para el correo electrónico:', email);
+      return res.status(401).json({ error: 'Correo electrónico no encontrado' });
     }
 
     // Comparar contraseñas hasheadas
