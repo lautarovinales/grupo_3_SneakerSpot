@@ -21,11 +21,15 @@ router.get('/profile', verificarAutenticacion, authController.profile);
 
 router.get('/register', authController.register);
 
+router.get('/edit-profile', verificarAutenticacion, authController.editProfile);
+
 router.post('/register', upload.single('img'), authController.doRegister);
 
 router.post('/login', authController.doLogin);
 
 router.post('/logout', authController.doLogout);
+
+router.post('/edit-profile', upload.single('img'), authController.doEditProfile);
 
 // Exporta el enrutador para que pueda ser utilizado en otros archivos
 module.exports = router;

@@ -46,7 +46,66 @@ const authController = {
   register: (req, res) => {
     res.render('users/register');
   },
+  editProfile: async (req, res) => {
+    const userId = req.session.userId;
+  
+    try {
+      const usuario = await db.User.findByPk(userId);
+  
+      if (usuario) {
+        console.log('Usuario encontrado:', usuario); // Agrega esta línea
+        res.render('users/editProfile', { usuario });
+      } else {
+        console.log('Usuario no encontrado'); // Agrega esta línea
+        res.redirect('/login');
+      }
+    } catch (error) {
+      console.error('Error al obtener el usuario:', error);
+      res.status(500).send('Error interno del servidor');
+    }
+  },
 
+  doEditProfile: async (req, res) => {
+    const errors = validationResult(req);
+  
+    if (!errors.isEmpty()) {
+      const errorMessage = 'Hay campos sin completar';
+      return res.render('users/editProfile', { errors: errors.array(), errorMessage });
+    }
+  
+    const { username, password, email } = req.body;
+    const userId = req.session.userId;
+  
+    try {
+      const usuario = await db.User.findByPk(userId);
+  
+      if (usuario) {
+        console.log('Usuario antes de la modificación:', usuario);
+  
+        // Actualizar la información del usuario con los datos proporcionados
+        usuario.username = username;
+        usuario.email = email;
+  
+        if (password) {
+          // Si se proporciona una nueva contraseña, actualizarla
+          const hashedPassword = await bcrypt.hash(password, saltRounds);
+          usuario.password = hashedPassword;
+        }
+  
+        console.log('Usuario después de la modificación:', usuario);
+  
+        await usuario.save();
+  
+        console.log('Perfil actualizado para el usuario:', usuario.id);
+        res.redirect('/profile');
+      } else {
+        res.redirect('/login');
+      }
+    } catch (error) {
+      console.error('Error al editar el perfil:', error);
+      res.status(500).send('Error interno del servidor');
+    }
+  },
   doRegister: [
     [
         body('username').notEmpty().withMessage('El campo nombre es obligatorio'),
