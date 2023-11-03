@@ -19,19 +19,25 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 
 const authController = {
-  profile: (req, res) => {
-    const userId = req.session.userId;
-    // const usuario = dataBaseUsers.user.find(user => user.id === userId);
-    const usuario = db.User.findByPk(userId);
-
-    if (usuario) {
-      // Renderizar la vista y pasar la información del usuario
-      res.render('users/profile', { usuario });
-    } else {
-      // Manejar el caso en que el usuario no se encuentre (posiblemente ha manipulado la sesión)
-      res.redirect('/login'); // o redirigir a otra página
-    }
-  },
+    profile: async (req, res) => {
+      const userId = req.session.userId;
+  
+      try {
+        // Obtener el usuario de la base de datos por el ID almacenado en la sesión
+        const usuario = await db.User.findByPk(userId);
+  
+        if (usuario) {
+          // Renderizar la vista y pasar la información del usuario
+          res.render('users/profile', { usuario });
+        } else {
+          // Manejar el caso en que el usuario no se encuentre (posiblemente ha manipulado la sesión)
+          res.redirect('/login'); // o redirigir a otra página
+        }
+      } catch (error) {
+        console.error('Error al obtener el usuario:', error);
+        res.status(500).send('Error interno del servidor');
+      }
+    },
 
   login: (req, res) => {
     res.render('users/login');

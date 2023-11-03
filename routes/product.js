@@ -1,24 +1,23 @@
-// Importación del módulo Express y creación de un enrutador
-const express = require('express'); // Importa el módulo Express
-const router = express.Router(); // Crea un enrutador utilizando Express
+const express = require('express');
+const router = express.Router();
 const methodOverride = require('method-override');
-const productController = require('../controllers/productController'); // Importa el controlador de productos
+const productController = require('../controllers/productController');
 const verificarAutenticacion = require('../middlewares/verificarAutenticacion');
+const isAdmin = require('../middlewares/verificarAdmin'); // Importa el nuevo middleware
 
-// Configura el método para sobrescribir la solicitud DELETE
 router.use(methodOverride('_method'));
 
 router.get('/', productController.list);
 
 router.get('/cart', verificarAutenticacion, productController.cart);
 
-router.get('/creation', verificarAutenticacion, productController.creation);
+router.get('/creation', verificarAutenticacion, isAdmin, productController.creation); /* esta */
 
 router.post('/creation', productController.createProduct);
 
 router.get('/catalogo', productController.catalogo);
 
-router.get('/edit/:id', verificarAutenticacion, productController.showEditById);
+router.get('/edit/:id', verificarAutenticacion, isAdmin, productController.showEditById); /* esta */
 
 router.put('/edit/:id', productController.editById);
 
@@ -26,8 +25,6 @@ router.get('/:id', productController.productDetail);
 
 router.post('/:id/addToCart', productController.addToCart);
 
-router.post('/:id/removeFromCart', productController.removeFromCart); // Nueva ruta para quitar del carrito
-
-// router.delete('/:id', productController.productDelete);
+router.post('/:id/removeFromCart', productController.removeFromCart);
 
 module.exports = router;
