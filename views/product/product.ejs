@@ -43,6 +43,11 @@
         <% if (userType === 'admin') { %>
           <a href="/product/edit/<%= product.id %>" style="width: 100%;"><button class="button-form" type="submit">Editar producto</button></a>
         <% } %>
+        <% if (userType === 'admin') { %>
+        <form method="POST" action="/product/<%= product.id %>/delete">
+          <button style="background-color: rgb(232, 75, 91);" class="button-form" type="submit">Eliminar producto</button>
+        </form>
+        <% } %>
       </div>
     </div>
   </main>
