@@ -37,7 +37,6 @@
             <option value="0">F</option>
             <option value="1">M</option>
           </select>
-          <button type="submit">Publicar</button>
           <% if (typeof errors !== 'undefined' && errors.length > 0) { %>
             <div class="error-messages">
                 <ul>
@@ -50,6 +49,7 @@
                 <span onclick="closeAllErrorMessages()" class="close-button"><i class="fa-solid fa-xmark"></i></span>
             </div>
         <% } %>
+          <button type="submit">Publicar</button>
         </form>
       </section>
     </main>
