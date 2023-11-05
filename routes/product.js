@@ -27,6 +27,6 @@ router.post('/:id/addToCart', productController.addToCart);
 
 router.post('/:id/removeFromCart', productController.removeFromCart);
 
-router.post('/:id/delete', productController.productDelete);
+router.post('/:id/delete',verificarAutenticacion, isAdmin, productController.productDelete);
 
 module.exports = router;
