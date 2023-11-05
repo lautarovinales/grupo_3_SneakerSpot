@@ -20,8 +20,15 @@
 <body>
   <%- include('../partials/header.ejs') %>
   <main>
+    <div class="images">
     <div class="shoe-img">
       <img src="/images/<%= product.img %>" alt="" srcset="">
+    </div>
+    <div class="img-second">
+      <img src="/images/<%= product.img %>" alt="" srcset="">
+      <img src="/images/<%= product.img %>" alt="" srcset="">
+      <img src="/images/<%= product.img %>" alt="" srcset="">
+    </div>
     </div>
     <div class="shoe-desc">
       <p class="desc">10% OFF</p>
@@ -31,6 +38,9 @@
       <p class="shoe-class">
         <%= product.class %>
       </p>
+      <div class="price">
+        <p>$ <%= product.price %></p>
+      </div>
       <p class="envio">Envio Gratis</p>
       <p class="shoe-history">
         <%= product.description %>
