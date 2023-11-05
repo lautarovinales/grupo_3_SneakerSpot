@@ -30,7 +30,7 @@
           <input type="file" name="img" class="fileinput">
           <input type="text" name="class" placeholder="Clase de calzado">
           <input type="text" name="description" placeholder="Descripcion del calzado">
-          <input type="text" name="sizes" placeholder="Talle"> 
+          <input type="number" name="sizes" placeholder="Talle"> 
           <input type="number" name="discount" placeholder="Descuento">
           <input type="number" name="price" placeholder="Precio">
           <select name="sex" id="sex">
@@ -38,11 +38,28 @@
             <option value="1">M</option>
           </select>
           <button type="submit">Publicar</button>
+          <% if (typeof errors !== 'undefined' && errors.length > 0) { %>
+            <div class="error-messages">
+                <ul>
+                    <% errors.forEach((error, index) => { %>
+                        <li id="error-message-<%= index + 1 %>" class="error-message">
+                            <%= error.msg %>
+                        </li>
+                    <% }); %>
+                </ul>
+                <span onclick="closeAllErrorMessages()" class="close-button"><i class="fa-solid fa-xmark"></i></span>
+            </div>
+        <% } %>
         </form>
       </section>
     </main>
     <%- include('../partials/footer.ejs') %>
-      <script src="./js/script.js"></script>
+      <script>
+        function closeAllErrorMessages() {
+        var errorMessages = document.querySelector('.error-messages');
+        errorMessages.style.display = 'none';
+    }
+      </script>
 </body>
 
 </html>

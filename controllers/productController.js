@@ -1,8 +1,10 @@
+const { body, validationResult } = require('express-validator');
 const path = require('path');
 const multer = require('multer');
 const fs = require('fs');
 const db = require('../dataBase/models');
 const { Product } = require('../dataBase/models');
+
 
 // Configuración de almacenamiento para la carga de imágenes con Multer
 const storage = multer.diskStorage({
@@ -72,30 +74,69 @@ const productController = {
     },
 
     createProduct: [
-        upload.array('img', 4),  // Usar upload.array para manejar múltiples archivos
+        upload.array('img', 4),
+        [
+            body('name')
+                .notEmpty().withMessage('El campo nombre del producto es obligatorio')
+                .isLength({ min: 5 }).withMessage('El nombre del producto debe tener al menos 5 caracteres'),
+    
+            body('description')
+                .isLength({ min: 20 }).withMessage('La descripción del producto debe tener al menos 20 caracteres'),
+    
+            body('img')
+                .custom((value, { req }) => {
+                    if (!req.files || req.files.length < 1) {
+                        throw new Error('Se requiere al menos una imagen para el producto');
+                    }
+    
+                    const allowedExtensions = ['jpg', 'jpeg', 'png', 'gif'];
+                    const fileExtension = req.files[0].originalname.split('.').pop().toLowerCase();
+    
+                    if (!allowedExtensions.includes(fileExtension)) {
+                        throw new Error('El archivo de imagen debe ser JPG, JPEG, PNG, o GIF');
+                    }
+    
+                    return true;
+                }),
+        ],
         async (req, res) => {
+            const errors = validationResult(req);
+    
+            if (!errors.isEmpty()) {
+                // Si hay errores de validación, pasa los errores y un mensaje adicional a la vista
+                const errorMessage = 'Hay campos sin completar o con errores';
+                return res.render('product/productCreation', { errors: errors.array(), errorMessage });
+            }
+    
             const { name, price, discount, description, class: clase, sex, sizes } = req.body;
-            
+    
             // Obtener los nombres de los archivos subidos
             const images = req.files.map(file => file.filename);
     
-            db.Product.create({
-                name,
-                price,
-                discount,
-                description,
-                enOferta: 'true',
-                img: images[0] || '',  // Usar el primer archivo como img
-                img2: images[1] || '',
-                img3: images[2] || '',
-                img4: images[3] || '',
-                class: clase,
-                sex,
-                sizes
-            })
-            .then((result) => {
+            try {
+                // Resto del código para crear el producto en la base de datos
+                const result = await db.Product.create({
+                    name,
+                    price,
+                    discount,
+                    description,
+                    enOferta: 'true',
+                    img: images[0] || '',
+                    img2: images[1] || '',
+                    img3: images[2] || '',
+                    img4: images[3] || '',
+                    class: clase,
+                    sex,
+                    sizes
+                });
+    
+                console.log('Producto creado:', result);
                 res.redirect('/product/creation');
-            })
+            } catch (error) {
+                // Manejar errores al crear el producto
+                console.error('Error al crear el producto:', error);
+                res.status(500).send('Error interno del servidor');
+            }
         }
     ],
 
