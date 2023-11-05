@@ -19,7 +19,7 @@ const upload = multer({ storage: storage });
 const productController = {
 
     list: (req, res) => {
-        res.render('./product.ejs');
+        res.render('./product.ejs', { product, userType: req.session.userType });
     },
 
     addToCart: async (req, res) => {
@@ -161,7 +161,8 @@ const productController = {
                     return res.status(404).send('Producto no encontrado');
                 }
     
-                res.render('./product/product', { product });
+                // Asegúrate de pasar userType al renderizar la vista
+                res.render('./product/product', { product, userType: req.session.userType });
             })
             .catch((error) => {
                 console.error(error);

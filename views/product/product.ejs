@@ -40,7 +40,9 @@
         <form method="POST" action="/product/<%= product.id %>/addToCart">
           <button class="button-form" type="submit">Añadir al carrito</button>
         </form>
-        <button class="button-form" type="submit">Comprar</button>
+        <% if (userType === 'admin') { %>
+          <a href="/product/edit/<%= product.id %>" style="width: 100%;"><button class="button-form" type="submit">Editar producto</button></a>
+        <% } %>
       </div>
     </div>
   </main>
