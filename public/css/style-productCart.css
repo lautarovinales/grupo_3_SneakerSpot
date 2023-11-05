@@ -15,6 +15,11 @@ main{
     padding: 20px;
 }
 
+.empty-cart-image{
+    margin: 20px;
+    width: 200px;
+}
+
 #titulo-carrito{
     font-size: 1.5em;
 }
@@ -34,9 +39,10 @@ main{
     background-color: #ffffff;
     width: 100%;
     /* height: 300px; */
-    border-radius: 10px;
+    border-radius: 5px;
     display: flex;
     flex-direction: column;
+    padding: 20px;
 }
 
 .title-shoe{
@@ -45,7 +51,6 @@ main{
     display: flex;
     align-items: center;
     font-size: 1.3em;
-    padding-left: 20px;
     border-radius: 5px 5px 0px 0px;
 }
 
@@ -56,8 +61,6 @@ main{
     align-items: center;
     flex-direction: row;
     justify-content: space-between;
-    padding-left: 10px;
-    padding-right: 10px;
 }
 
 .img-art{
@@ -76,11 +79,10 @@ main{
 }
 
 .buttons-art{
-    height: fit-content;
-    flex-direction: column;
     justify-content: center;
-    align-items: center;
     display: flex;
+    align-items: center;
+    text-align: center;
     gap: 10px;
 }
 
@@ -124,18 +126,15 @@ main{
 }
 
 .price-art{
-    font-size: 1.3em;
-    color: #3a3a3a;
+    font-size: 1.5em;
 }
 
 .trashcan{
-    border: none;
-    background-color: #ffffff;
-    width: 50px;
-    height: 50px;
-    /* border-radius: 100%; */
-    font-size: 1.2em;
+    padding: 20px;
     color: #5A56E9;
+    background-color: #ffffff;
+    border: none;
+    font-size: 1.5rem;
 }
 
 #total-carrito{
@@ -195,8 +194,6 @@ main{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-left: 20px;
-    padding-right: 20px;
 }
 
 button:hover{
