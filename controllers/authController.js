@@ -191,51 +191,62 @@ const authController = {
     }
 ]
   ,
-  doLogin: async (req, res) => {
-    // Validación de campos
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-      return res.status(400).json({ errors: errors.array() });
+  doLogin: [
+    [
+        body('email')
+            .notEmpty().withMessage('El campo correo electrónico es obligatorio')
+            .isEmail().withMessage('El formato de correo electrónico no es válido'),
+
+        body('password')
+            .notEmpty().withMessage('El campo contraseña es obligatorio')
+            .custom(async (value, { req }) => {
+                const { email } = req.body;
+                const user = await db.User.findOne({ where: { email } });
+
+                if (!user) {
+                    throw new Error('Correo electrónico no encontrado');
+                }
+
+                const passwordMatch = await bcrypt.compare(value, user.password);
+
+                if (!passwordMatch) {
+                    throw new Error('Contraseña incorrecta');
+                }
+
+                return true;
+            }),
+    ],
+    async (req, res) => {
+        const errors = validationResult(req);
+
+        if (!errors.isEmpty()) {
+            // Si hay errores de validación, pasa los errores y un mensaje adicional a la vista
+            const errorMessage = 'Correo electrónico o contraseña incorrectos';
+            return res.render('users/login', { errors: errors.array(), errorMessage });
+        }
+
+        // Obtener el usuario de la base de datos por el correo electrónico
+        const { email, password } = req.body;
+        try {
+            const user = await db.User.findOne({ where: { email } });
+
+            // Contraseña correcta, establecer información del usuario en la sesión
+            req.session.userId = user.id;
+            req.session.username = user.username;
+            req.session.userImg = user.img;
+            req.session.userType = user.type;
+
+            // Mostrar el correo electrónico del usuario en la consola
+            console.log('Login exitoso para el correo electrónico:', user.email);
+
+            // Redirigir al usuario a la página de inicio (ajusta la ruta según tu configuración)
+            return res.redirect('/profile'); // Cambia '/inicio' por la ruta deseada
+        } catch (error) {
+            console.error('Error en el servidor:', error);
+            return res.status(500).json({ error: 'Error en el servidor' });
+        }
     }
-
-    // Obtener el usuario de la base de datos por el correo electrónico
-    const { email, password } = req.body;
-    try {
-      const user = await db.User.findOne({ where: { email } });
-
-      if (!user) {
-        console.log('Usuario no encontrado para el correo electrónico:', email);
-        return res.status(401).json({ error: 'Correo electrónico no encontrado' });
-      }
-
-      // Comparar contraseñas hasheadas
-      const passwordMatch = await bcrypt.compare(password, user.password);
-
-      console.log('Contraseña ingresada:', password);
-      console.log('Contraseña almacenada en la base de datos:', user.password);
-
-      if (passwordMatch) {
-        // Contraseña correcta, establecer información del usuario en la sesión
-        req.session.userId = user.id;
-        req.session.username = user.username;
-        req.session.userImg = user.img;
-        req.session.userType = user.type;
-
-        // Mostrar el correo electrónico del usuario en la consola
-        console.log('Login exitoso para el correo electrónico:', user.email);
-
-        // Redirigir al usuario a la página de inicio (ajusta la ruta según tu configuración)
-        return res.redirect('/profile'); // Cambia '/inicio' por la ruta deseada
-      } else {
-        // Contraseña incorrecta
-        console.log('Contraseña incorrecta para el correo electrónico:', email);
-        return res.status(401).json({ error: 'Contraseña incorrecta' });
-      }
-    } catch (error) {
-      console.error('Error en el servidor:', error);
-      return res.status(500).json({ error: 'Error en el servidor' });
-    }
-  },
+  ],
   doLogout: (req, res) => {
     // Eliminar la información del usuario de la sesión
     req.session.destroy((err) => {

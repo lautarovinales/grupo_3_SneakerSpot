@@ -23,12 +23,33 @@
         <p>Iniciar sesión</p>
         <input type="email" name="email" id="email" placeholder="Correo Electrónico">
         <input type="password" name="password" id="password" placeholder="Contraseña">
+
+        <% if (typeof errors !== 'undefined' && errors.length > 0) { %>
+          <div class="error-messages">
+            <ul>
+              <% errors.forEach((error, index) => { %>
+                <li id="error-message-<%= index + 1 %>" class="error-message">
+                  <%= error.msg %>
+                </li>
+              <% }); %>
+            </ul>
+            <span onclick="closeAllErrorMessages()" class="close-button"><i class="fa-solid fa-xmark"></i></span>
+          </div>
+        <% } %>
+
         <button type="submit">Ingresar</button>
       </form>
       <p>¿No tienes cuenta? <a href="/register" class="register">Crea una</a></p>
     </section>
   </main>
   <%- include('../partials/footer.ejs') %>
+  <script>
+    // Función para cerrar todos los mensajes de error
+    function closeAllErrorMessages() {
+      var errorMessages = document.querySelector('.error-messages');
+      errorMessages.style.display = 'none';
+    }
+  </script>
 </body>
 
 </html>
