@@ -21,33 +21,18 @@
   <%- include('../partials/header.ejs') %>
     <main>
       <section>
-        <div class="div-img">
-          <img src="images/logo.png" alt="" class="imagen-login">
-        </div>
         <form action="/product/creation" method="POST" enctype="multipart/form-data">
-          <h2>Crea tu producto</h2>
-          <label for="name">Nombre del calzado:</label>
+          <div class="title">Crear producto</div>
           <input type="text" name="name" placeholder="Nombre del calzado">
-
-          <label for="img">Imagen del calzado:</label>
           <input type="file" name="img" class="fileinput">
-
-          <label for="class">Clase de calzado:</label>
+          <input type="file" name="img" class="fileinput">
+          <input type="file" name="img" class="fileinput">
+          <input type="file" name="img" class="fileinput">
           <input type="text" name="class" placeholder="Clase de calzado">
-
-          <label for="description">Descripcion del calzado:</label>
           <input type="text" name="description" placeholder="Descripcion del calzado">
-
-          <label for="sizes">Talles:</label>
-          <input type="text" name="sizes" placeholder="Talles"> 
-
-          <label for="discount">Descuento</label>
+          <input type="text" name="sizes" placeholder="Talle"> 
           <input type="number" name="discount" placeholder="Descuento">
-
-          <label for="price">Precio del calzado:</label>
           <input type="number" name="price" placeholder="Precio">
-
-          <label for="sex">Sexo:</label>
           <select name="sex" id="sex">
             <option value="0">F</option>
             <option value="1">M</option>

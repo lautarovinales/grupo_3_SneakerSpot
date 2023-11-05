@@ -72,25 +72,30 @@ const productController = {
     },
 
     createProduct: [
-        upload.single('img'), // Middleware para cargar una imagen
+        upload.array('img', 4),  // Usar upload.array para manejar múltiples archivos
         async (req, res) => {
             const { name, price, discount, description, class: clase, sex, sizes } = req.body;
-            // const productImage = req.file ? `/images/products/${req.file.filename}` : '';
-
+            
+            // Obtener los nombres de los archivos subidos
+            const images = req.files.map(file => file.filename);
+    
             db.Product.create({
                 name,
                 price,
                 discount,
                 description,
                 enOferta: 'true',
-                img: req.file.filename || '',
+                img: images[0] || '',  // Usar el primer archivo como img
+                img2: images[1] || '',
+                img3: images[2] || '',
+                img4: images[3] || '',
                 class: clase,
                 sex,
                 sizes
             })
-                .then((result) => {
-                    res.redirect('/product/creation');
-                })
+            .then((result) => {
+                res.redirect('/product/creation');
+            })
         }
     ],
 
