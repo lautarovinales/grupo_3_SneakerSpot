@@ -79,6 +79,26 @@
       </div>
     </main>
     <%- include('partials/footer.ejs') %>
+    <script> // Obtener el contenedor del nombre del producto
+      var nameContainer = document.querySelector('.name-shoe');
+    
+      // Obtener el ancho actual del contenedor
+      var containerWidth = nameContainer.offsetWidth;
+    
+      // Definir el ancho máximo deseado (por ejemplo, 300px)
+      var maxWidth = 200;
+    
+      // Verificar si el ancho es mayor que el máximo permitido
+      if (containerWidth > maxWidth) {
+        // Calcular la longitud del texto necesario para que quepa en maxWidth con puntos suspensivos
+        var originalText = nameContainer.innerText;
+        var newText = originalText;
+    
+        while (nameContainer.offsetWidth > maxWidth && newText.length > 0) {
+          newText = newText.slice(0, -1); // Eliminar el último carácter
+          nameContainer.innerText = newText + '...'; // Agregar puntos suspensivos
+        }
+      }</script>
 </body>
 
 </html>

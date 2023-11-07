@@ -229,6 +229,10 @@ section{
 .name-shoe{
     font-size: 0.8rem;
     padding-bottom: 0.3rem;
+    overflow: hidden;
+  white-space: nowrap;
+    text-overflow: ellipsis;
+  max-width: 200px;
 }
 
 .class-shoe{

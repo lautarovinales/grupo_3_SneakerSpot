@@ -131,14 +131,16 @@ const productController = {
                 });
     
                 console.log('Producto creado:', result);
-                res.redirect('/product/creation');
+                const productId = result.id;  // Obtener el ID del producto recién creado
+                res.redirect(`/product/${productId}`);
             } catch (error) {
                 // Manejar errores al crear el producto
                 console.error('Error al crear el producto:', error);
                 res.status(500).send('Error interno del servidor');
             }
         }
-    ],
+    ]
+    ,
 
     showEditById: (req, res) => {
         let producto = '';
@@ -149,45 +151,51 @@ const productController = {
             })
     },
 
-    editById: [
-        upload.single('img'), // Middleware para cargar una imagen
-        async (req, res) => {
-            let { name, price, discount, description, class: clase, sex, enOferta } = req.body;
-            // const productImage = req.file ? `/images/products/${req.file.filename}` : '';
+    doEditById: async (req, res) => {
+    const { name, price, discount, description, class: clase, sizes } = req.body;
+    const productId = req.params.id;
 
-            if (enOferta != undefined) {
-                enOferta = '1';
+    try {
+        const product = await db.Product.findByPk(productId);
+
+        if (product) {
+            console.log('Producto antes de la modificación:', product);
+
+            // Actualizar la información del producto
+            product.name = name;
+            product.price = price;
+            product.discount = discount;
+            product.description = description;
+            product.class = clase;
+            product.sizes = sizes;
+
+            // Actualizar la imagen del producto si se carga un nuevo archivo
+            if (req.file) {
+                const imagePath = path.join(__dirname, '../public/images', product.img);
+
+                // Verificar que el archivo exista antes de intentar eliminarlo
+                if (fs.existsSync(imagePath)) {
+                    fs.unlinkSync(imagePath);
+                    console.log('Imagen anterior eliminada:', product.img);
+                }
+
+                product.img = req.file.filename;
             }
 
-            db.Product.findByPk(req.params.id)
-                .then((result) => {
-                    const productToUpdate = result;
+            console.log('Producto después de la modificación:', product);
 
-                    name ? productToUpdate.name = name : productToUpdate.name;
-                    price ? productToUpdate.price = price : productToUpdate.price;
-                    discount ? productToUpdate.discount = discount : productToUpdate.discount;
-                    description ? productToUpdate.description = description : productToUpdate.description;
-                    req.file.filename ? productToUpdate.img = req.file.filename : productToUpdate.img;
-                    clase ? productToUpdate.class = clase : productToUpdate.class;
-                    sex ? productToUpdate.sex = sex : productToUpdate.sex;
+            await product.save();
 
-                    db.Product.update({
-                        name: productToUpdate.name,
-                        price: productToUpdate.price,
-                        discount: productToUpdate.discount,
-                        description: productToUpdate.description,
-                        enOferta: enOferta,
-                        img: productToUpdate.img,
-                        class: productToUpdate.class,
-                        sex: productToUpdate.sex
-                    }, {
-                        where: { id: req.params.id }
-                    }).then((result) => {
-                        res.redirect('/');
-                    })
-                })
+            console.log('Producto actualizado:', product.id);
+            res.redirect('/');
+        } else {
+            res.status(404).send('Producto no encontrado');
         }
-    ],
+    } catch (error) {
+        console.error('Error al editar el producto:', error);
+        res.status(500).send('Error interno del servidor');
+    }
+},
 
     catalogo: (req, res) => {
         db.Product.findAll()
