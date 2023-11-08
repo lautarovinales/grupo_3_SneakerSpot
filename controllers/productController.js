@@ -4,6 +4,7 @@ const multer = require('multer');
 const fs = require('fs');
 const db = require('../dataBase/models');
 const { Product } = require('../dataBase/models');
+const { Z_ASCII } = require('zlib');
 
 
 // Configuración de almacenamiento para la carga de imágenes con Multer
@@ -231,7 +232,41 @@ const productController = {
             .then((result) => {
                 res.redirect('/');
             });
-    }
+    },
+
+    editProduct:[
+        upload.array('img', 4),
+        [
+            body('name')
+                .notEmpty().withMessage('El campo nombre del producto es obligatorio')
+                .isLength({ min: 5 }).withMessage('El nombre del producto debe tener al menos 5 caracteres'),
+    
+            body('description')
+                .isLength({ min: 20 }).withMessage('La descripción del producto debe tener al menos 20 caracteres'),
+    
+            body('img')
+                .custom((value, { req }) => {
+                    if (!req.files || req.files.length < 1) {
+                        throw new Error('Se requiere al menos una imagen para el producto');
+                    }
+    
+                    const allowedExtensions = ['jpg', 'jpeg', 'png', 'gif'];
+                    const fileExtension = req.files[0].originalname.split('.').pop().toLowerCase();
+    
+                    if (!allowedExtensions.includes(fileExtension)) {
+                        throw new Error('El archivo de imagen debe ser JPG, JPEG, PNG, o GIF');
+                    }
+    
+                    return true;
+                }),
+        ],
+    ]
+    
+   
+
+
 };
+
+
 
 module.exports = productController;
