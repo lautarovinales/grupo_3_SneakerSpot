@@ -48,12 +48,29 @@
                     <input type="text" name="sizes" placeholder="Talles" value="<%= producto.sizes %>">
 
                     <label for="enOferta">En oferta: <input type="checkbox" name="enOferta" id="enOferta"></label>
+                    <% if (typeof errors !== 'undefined' && errors.length > 0) { %>
+                        <div class="error-messages">
+                            <ul>
+                                <% errors.forEach((error, index) => { %>
+                                    <li id="error-message-<%= index + 1 %>" class="error-message">
+                                        <%= error.msg %>
+                                    </li>
+                                <% }); %>
+                            </ul>
+                            <span onclick="closeAllErrorMessages()" class="close-button"><i class="fa-solid fa-xmark"></i></span>
+                        </div>
+                    <% } %>
                     <button type="submit">Guardar cambios</button>
                 </form>
             </section>
         </main>
         <%- include('../partials/footer.ejs') %>
-            <script src="./js/script.js"></script>
+        <script>
+            function closeAllErrorMessages() {
+            var errorMessages = document.querySelector('.error-messages');
+            errorMessages.style.display = 'none';
+        }
+          </script>
 </body>
 
 </html>

@@ -197,6 +197,61 @@ const productController = {
         res.status(500).send('Error interno del servidor');
     }
 },
+doEditById: [
+    [
+        body('name')
+            .notEmpty().withMessage('El campo nombre del producto es obligatorio')
+            .isLength({ min: 5 }).withMessage('El nombre del producto debe tener al menos 5 caracteres'),
+
+        body('description')
+            .isLength({ min: 20 }).withMessage('La descripción del producto debe tener al menos 20 caracteres'),
+
+    ],
+    async (req, res) => {
+        const errors = validationResult(req);
+
+        if (!errors.isEmpty()) {
+            return res.render('product/productEditById', { errors: errors.array(), producto: req.body });
+        }
+
+        const { name, price, discount, description, class: clase, sizes } = req.body;
+        const productId = req.params.id;
+
+        try {
+            const product = await db.Product.findByPk(productId);
+
+            if (!product) {
+                return res.status(404).send('Producto no encontrado');
+            }
+
+            product.name = name;
+            product.price = price;
+            product.discount = discount;
+            product.description = description;
+            product.class = clase;
+            product.sizes = sizes;
+
+            if (req.file) {
+                const imagePath = path.join(__dirname, '../public/images', product.img);
+
+                if (fs.existsSync(imagePath)) {
+                    fs.unlinkSync(imagePath);
+                    console.log('Imagen anterior eliminada:', product.img);
+                }
+
+                product.img = req.file.filename;
+            }
+
+            await product.save();
+
+            console.log('Producto actualizado:', product.id);
+            res.redirect('/');
+        } catch (error) {
+            console.error('Error al editar el producto:', error);
+            res.status(500).send('Error interno del servidor');
+        }
+    }
+],
 
     catalogo: (req, res) => {
         db.Product.findAll()
