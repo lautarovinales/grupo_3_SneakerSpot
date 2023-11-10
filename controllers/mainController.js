@@ -18,6 +18,9 @@ const mainController = {
             console.error('Error al obtener productos en oferta:', error);
             res.render('error');
         });
+    },
+    error: (req, res) => {
+        res.render('error');
     }
 };
 
