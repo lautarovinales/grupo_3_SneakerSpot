@@ -188,7 +188,7 @@ const productController = {
             await product.save();
 
             console.log('Producto actualizado:', product.id);
-            res.redirect('/');
+            res.redirect('/product/' + product.id);
         } else {
             res.status(404).send('Producto no encontrado');
         }

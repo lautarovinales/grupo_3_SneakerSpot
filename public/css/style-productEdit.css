@@ -14,6 +14,36 @@ main{
     align-items: center;
 }
 
+/* Estilos para el botón de cerrar */
+.error-messages {
+    position: relative;
+    width: 100%;
+    color: #ffffff;
+  }
+  
+  /* Estilo para la lista de errores */
+  .error-messages ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  /* Estilo para cada mensaje de error */
+  .error-message {
+    background-color: #ff5067;
+    position: relative;
+    padding: 15px 20px;
+  }
+  
+  /* Estilo para el botón de cerrar */
+  .close-button {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    cursor: pointer;
+  }
+
+
+
 .imagen-login{
     width: 150px;
     transition: 0.5s;
