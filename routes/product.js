@@ -5,16 +5,7 @@ const productController = require('../controllers/productController');
 const verificarAutenticacion = require('../middlewares/verificarAutenticacion');
 const isAdmin = require('../middlewares/verificarAdmin'); // Importa el nuevo middleware
 const multer = require('multer');
-
-const storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-        cb(null, 'public/images'); // Ruta donde se guardarán las imágenes
-    },
-    filename: function (req, file, cb) {
-        cb(null, Date.now() + '-' + file.originalname); // Nombre único del archivo
-    }
-});
-const upload = multer({ storage: storage });
+const upload = require('../utils/multerConfig');
 
 router.use(methodOverride('_method'));
 

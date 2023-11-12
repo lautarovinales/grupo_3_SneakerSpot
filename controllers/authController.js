@@ -5,18 +5,7 @@ const path = require('path');
 const multer = require('multer');
 const fs = require('fs');
 const db = require('../dataBase/models');
-
-
-const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, 'public/usersImage');
-  },
-  filename: function (req, file, cb) {
-    cb(null, Date.now() + '-' + file.originalname);
-  }
-});
-
-const upload = multer({ storage: storage });
+const upload = require('../utils/multerConfig');
 
 const authController = {
   profile: async (req, res) => {

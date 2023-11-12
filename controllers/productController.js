@@ -1,23 +1,10 @@
 const { body, validationResult } = require('express-validator');
 const path = require('path');
-const multer = require('multer');
 const fs = require('fs');
 const db = require('../dataBase/models');
 const { Product } = require('../dataBase/models');
 const { Z_ASCII } = require('zlib');
-
-
-// Configuración de almacenamiento para la carga de imágenes con Multer
-const storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-        cb(null, 'public/images'); // Ruta donde se guardarán las imágenes
-    },
-    filename: function (req, file, cb) {
-        cb(null, Date.now() + '-' + file.originalname); // Nombre único del archivo
-    }
-});
-
-const upload = multer({ storage: storage });
+const upload = require('../utils/multerConfig');
 
 const productController = {
 
