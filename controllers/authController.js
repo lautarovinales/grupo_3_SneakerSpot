@@ -182,18 +182,21 @@ const authController = {
   ,
   doLogin: [
     [
-        body('email')
-            .notEmpty().withMessage('El campo correo electrónico es obligatorio')
-            .isEmail().withMessage('El formato de correo electrónico no es válido'),
+        body('emailOrUsername')
+            .notEmpty().withMessage('El campo correo electrónico es obligatorio'),
+            // .isEmail().withMessage('El formato de correo electrónico no es válido'),
 
         body('password')
             .notEmpty().withMessage('El campo contraseña es obligatorio')
             .custom(async (value, { req }) => {
-                const { email } = req.body;
-                const user = await db.User.findOne({ where: { email } });
+                const { emailOrUsername } = req.body;
+                let user = await db.User.findOne({ where: { email: emailOrUsername } });
 
                 if (!user) {
-                    throw new Error('Correo electrónico no encontrado');
+                    user = await db.User.findOne({ where: { username: emailOrUsername } });
+                    if(!user) {
+                      throw new Error('Correo electrónico o nombre de usuario no encontrado');
+                    }
                 }
 
                 const passwordMatch = await bcrypt.compare(value, user.password);
@@ -215,9 +218,15 @@ const authController = {
         }
 
         // Obtener el usuario de la base de datos por el correo electrónico
-        const { email, password } = req.body;
+        const { emailOrUsername, password } = req.body;
         try {
-            const user = await db.User.findOne({ where: { email } });
+          let user;
+            if(emailOrUsername.includes('@')) {
+              user = await db.User.findOne({ where: { email: emailOrUsername } });
+            }
+            else {
+              user = await db.User.findOne({ where: { username: emailOrUsername } });
+            }
 
             // Contraseña correcta, establecer información del usuario en la sesión
             req.session.userId = user.id;

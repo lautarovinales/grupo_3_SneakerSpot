@@ -21,7 +21,7 @@
     <section>
       <form action="/login" method="POST">
         <p>Iniciar sesión</p>
-        <input type="email" name="email" id="email" placeholder="Correo Electrónico">
+        <input type="text" name="emailOrUsername" id="emailOrUsername" placeholder="Email o nombre de usuario">
         <input type="password" name="password" id="password" placeholder="Contraseña">
 
         <% if (typeof errors !== 'undefined' && errors.length > 0) { %>
