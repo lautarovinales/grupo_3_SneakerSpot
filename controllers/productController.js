@@ -67,40 +67,40 @@ const productController = {
             body('name')
                 .notEmpty().withMessage('El campo nombre del producto es obligatorio')
                 .isLength({ min: 5 }).withMessage('El nombre del producto debe tener al menos 5 caracteres'),
-    
+
             body('description')
                 .isLength({ min: 20 }).withMessage('La descripción del producto debe tener al menos 20 caracteres'),
-    
+
             body('img')
                 .custom((value, { req }) => {
                     if (!req.files || req.files.length < 1) {
                         throw new Error('Se requiere al menos una imagen para el producto');
                     }
-    
+
                     const allowedExtensions = ['jpg', 'jpeg', 'png', 'gif'];
                     const fileExtension = req.files[0].originalname.split('.').pop().toLowerCase();
-    
+
                     if (!allowedExtensions.includes(fileExtension)) {
                         throw new Error('El archivo de imagen debe ser JPG, JPEG, PNG, o GIF');
                     }
-    
+
                     return true;
                 }),
         ],
         async (req, res) => {
             const errors = validationResult(req);
-    
+
             if (!errors.isEmpty()) {
                 // Si hay errores de validación, pasa los errores y un mensaje adicional a la vista
                 const errorMessage = 'Hay campos sin completar o con errores';
                 return res.render('product/productCreation', { errors: errors.array(), errorMessage });
             }
-    
+
             const { name, price, discount, description, class: clase, sex, sizes } = req.body;
-    
+
             // Obtener los nombres de los archivos subidos
             const images = req.files.map(file => file.filename);
-    
+
             try {
                 // Resto del código para crear el producto en la base de datos
                 const result = await db.Product.create({
@@ -117,7 +117,7 @@ const productController = {
                     sex,
                     sizes
                 });
-    
+
                 console.log('Producto creado:', result);
                 const productId = result.id;  // Obtener el ID del producto recién creado
                 res.redirect(`/product/${productId}`);
@@ -129,7 +129,6 @@ const productController = {
         }
     ]
     ,
-
     showEditById: (req, res) => {
         let producto = '';
         db.Product.findByPk(req.params.id)
@@ -138,117 +137,77 @@ const productController = {
                 res.render('./product/productEditById', { producto });
             })
     },
+    doEditById: [
+        [
+            body('name')
+                .notEmpty().withMessage('El campo nombre del producto es obligatorio')
+                .isLength({ min: 5 }).withMessage('El nombre del producto debe tener al menos 5 caracteres'),
 
-    doEditById: async (req, res) => {
-    const { name, price, discount, description, class: clase, sizes } = req.body;
-    const productId = req.params.id;
+            body('description')
+                .isLength({ min: 20 }).withMessage('La descripción del producto debe tener al menos 20 caracteres'),
+        ],
+        async (req, res) => {
+            try {
+                const producto = await db.Product.findByPk(req.params.id);
 
-    try {
-        const product = await db.Product.findByPk(productId);
-
-        if (product) {
-            console.log('Producto antes de la modificación:', product);
-
-            // Actualizar la información del producto
-            product.name = name;
-            product.price = price;
-            product.discount = discount;
-            product.description = description;
-            product.class = clase;
-            product.sizes = sizes;
-
-            // Actualizar la imagen del producto si se carga un nuevo archivo
-            if (req.file) {
-                const imagePath = path.join(__dirname, '../public/images', product.img);
-
-                // Verificar que el archivo exista antes de intentar eliminarlo
-                if (fs.existsSync(imagePath)) {
-                    fs.unlinkSync(imagePath);
-                    console.log('Imagen anterior eliminada:', product.img);
+                if (!producto) {
+                    console.log('Producto no encontrado');
+                    return res.status(404).send('Producto no encontrado');
                 }
 
-                product.img = req.file.filename;
+                console.log('Producto encontrado:', producto);
+
+                const errors = validationResult(req);
+
+                if (!errors.isEmpty()) {
+                    console.log('Errores de validación:', errors.array());
+                    return res.render('./product/productEditById', { errors: errors.array(), producto });
+                }
+
+                // Actualizamos los datos del producto
+                const { name, price, discount, description, class: clase, sizes } = req.body;
+                producto.name = name;
+                producto.price = price;
+                producto.discount = discount;
+                producto.description = description;
+                producto.class = clase;
+                producto.sizes = sizes;
+
+                // Verificamos si hay una nueva imagen
+                if (req.file) {
+                    const imagePath = path.join(__dirname, '../public/images', producto.img);
+
+                    // Eliminamos la imagen anterior
+                    if (fs.existsSync(imagePath)) {
+                        fs.unlinkSync(imagePath);
+                        console.log('Imagen anterior eliminada:', producto.img);
+                    }
+
+                    // Asignamos la nueva imagen al producto
+                    producto.img = req.file.filename;
+                }
+
+                // Guardamos los cambios
+                await producto.save();
+
+                console.log('Producto actualizado:', producto.id);
+                res.redirect('/');
+            } catch (error) {
+                console.error('Error al editar el producto:', error);
+                res.status(500).send('Error interno del servidor');
             }
-
-            console.log('Producto después de la modificación:', product);
-
-            await product.save();
-
-            console.log('Producto actualizado:', product.id);
-            res.redirect('/product/' + product.id);
-        } else {
-            res.status(404).send('Producto no encontrado');
         }
-    } catch (error) {
-        console.error('Error al editar el producto:', error);
-        res.status(500).send('Error interno del servidor');
-    }
-},
-doEditById: [
-    [
-        body('name')
-            .notEmpty().withMessage('El campo nombre del producto es obligatorio')
-            .isLength({ min: 5 }).withMessage('El nombre del producto debe tener al menos 5 caracteres'),
-
-        body('description')
-            .isLength({ min: 20 }).withMessage('La descripción del producto debe tener al menos 20 caracteres'),
-
     ],
-    async (req, res) => {
-        const errors = validationResult(req);
-
-        if (!errors.isEmpty()) {
-            return res.render('product/productEditById', { errors: errors.array(), producto: req.body });
-        }
-
-        const { name, price, discount, description, class: clase, sizes } = req.body;
-        const productId = req.params.id;
-
-        try {
-            const product = await db.Product.findByPk(productId);
-
-            if (!product) {
-                return res.status(404).send('Producto no encontrado');
-            }
-
-            product.name = name;
-            product.price = price;
-            product.discount = discount;
-            product.description = description;
-            product.class = clase;
-            product.sizes = sizes;
-
-            if (req.file) {
-                const imagePath = path.join(__dirname, '../public/images', product.img);
-
-                if (fs.existsSync(imagePath)) {
-                    fs.unlinkSync(imagePath);
-                    console.log('Imagen anterior eliminada:', product.img);
-                }
-
-                product.img = req.file.filename;
-            }
-
-            await product.save();
-
-            console.log('Producto actualizado:', product.id);
-            res.redirect('/');
-        } catch (error) {
-            console.error('Error al editar el producto:', error);
-            res.status(500).send('Error interno del servidor');
-        }
-    }
-],
 
     catalogo: (req, res) => {
         db.Product.findAll()
-        .then((results) => {
-            res.render('./product/productCatalogue', { results })
-        })
-        .catch((error) => {
-            console.error(error);
-            res.status(500).send('Error interno del servidor');
-        });
+            .then((results) => {
+                res.render('./product/productCatalogue', { results })
+            })
+            .catch((error) => {
+                console.error(error);
+                res.status(500).send('Error interno del servidor');
+            });
     },
 
     productDetail: (req, res) => {
@@ -257,7 +216,7 @@ doEditById: [
                 if (!product) {
                     return res.status(404).send('Producto no encontrado');
                 }
-    
+
                 // Asegúrate de pasar userType al renderizar la vista
                 res.render('./product/product', { product, userType: req.session.userType });
             })
@@ -275,36 +234,6 @@ doEditById: [
                 res.redirect('/');
             });
     },
-
-    editProduct:[
-        upload.array('img', 4),
-        [
-            body('name')
-                .notEmpty().withMessage('El campo nombre del producto es obligatorio')
-                .isLength({ min: 5 }).withMessage('El nombre del producto debe tener al menos 5 caracteres'),
-    
-            body('description')
-                .isLength({ min: 20 }).withMessage('La descripción del producto debe tener al menos 20 caracteres'),
-    
-            body('img')
-                .custom((value, { req }) => {
-                    if (!req.files || req.files.length < 1) {
-                        throw new Error('Se requiere al menos una imagen para el producto');
-                    }
-    
-                    const allowedExtensions = ['jpg', 'jpeg', 'png', 'gif'];
-                    const fileExtension = req.files[0].originalname.split('.').pop().toLowerCase();
-    
-                    if (!allowedExtensions.includes(fileExtension)) {
-                        throw new Error('El archivo de imagen debe ser JPG, JPEG, PNG, o GIF');
-                    }
-    
-                    return true;
-                }),
-        ],
-    ]
-    
-   
 
 
 };
