@@ -10,6 +10,13 @@ const mainRoute = require('./routes/main');
 const productRoute = require('./routes/product');
 const authRoute = require('./routes/auth');
 const apiRoute = require('./routes/api');
+const cors = require('cors');
+app.use(cors(
+  {
+    origin: '*',
+    credentials: true,
+  }
+));
 
 app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride('_method'));
