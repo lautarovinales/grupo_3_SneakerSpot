@@ -7,7 +7,9 @@ const isAdmin = require('../middlewares/verificarAdmin'); // Importa el nuevo mi
 router.get('/users', apiController.getAllUsers);
 router.get('/users/:id', apiController.getUserById);
 router.get('/api/users/:id/image', apiController.getUserImageById);
-router.get('/product', apiController.getAllProducts);
-router.get('/product/:id', apiController.getProductById);
+router.get('/products', apiController.getAllProducts);
+router.get('/products/:id', apiController.getProductById);
+router.get('/categories', apiController.getAllCategories);
+router.get('/categories/:id', apiController.getCategoryById);
 
 module.exports = router;

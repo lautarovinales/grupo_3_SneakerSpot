@@ -91,6 +91,36 @@ const apiController = {
     } else {
       res.status(404).json({ error: 'Producto no encontrado' });
     }
+  },
+
+  getAllCategories: async (req, res) => {
+    const products = await db.Product.findAll({ attributes: ['class'] });
+    const productsCategories = products.map(product => product.class);
+    const uniqueCategories = productsCategories.filter((cat, index) => productsCategories.indexOf(cat) === index);
+    
+    res.json({
+      count: uniqueCategories.length,
+      categories: uniqueCategories
+    });
+  },
+
+  getCategoryById: async (req, res) => {
+    const categoryId = req.params.id;
+    const products = await db.Product.findAll({ attributes: ['class'] });
+    const productsCategories = products.map(product => product.class);
+    const uniqueCategories = productsCategories.filter((cat, index) => productsCategories.indexOf(cat) === index);
+
+    // const searchedCategory = uniqueCategories.find(cat => cat === categoryId);
+    const searchedCategory = uniqueCategories[categoryId];
+    if(!searchedCategory) {
+      return res.status(404).json({ error: 'Categoría no encontrada' });
+    }
+    const productsByCategory = await db.Product.findAll({ where: { class: searchedCategory } });
+
+    res.json({
+      count: productsByCategory.length,
+      searchedCategory,
+    })
   }
 };
 
