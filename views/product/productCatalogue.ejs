@@ -19,81 +19,88 @@
 
 <body>
   <%- include('../partials/header.ejs') %>
-    <main>
-      <div class="filters">
-        <div class="filter-borrar">
-          <p class="title-filter">Filtros</p>
-          <button class="b-limpiar">Limpiar filtros</button>
-        </div>
-        <div class="talles">
-          <p class="title-filter">Talle</p>
-          <div class="buttons-talle">
-            <label for="radio">
-              <input type="radio" name="radio" id="">
-              <input type="radio" name="radio" id="">
-              <input type="radio" name="radio" id="">
-              <input type="radio" name="radio" id="">
-              <input type="radio" name="radio" id="">
-              <input type="radio" name="radio" id="">
-              <input type="radio" name="radio" id="">
-              <input type="radio" name="radio" id="">
-            </label>
-          </div>
-        </div>
-        <div class="clases">
-          <p class="title-filter">Clase de calzado</p>
-          <div class="buttons-clase">
-            <label for="clase">
-              <input type="radio" name="clase" id="">
-              <input type="radio" name="clase" id="">
-              <input type="radio" name="clase" id="">
-              <input type="radio" name="clase" id="">
-            </label>
-          </div>
-        </div>
-        <div class="colores">
-          <p class="title-filter" title-filter>Color</p>
-          <div class="buttons-colors">
-            <label for="colores">
-              <input type="radio" name="colores" id="">
-              <input type="radio" name="colores" id="">
-              <input type="radio" name="colores" id="">
-              <input type="radio" name="colores" id="">
-            </label>
-          </div>
+
+  <main>
+    <div class="filters">
+      <div class="filter-borrar">
+        <p class="title-filter">Filtros</p>
+        <button class="b-limpiar">Limpiar filtros</button>
+      </div>
+      <div class="talles">
+        <p class="title-filter">Talle</p>
+        <div class="buttons-talle">
+          <div class="button-talle">37</div>
+          <div class="button-talle">38</div>
+          <div class="button-talle">39</div>
+          <div class="button-talle">40</div>
+          <div class="button-talle">41</div>
+          <div class="button-talle">42</div>
+          <div class="button-talle">43</div>
+          <div class="button-talle">44</div>
         </div>
       </div>
-      <div class="product-list">
-        <% results.forEach(result=> { %>
-          <div class="producto">
-            <a class="link" href="/product/<%= result.id %>">
-              <div class="img-shoe">
-                <img src="/images/<%= result.img %>" alt="" srcset="" width="100%" height="100%">
-              </div>
-              <div class="desc-shoe">
-                <div class="envio-fav">
-                  <p class="envio">Envio gratis</p>
-                  <button><i class="fa-solid fa-heart" style="color: #5A56E9;"></i></button>
-                </div>
-                <p class="name-shoe">
-                  <%= result.name %>
-                </p>
-                <p class="class-shoe">
-                  <%= result.class %>
-                </p>
-                <div class="disc-price">
-                  <p class="disc-shoe">$ <%= result.discount %>
-                  </p>
-                  <p class="price-shoe">$ <%= result.price %>
-                  </p>
-                </div>
-              </div>
-            </a>
-          </div>
-          <% }) %>
+      <div class="clases">
+        <p class="title-filter">Clase de calzado</p>
+        <div class="buttons-clase">
+          <div class="button-class">Basket</div>
+          <div class="button-class">Urban</div>
+          <div class="button-class">Running</div>
+          <div class="button-class">Kids</div>
+        </div>
       </div>
-    </main>
-    <%- include('../partials/footer.ejs') %>
+    </div>
+
+    <div class="product-list">
+      <% results.forEach(result=> { %>
+      <div class="producto">
+        <a class="link" href="/product/<%= result.id %>">
+          <div class="img-shoe">
+            <img src="/images/<%= result.img %>" alt="" srcset="" width="100%" height="100%">
+          </div>
+          <div class="desc-shoe">
+            <div class="envio-fav">
+              <p class="envio">Envio gratis</p>
+              <button><i class="fa-solid fa-heart" style="color: #5A56E9;"></i></button>
+            </div>
+            <p class="name-shoe">
+              <%= result.name %>
+            </p>
+            <p class="class-shoe">
+              <%= result.class %>
+            </p>
+            <div class="disc-price">
+              <p class="disc-shoe">$ <%= result.discount %></p>
+              <p class="price-shoe">$ <%= result.price %></p>
+            </div>
+          </div>
+        </a>
+      </div>
+      <% }) %>
+    </div>
+  </main>
+
+  <%- include('../partials/footer.ejs') %>
+
+  <script>
+    document.querySelectorAll('.button-talle').forEach(function(button) {
+      button.addEventListener('click', function() {
+        const selectedSize = button.innerText;
+        window.location.href = '/product/catalogo?talla=' + selectedSize;
+      });
+    });
+
+    document.querySelectorAll('.button-class').forEach(function(button) {
+    button.addEventListener('click', function() {
+      const selectedClass = button.innerText; // Corregir aquí
+      window.location.href = '/product/catalogo?class=' + selectedClass;
+    });
+  });
+
+
+    document.querySelector('.b-limpiar').addEventListener('click', function() {
+      window.location.href = '/product/catalogo';
+    });
+  </script>
 </body>
 
 </html>

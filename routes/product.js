@@ -17,6 +17,8 @@ router.get('/creation', verificarAutenticacion, isAdmin, productController.creat
 
 router.post('/creation', productController.createProduct);
 
+router.get('/search', productController.search);
+
 router.get('/catalogo', productController.catalogo);
 
 router.get('/edit/:id', verificarAutenticacion, isAdmin, productController.showEditById);

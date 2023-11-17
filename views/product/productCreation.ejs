@@ -28,9 +28,14 @@
           <input type="file" name="img" class="fileinput">
           <input type="file" name="img" class="fileinput">
           <input type="file" name="img" class="fileinput">
-          <input type="text" name="class" placeholder="Clase de calzado">
+          <select id="clasesCalzado" name="class">
+            <option value="Urbano">Urbano</option>
+            <option value="Basket">Basket</option>
+            <option value="Running">Running</option>
+            <option value="Niños">Niños</option>
+          </select>
           <input type="text" name="description" placeholder="Descripcion del calzado">
-          <input type="number" name="sizes" placeholder="Talle"> 
+          <input type="number" name="sizes" id="sizes" placeholder="Talle" min="37" max="44">
           <input type="number" name="discount" placeholder="Descuento">
           <input type="number" name="price" placeholder="Precio">
           <select name="sex" id="sex">

@@ -13,8 +13,6 @@ main{
     gap: 10px;
 }
 
-
-
 .filters {
     background-color: rgb(255, 255, 255);
     height: fit-content;
@@ -23,7 +21,8 @@ main{
     display: flex;
     flex-direction: column;
     gap: 10px;
-    border-radius: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 21px -7px rgba(0,0,0,0.75);
 }
 
 .title-filter{
@@ -49,42 +48,42 @@ main{
 }
 
 .buttons-talle{
-    width: 100%;
+    gap: 10px;
     height: fit-content;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
-.buttons-talle input{
-    height: 30px;
-    width: 30px;
-    margin: 10px;
+.button-talle{
+    background-color: #5A56E9;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+    color: #ffffff;
+    cursor: pointer;
 }
 
 .buttons-clase{
-    width: 100%;
+    gap: 10px;
     height: fit-content;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
-.buttons-clase input{
-    height: 30px;
-    width: 30px;
-    margin: 10px;
-}
-
-.buttons-colors{
-    width: 100%;
-    height: fit-content;
+.button-class{
+    background-color: #5A56E9;
     display: flex;
-    flex-wrap: wrap;
-}
-
-.buttons-colors input{
-    height: 30px;
-    width: 30px;
-    margin: 10px;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 35px;
+    color: #ffffff;
+    border-radius: 3px;
+    cursor: pointer;
 }
 
 @media (max-width: 920px) {

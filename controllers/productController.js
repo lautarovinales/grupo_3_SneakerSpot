@@ -3,6 +3,7 @@ const path = require('path');
 const fs = require('fs');
 const db = require('../dataBase/models');
 const { Product } = require('../dataBase/models');
+const { Op } = require('sequelize');
 const { Z_ASCII } = require('zlib');
 const upload = require('../utils/multerConfig');
 
@@ -198,16 +199,53 @@ const productController = {
             }
         }
     ],
-
-    catalogo: (req, res) => {
-        db.Product.findAll()
-            .then((results) => {
-                res.render('./product/productCatalogue', { results })
-            })
-            .catch((error) => {
-                console.error(error);
-                res.status(500).send('Error interno del servidor');
+    catalogo: async (req, res) => {
+        try {
+            let results;
+    
+            if (req.query.talla) {
+                results = await db.Product.findAll({
+                    where: {
+                        sizes: {
+                            [Op.like]: `%${req.query.talla}%`
+                        }
+                    }
+                });
+            } else if (req.query.class) { // Agregar condición para filtrar por clase
+                results = await db.Product.findAll({
+                    where: {
+                        class: {
+                            [Op.like]: `%${req.query.class}%`
+                        }
+                    }
+                });
+            } else {
+                results = await db.Product.findAll();
+            }
+    
+            res.render('./product/productCatalogue', { results });
+        } catch (error) {
+            console.error('Error en la función catalogo:', error);
+            res.status(500).send('Error interno del servidor');
+        }
+    },
+    search: async (req, res) => {
+        const query = req.query.query;
+    
+        try {
+            // Realiza una búsqueda en la base de datos con Sequelize
+            const resultsSearch = await db.Product.findAll({
+                where: {
+                    name: { [Op.like]: `%${query}%` },
+                },
             });
+    
+            console.log('Resultados de búsqueda:', resultsSearch);
+            res.render('./product/searchResults', { resultsSearch });
+        } catch (error) {
+            console.error('Error al realizar la búsqueda:', error.message);
+            res.status(500).send(`Error interno del servidor: ${error.message}`);
+        }
     },
 
     productDetail: (req, res) => {
