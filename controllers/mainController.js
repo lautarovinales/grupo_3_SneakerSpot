@@ -12,7 +12,7 @@ const mainController = {
             }
         })
         .then((results) => {
-            res.render('index', { productosEnOferta: results });
+            res.render('index', { productosEnOferta: results, userType: req.session.userType });
         })
         .catch((error) => {
             const errorp = "Error al obtener productos en oferta";

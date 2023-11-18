@@ -10,7 +10,7 @@ const upload = require('../utils/multerConfig');
 const productController = {
 
     list: (req, res) => {
-        res.render('./product.ejs', { product, userType: req.session.userType });
+        res.render('index', { productosEnOferta: results, userType: req.session.userType });
     },
 
     addToCart: async (req, res) => {
