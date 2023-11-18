@@ -219,6 +219,12 @@ const productController = {
                         }
                     }
                 });
+            } else if (req.query.gender) {
+                results = await db.Product.findAll({
+                  where: {
+                    sex: req.query.gender // Buscar directamente el valor del parámetro
+                  }
+                });
             } else {
                 results = await db.Product.findAll();
             }

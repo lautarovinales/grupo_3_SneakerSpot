@@ -38,7 +38,7 @@ main{
 }
 
 .title-filter{
-    margin-bottom: 10px;
+    
 }
 
 .filter-borrar{
@@ -87,6 +87,24 @@ main{
 }
 
 .button-class{
+    background-color: #5A56E9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 35px;
+    color: #ffffff;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.buttons-genders{
+    gap: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.button-gender{
     background-color: #5A56E9;
     display: flex;
     justify-content: center;

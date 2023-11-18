@@ -24,7 +24,10 @@
         <input type="text" name="username" id="username" placeholder="Nombre de usuario">
         <input type="email" name="email" id="email" placeholder="Correo Electrónico">
         <input type="password" name="password" id="password" placeholder="Contraseña">
-        <input type="file" name="img" accept=".jpg, .jpeg, .png">
+        <div class="input-file">
+          <p><i class="fa-solid fa-image"></i> Subir imagen</p>
+          <input type="file" name="img" accept=".jpg, .jpeg, .png">
+        </div>
       
         <% if (typeof errors !== 'undefined' && errors.length > 0) { %>
           <div class="error-messages">

@@ -17,6 +17,37 @@ body {
     margin: 0;
     padding: 0;
 }
+
+.input-file {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 40px;
+  background-color: #3ec898;
+  border-radius: 3px;
+}
+
+.input-file:hover{
+  background-color: #5de2b4;
+  transition: 0.2s;
+}
+
+.input-file p {
+  margin: 0; /* Elimina el margen predeterminado del párrafo */
+  position: absolute;
+  color: #ffffff;
+}
+
+.input-file input {
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+
+
 /* Estilos para el botón de cerrar */
 .error-messages {
   position: relative;
