@@ -252,16 +252,14 @@ const productController = {
         db.Product.findByPk(req.params.id)
             .then((product) => {
                 if (!product) {
-                    return res.status(404).send('Producto no encontrado');
+                    const errorp = "Error al obtener el Producto";
+            const errorpDesc = "Hubo un problema al intentar obtener el detalle de producto. Por favor, intentalo de nuevo más tarde";
+            res.render('error', { errorp, errorpDesc } );
                 }
 
                 // Asegúrate de pasar userType al renderizar la vista
                 res.render('./product/product', { product, userType: req.session.userType });
             })
-            .catch((error) => {
-                console.error(error);
-                res.status(500).send('Error interno del servidor');
-            });
     },
 
     productDelete: (req, res) => {

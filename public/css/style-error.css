@@ -10,7 +10,7 @@ body, html {
     align-items: center;
     background-color: #ff1d3f;
     width: 100%;
-    height: fit-content;
+    height: 100%;
   }
 
 .error-window{ 

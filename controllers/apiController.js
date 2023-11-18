@@ -27,7 +27,9 @@ const apiController = {
       };
       res.json(userProfile);
     } else {
-      res.status(404).json({ error: 'Usuario no encontrado' });
+            const errorp = "Error al obtener el Usuario";
+            const errorpDesc = "Hubo un problema al intentar obtener el detalle de usuario. Por favor, intentalo de nuevo más tarde";
+            res.render('error', { errorp, errorpDesc } );
     }
   },
 
@@ -38,7 +40,9 @@ const apiController = {
       const imagePath = `/images/${user.img}`;
       res.sendFile(imagePath);
     } else {
-      res.status(404).json({ error: 'Imagen no encontrada' });
+      const errorp = "Error al obtener la imagen";
+            const errorpDesc = "Hubo un problema al intentar obtener la imagen del usuario. Por favor, intentalo de nuevo más tarde";
+            res.render('error', { errorp, errorpDesc } );
     }
   },
 
@@ -89,7 +93,9 @@ const apiController = {
       };
       res.json(productDetails);
     } else {
-      res.status(404).json({ error: 'Producto no encontrado' });
+      const errorp = "Error al obtener el Producto";
+            const errorpDesc = "Hubo un problema al intentar obtener el detalle de producto. Por favor, intentalo de nuevo más tarde";
+            res.render('error', { errorp, errorpDesc } );
     }
   },
 

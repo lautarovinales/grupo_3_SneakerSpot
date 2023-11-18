@@ -9,7 +9,14 @@ body {
     justify-content: center;
     align-items: center;
   }
-
+  
+  .searchbar form{
+    flex-direction: row;
+    width: 100%;
+    gap: 0;
+    margin: 0;
+    padding: 0;
+}
 /* Estilos para el botón de cerrar */
 .error-messages {
   position: relative;

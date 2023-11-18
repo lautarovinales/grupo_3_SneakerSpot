@@ -19,12 +19,13 @@
 
 <body>
   <%- include('../partials/header.ejs') %>
-    <main>
-      <div class="filters">
-       <p>Resultados de tu busqueda:</p>
-      </div>
+  <main>
+    <div class="filters">
+      <p>Resultados de tu búsqueda:</p>
+    </div>
+
+    <% if (resultsSearch.length > 0) { %>
       <div class="product-list">
-        <% console.log('Resultados en la vista:', resultsSearch); %>
         <% resultsSearch.forEach(result => { %>
           <div class="producto">
             <a class="link" href="/product/<%= result.id %>">
@@ -33,7 +34,7 @@
               </div>
               <div class="desc-shoe">
                 <div class="envio-fav">
-                  <p class="envio">Envio gratis</p>
+                  <p class="envio">Envío gratis</p>
                   <button><i class="fa-solid fa-heart" style="color: #5A56E9;"></i></button>
                 </div>
                 <p class="name-shoe">
@@ -43,17 +44,21 @@
                   <%= result.class %>
                 </p>
                 <div class="disc-price">
-                  <p class="disc-shoe">$ <%= result.discount %>
-                  </p>
-                  <p class="price-shoe">$ <%= result.price %>
-                  </p>
+                  <p class="disc-shoe">$ <%= result.discount %></p>
+                  <p class="price-shoe">$ <%= result.price %></p>
                 </div>
               </div>
             </a>
           </div>
-          <% }) %>
+        <% }) %>
       </div>
-    </main>
+    <% } else { %>
+      <div class="no-products">
+        <p>No se encontraron productos relacionados con tu busqueda.</p>
+        <img src="/images/productdontexist.png"  height="200px"">
+      </div>
+    <% } %>
+  </main>
     <%- include('../partials/footer.ejs') %>
 </body>
 

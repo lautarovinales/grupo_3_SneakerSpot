@@ -15,8 +15,9 @@ const mainController = {
             res.render('index', { productosEnOferta: results });
         })
         .catch((error) => {
-            console.error('Error al obtener productos en oferta:', error);
-            res.render('error');
+            const errorp = "Error al obtener productos en oferta";
+            const errorpDesc = "Hubo un problema al intentar obtener los productos en oferta. Por favor, verificar que la configuración de la base de datos sea la correcta.";
+            res.render('error', { errorp, errorpDesc } );
         });
     },
     error: (req, res) => {
