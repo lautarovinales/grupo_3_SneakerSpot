@@ -2,11 +2,12 @@ const db = require('../dataBase/models');
 
 const apiController = {
   getAllUsers: async (req, res) => {
-    const users = await db.User.findAll({ attributes: ['id', 'username', 'email'] });
+    const users = await db.User.findAll({ attributes: ['id', 'username', 'email', 'type'] });
     const usersWithDetail = users.map(user => ({
       id: user.id,
       name: user.username,
       email: user.email,
+      type: user.type,
       detail: `/api/users/${user.id}`
     }));
     res.json({
@@ -27,9 +28,7 @@ const apiController = {
       };
       res.json(userProfile);
     } else {
-            const errorp = "Error al obtener el Usuario";
-            const errorpDesc = "Hubo un problema al intentar obtener el detalle de usuario. Por favor, intentalo de nuevo más tarde";
-            res.render('error', { errorp, errorpDesc } );
+      res.status(404).json({ error: 'Usuario no encontrado' });
     }
   },
 
@@ -40,9 +39,7 @@ const apiController = {
       const imagePath = `/images/${user.img}`;
       res.sendFile(imagePath);
     } else {
-      const errorp = "Error al obtener la imagen";
-            const errorpDesc = "Hubo un problema al intentar obtener la imagen del usuario. Por favor, intentalo de nuevo más tarde";
-            res.render('error', { errorp, errorpDesc } );
+      res.status(404).json({ error: 'Imagen no encontrada' });
     }
   },
 
@@ -64,10 +61,8 @@ const apiController = {
       sizes: product.sizes.split(','),
       detail: `/api/products/${product.id}`
     }));
-    const countByCategory = {};
     res.json({
       count: products.length,
-      countByCategory,
       products: productsWithDetail
     });
   },
@@ -93,9 +88,7 @@ const apiController = {
       };
       res.json(productDetails);
     } else {
-      const errorp = "Error al obtener el Producto";
-            const errorpDesc = "Hubo un problema al intentar obtener el detalle de producto. Por favor, intentalo de nuevo más tarde";
-            res.render('error', { errorp, errorpDesc } );
+      res.status(404).json({ error: 'Producto no encontrado' });
     }
   },
 
@@ -103,10 +96,15 @@ const apiController = {
     const products = await db.Product.findAll({ attributes: ['class'] });
     const productsCategories = products.map(product => product.class);
     const uniqueCategories = productsCategories.filter((cat, index) => productsCategories.indexOf(cat) === index);
+    const categoriesWithDetail = uniqueCategories.map((category, index) => ({
+      id: index,
+      name: category,
+      detail: `/api/categories/${index}`
+    }));
     
     res.json({
       count: uniqueCategories.length,
-      categories: uniqueCategories
+      categories: categoriesWithDetail
     });
   },
 
@@ -125,6 +123,7 @@ const apiController = {
 
     res.json({
       count: productsByCategory.length,
+      products: productsByCategory,
       searchedCategory,
     })
   }
