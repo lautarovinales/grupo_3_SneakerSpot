@@ -99,6 +99,7 @@ const apiController = {
     const categoriesWithDetail = uniqueCategories.map((category, index) => ({
       id: index,
       name: category,
+      count: products.filter(pro => pro.class === category).length,
       detail: `/api/categories/${index}`
     }));
     
