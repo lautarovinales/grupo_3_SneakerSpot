@@ -2,12 +2,13 @@ const db = require('../dataBase/models');
 
 const apiController = {
   getAllUsers: async (req, res) => {
-    const users = await db.User.findAll({ attributes: ['id', 'username', 'email', 'type'] });
+    const users = await db.User.findAll({ attributes: ['id', 'username', 'email', 'type', 'img'] });
     const usersWithDetail = users.map(user => ({
       id: user.id,
       name: user.username,
       email: user.email,
       type: user.type,
+      img: user.img,
       detail: `/api/users/${user.id}`
     }));
     res.json({

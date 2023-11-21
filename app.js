@@ -18,6 +18,9 @@ app.use(cors(
   }
 ));
 
+/*para cargar las imagenes en el dashboard de react*/
+app.use('/uploads', express.static(path.join(__dirname, './public/images')));
+
 app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride('_method'));
 app.use(express.json());
