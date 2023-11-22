@@ -21,9 +21,11 @@
     <section>
       <form action="/login" method="POST">
         <p>Iniciar sesión</p>
-        <input type="text" name="emailOrUsername" id="emailOrUsername" placeholder="Email o nombre de usuario">
-        <input type="password" name="password" id="password" placeholder="Contraseña">
-
+        <div class="flex-form">
+          <input type="text" name="emailOrUsername" id="emailOrUsername" placeholder="Email o nombre de usuario">
+          <div id="error-username" class="require"></div>
+        </div>
+          <input type="password" name="password" id="password" placeholder="Contraseña">
         <% if (typeof errors !== 'undefined' && errors.length > 0) { %>
           <div class="error-messages">
             <ul>
@@ -37,7 +39,7 @@
           </div>
         <% } %>
 
-        <button type="submit">Ingresar</button>
+        <button type="submit" id="submitBtn">Ingresar</button>
       </form>
       <p>¿No tienes cuenta? <a href="/register" class="register">Crea una</a></p>
     </section>
@@ -49,6 +51,27 @@
       var errorMessages = document.querySelector('.error-messages');
       errorMessages.style.display = 'none';
     }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      var submitBtn = document.getElementById('submitBtn');
+      var inputEmailOrUsername = document.getElementById('emailOrUsername');
+      var inputPassword = document.getElementById('password');
+
+      var errorUsername = document.getElementById('error-username');
+      var errorPassword = document.getElementById('error-password');
+
+      submitBtn.addEventListener('click', function (evento) {
+        // Validación para el campo de email o nombre de usuario
+        if (!inputEmailOrUsername.value) {
+          errorUsername.innerHTML = '<i class="fa-solid fa-xmark"></i>';
+          errorUsername.style.backgroundColor = '#ff3654';
+          evento.preventDefault();
+        } else {
+          errorUsername.innerHTML = '<i class="fa-solid fa-check"></i>';
+          errorUsername.style.backgroundColor = '#3ec898';
+        }
+      });
+    });
   </script>
 </body>
 

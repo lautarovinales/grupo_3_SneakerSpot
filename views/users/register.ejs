@@ -6,7 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+    rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon">
@@ -17,45 +19,137 @@
 
 <body>
   <%- include('../partials/header.ejs') %>
-  <main>
-    <section>
-      <form action="/register" method="POST" enctype="multipart/form-data">
-        <p>Regístrate</p>
-        <input type="text" name="username" id="username" placeholder="Nombre de usuario">
-        <input type="email" name="email" id="email" placeholder="Correo Electrónico">
-        <input type="password" name="password" id="password" placeholder="Contraseña">
-        <div class="input-file">
-          <p><i class="fa-solid fa-image"></i> Subir imagen</p>
-          <input type="file" name="img" accept=".jpg, .jpeg, .png">
-        </div>
-      
-        <% if (typeof errors !== 'undefined' && errors.length > 0) { %>
-          <div class="error-messages">
-            <ul>
-              <% errors.forEach((error, index) => { %>
-                <li id="error-message-<%= index + 1 %>" class="error-message">
-                  <%= error.msg %>
-                </li>
-              <% }); %>
-            </ul>
-            <span onclick="closeAllErrorMessages()" class="close-button"><i class="fa-solid fa-xmark"></i></span>
+    <main>
+      <section>
+        <form action="/register" method="POST" enctype="multipart/form-data">
+          <p>Regístrate</p>
+          <div class="flex-form">
+            <input type="text" name="username" id="username" placeholder="Nombre de usuario">
+            <div id="error-username" class="require"></div>
           </div>
-        <% } %>
-      
-        <button type="submit">Ingresar</button>
-      </form>
-      
-      <p>¿Ya tenés una cuenta? <a href="/login" class="register">Inicia sesión aquí</a></p>
-    </section>
-  </main>
-  <%- include('../partials/footer.ejs') %>
-  <script>
-    // Función para cerrar todos los mensajes de error
-    function closeAllErrorMessages() {
-  var errorMessages = document.querySelector('.error-messages');
-  errorMessages.style.display = 'none';
-}
-</script>
+          
+          <div class="flex-form">
+            <input type="email" name="email" id="email" placeholder="Correo Electrónico">
+            <div id="error-email" class="require"></div>
+          </div>
+          
+          <div class="flex-form">
+            <input type="password" name="password" id="password" placeholder="Contraseña">
+            <div id="error-password" class="require"></div>
+          </div>
+        
+          <div class="input-file">
+            <p><i class="fa-solid fa-image"></i> Subir imagen</p>
+            <input type="file" name="img" accept=".jpg, .jpeg, .png">
+          </div>
+          <% if (typeof errors !=='undefined' && errors.length> 0) { %>
+            <div class="error-messages">
+              <ul>
+                <% errors.forEach((error, index)=> { %>
+                  <li id="error-message-<%= index + 1 %>" class="error-message">
+                    <%= error.msg %>
+                  </li>
+                  <% }); %>
+              </ul>
+              <span onclick="closeAllErrorMessages()" class="close-button"><i class="fa-solid fa-xmark"></i></span>
+            </div>
+            <% } %>
+
+              <button type="submit" id="submitBtn">Registrar</button>
+        </form>
+
+        <p>¿Ya tenés una cuenta? <a href="/login" class="register">Inicia sesión aquí</a></p>
+      </section>
+    </main>
+    <%- include('../partials/footer.ejs') %>
+      <script>
+        // Función para cerrar todos los mensajes de error
+  function closeAllErrorMessages() {
+    var errorMessages = document.querySelector('.error-messages');
+    errorMessages.style.display = 'none';
+    var errorMessage = document.getElementById('error-message');
+    errorMessage.innerText = ''; // Limpiar el mensaje de error
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    var submitBtn = document.getElementById('submitBtn');
+    var inputUsername = document.getElementById('username');
+    var inputEmail = document.getElementById('email');
+    var inputPassword = document.getElementById('password');
+    var inputImg = document.getElementById('img');
+
+    var errorUsername = document.getElementById('error-username');
+    var errorEmail = document.getElementById('error-email');
+    var errorPassword = document.getElementById('error-password');
+    var errorImg = document.getElementById('error-img');
+    
+    submitBtn.addEventListener('click', function (evento) {
+      // Validación para el campo de nombre
+      if (!inputUsername.value || inputUsername.value.length < 2) {
+        errorUsername.innerHTML = '<i class="fa-solid fa-xmark"></i>';
+        errorUsername.style.backgroundColor = '#ff3654';
+        inputUsername.classList.remove('valid');
+        inputUsername.classList.add('invalid');
+        evento.preventDefault();
+      } else {
+        errorUsername.innerHTML = '<i class="fa-solid fa-check"></i>';
+        errorUsername.style.backgroundColor = '#3ec898';
+        inputUsername.classList.remove('invalid');
+        inputUsername.classList.add('valid');
+      }
+
+      // Validación para el campo de email
+      if (!inputEmail.value || !validateEmail(inputEmail.value)) {
+        errorEmail.innerHTML = '<i class="fa-solid fa-xmark"></i>';
+        errorEmail.style.backgroundColor = '#ff3654';
+        inputEmail.classList.remove('valid');
+        inputEmail.classList.add('invalid');
+        evento.preventDefault();
+      } else {
+        errorEmail.innerHTML = '<i class="fa-solid fa-check"></i>';
+        errorEmail.style.backgroundColor = '#3ec898';
+        inputEmail.classList.remove('invalid');
+        inputEmail.classList.add('valid');
+      }
+
+      // Validación para el campo de contraseña
+      if (!inputPassword.value || inputPassword.value.length < 8) {
+        errorPassword.innerHTML = '<i class="fa-solid fa-xmark"></i>';
+        errorPassword.style.backgroundColor = '#ff3654';
+        inputPassword.classList.remove('valid');
+        inputPassword.classList.add('invalid');
+        evento.preventDefault();
+      } else {
+        errorPassword.innerHTML = '<i class="fa-solid fa-check"></i>';
+        errorPassword.style.backgroundColor = '#3ec898';
+        inputPassword.classList.remove('invalid');
+        inputPassword.classList.add('valid');
+      }
+
+      // Validación para el campo de imagen
+      if (inputImg.files.length === 0 || !validateImageType(inputImg.files[0])) {
+        errorImg.innerHTML = '<i class="fa-solid fa-xmark"></i>';
+        errorImg.style.backgroundColor = '#ff3654';
+        evento.preventDefault();
+      } else {
+        errorImg.innerHTML = '<i class="fa-solid fa-check"></i>';
+        errorImg.style.backgroundColor = '#3ec898';
+      }
+    });
+  });
+
+  // Función para validar el formato del email
+  function validateEmail(email) {
+    var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  }
+
+  // Función para validar el tipo de imagen
+  function validateImageType(file) {
+    var allowedTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/gif'];
+    return allowedTypes.includes(file.type);
+  }
+      </script>
 </body>
 
 </html>

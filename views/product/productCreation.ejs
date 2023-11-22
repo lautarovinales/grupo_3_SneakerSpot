@@ -23,7 +23,10 @@
       <section>
         <form action="/product/creation" method="POST" enctype="multipart/form-data">
           <div class="title">Crear producto</div>
-          <input type="text" name="name" placeholder="Nombre del calzado">
+          <div class="flex-form">
+            <input type="text" name="name" placeholder="Nombre del calzado" style="border-radius: 3px 0px 0px 3px;">
+            <div id="error-name" class="require"></div>
+          </div>
           <input type="file" name="img" class="fileinput">
           <input type="file" name="img" class="fileinput">
           <input type="file" name="img" class="fileinput">
@@ -34,7 +37,10 @@
             <option value="Running">Running</option>
             <option value="Niños">Niños</option>
           </select>
-          <input type="text" name="description" placeholder="Descripcion del calzado">
+          <div class="flex-form">
+            <input type="text" name="description" placeholder="Descripcion del calzado" style="border-radius: 3px 0px 0px 3px;">
+            <div id="error-description" class="require"></div>
+          </div>
           <input type="number" name="sizes" id="sizes" placeholder="Talle" min="37" max="44">
           <input type="number" name="discount" placeholder="Descuento">
           <input type="number" name="price" placeholder="Precio">
@@ -54,7 +60,7 @@
                 <span onclick="closeAllErrorMessages()" class="close-button"><i class="fa-solid fa-xmark"></i></span>
             </div>
         <% } %>
-          <button type="submit">Publicar</button>
+          <button type="submit" id="submitBtn">Publicar</button>
         </form>
       </section>
     </main>
@@ -64,6 +70,37 @@
         var errorMessages = document.querySelector('.error-messages');
         errorMessages.style.display = 'none';
     }
+
+    document.addEventListener('DOMContentLoaded', function () {
+    var submitBtn = document.getElementById('submitBtn');
+    var inputName = document.querySelector('input[name="name"]');
+    var inputDescription = document.querySelector('input[name="description"]');
+
+    var errorName = document.getElementById('error-name');
+    var errorDescription = document.getElementById('error-description');
+
+    submitBtn.addEventListener('click', function (evento) {
+      // Validación para el campo de nombre
+      if (!inputName.value || inputName.value.length < 5) {
+        errorName.innerHTML = '<i class="fa-solid fa-xmark"></i>';
+        errorName.style.backgroundColor = '#ff3654';
+        evento.preventDefault();
+      } else {
+        errorName.innerHTML = '<i class="fa-solid fa-check"></i>';
+        errorName.style.backgroundColor = '#3ec898';
+      }
+
+      // Validación para el campo de descripción
+      if (!inputDescription.value || inputDescription.value.length < 20) {
+        errorDescription.innerHTML = '<i class="fa-solid fa-xmark"></i>';
+        errorDescription.style.backgroundColor = '#ff3654';
+        evento.preventDefault();
+      } else {
+        errorDescription.innerHTML = '<i class="fa-solid fa-check"></i>';
+        errorDescription.style.backgroundColor = '#3ec898';
+      }
+    });
+  });
       </script>
 </body>
 

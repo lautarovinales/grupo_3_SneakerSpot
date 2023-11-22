@@ -21,33 +21,36 @@
     <%- include('../partials/header.ejs') %>
         <main>
             <section>
-                <div class="div-img">
-                    <img src="images/logo.png" alt="" class="imagen-login">
-                </div>
                 <form action="/product/edit/<%= producto.id %>" method="POST" enctype="multipart/form-data">
-                    <h2>Editar producto</h2>
-                    <label for="name">Nombre del calzado:</label>
-                    <input type="text" name="name" placeholder="Nombre del calzado" value="<%= producto.name %>">
+                    <p class="title">Editar producto</p>
+                    <label for="name">Nombre del calzado</label>
+                    <div class="flex-form">
+                    <input type="text" name="name" placeholder="Nombre del calzado" value="<%= producto.name %>" style="border-radius: 5px 0px 0px 5px">
+                    <div id="error-name" class="require"></div>
+                </div>
 
-                    <label for="img">Imagen del calzado:</label>
+                    <label for="img">Imagen del calzado</label>
                     <input type="file" name="img" class="fileinput" value="<%= producto.img %>">
 
-                    <label for="class">Clase de calzado:</label>
+                    <label for="class">Clase de calzado</label>
                     <input type="text" name="class" placeholder="Clase de calzado" value="<%= producto.class %>">
 
-                    <label for="description">Descripcion del calzado:</label>
-                    <textarea name="description" cols="60" rows="7"><%= producto.description %></textarea>
+                    <label for="description">Descripcion del calzado</label>
+                    <div class="flex-form">
+                        <input type="text" name="description" placeholder="Descripcion del calzado" value="<%= producto.description %>" style="border-radius: 3px 0px 0px 3px;">
+                    <div id="error-description" class="require"></div>
+                </div>
 
-                    <label for="discount">Descuento del calzado:</label>
+                    <label for="discount">Descuento del calzado</label>
                     <input type="text" name="discount" value="<%= producto.discount %>">
 
-                    <label for="price">Precio del calzado:</label>
+                    <label for="price">Precio del calzado</label>
                     <input type="number" name="price" placeholder="Precio" value="<%= producto.price %>">
 
                     <label for="sizes">Talles: </label>
                     <input type="text" name="sizes" placeholder="Talles" value="<%= producto.sizes %>">
 
-                    <label for="enOferta">En oferta: <input type="checkbox" name="enOferta" id="enOferta"></label>
+                    <label for="enOferta">En oferta <input type="checkbox" name="enOferta" id="enOferta"></label>
                     <% if (typeof errors !== 'undefined' && errors.length > 0) { %>
                         <div class="error-messages">
                             <ul>
@@ -60,7 +63,7 @@
                             <span onclick="closeAllErrorMessages()" class="close-button"><i class="fa-solid fa-xmark"></i></span>
                         </div>
                     <% } %>
-                    <button type="submit">Guardar cambios</button>
+                    <button type="submit" id="submitBtn" style="width: 100%;">Guardar cambios</button>
                 </form>
             </section>
         </main>
@@ -70,6 +73,37 @@
             var errorMessages = document.querySelector('.error-messages');
             errorMessages.style.display = 'none';
         }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            var submitBtn = document.getElementById('submitBtn');
+        var inputName = document.querySelector('input[name="name"]');
+        var inputDescription = document.querySelector('input[name="description"]');
+
+        var errorName = document.getElementById('error-name');
+        var errorDescription = document.getElementById('error-description');
+
+        submitBtn.addEventListener('click', function (evento) {
+            // Validación para el campo de nombre
+            if (!inputName.value || inputName.value.length < 5) {
+                errorName.innerHTML = '<i class="fa-solid fa-xmark"></i>';
+                errorName.style.backgroundColor = '#ff3654';
+                evento.preventDefault();
+            } else {
+                errorName.innerHTML = '<i class="fa-solid fa-check"></i>';
+                errorName.style.backgroundColor = '#3ec898';
+            }
+
+            // Validación para el campo de descripción
+            if (!inputDescription.value || inputDescription.value.length < 20) {
+                errorDescription.innerHTML = '<i class="fa-solid fa-xmark"></i>';
+                errorDescription.style.backgroundColor = '#ff3654';
+                evento.preventDefault();
+            } else {
+                errorDescription.innerHTML = '<i class="fa-solid fa-check"></i>';
+                errorDescription.style.backgroundColor = '#3ec898';
+            }
+        });
+    });
           </script>
 </body>
 
