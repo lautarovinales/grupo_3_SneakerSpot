@@ -32,16 +32,16 @@
           <input type="file" name="img" class="fileinput">
           <input type="file" name="img" class="fileinput">
           <select id="clasesCalzado" name="class">
-            <option value="Urbano">Urbano</option>
+            <option value="Urban">Urbano</option>
             <option value="Basket">Basket</option>
             <option value="Running">Running</option>
-            <option value="Niños">Niños</option>
+            <option value="Kids">Niños</option>
           </select>
           <div class="flex-form">
             <input type="text" name="description" placeholder="Descripcion del calzado" style="border-radius: 3px 0px 0px 3px;">
             <div id="error-description" class="require"></div>
           </div>
-          <input type="number" name="sizes" id="sizes" placeholder="Talle" min="37" max="44">
+          <input type="text" name="sizes" id="sizes" placeholder="Talle" min="37" max="44">
           <input type="number" name="discount" placeholder="Descuento">
           <input type="number" name="price" placeholder="Precio">
           <select name="sex" id="sex">
@@ -75,6 +75,7 @@
     var submitBtn = document.getElementById('submitBtn');
     var inputName = document.querySelector('input[name="name"]');
     var inputDescription = document.querySelector('input[name="description"]');
+    // var inputDiscount = document.querySelector('input[name="discount"]');
 
     var errorName = document.getElementById('error-name');
     var errorDescription = document.getElementById('error-description');

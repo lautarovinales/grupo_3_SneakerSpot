@@ -1,9 +1,9 @@
 module.exports = {
   "development": {
     "username": "root",
-    "password": '',
+    "password": '1234',
     "port": '3306' || '3307',
-    "database": "prueba",
+    "database": "sneakerspot",
     "host": "127.0.0.1",
     "dialect": "mysql",
     "operatorsAliases": false
