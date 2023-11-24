@@ -54,8 +54,13 @@ const productController = {
     },
 
     cart: (req, res) => {
+        // Verifica si req.session.cart está definido antes de usarlo
+        const carrito = req.session.cart || [];
+        const cantidadProductos = carrito.length;
+        const precioTotal = carrito.reduce((total, product) => total + parseFloat(product.price), 0);
+      
         // Renderiza la vista del carrito con los productos almacenados en la sesión
-        res.render('./product/productCart', { data: req.session.cart });
+        res.render('product/productCart', { data: carrito, cantidadProductos, precioTotal });
     },
 
     creation: (req, res) => {
