@@ -8,6 +8,11 @@ Publico en general sin requerimientos especificos.
 
 ***
 
+## Dashboard
+Link: https://github.com/BrianV20/SneakerSpot-Dashboard
+
+***
+
 ## Integrantes del equipo:
 
 - Lautaro Viñales: Alias "Laucha", apasionado con todo lo relacionado a la tecnologia quiere convertirse en desarrollador web full-stack y ampliar sus conocimientos sobre la programación.
